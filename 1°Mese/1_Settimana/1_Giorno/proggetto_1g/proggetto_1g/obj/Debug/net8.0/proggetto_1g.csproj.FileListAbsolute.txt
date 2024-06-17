@@ -1,0 +1,14 @@
+C:\Users\mirko\OneDrive\Desktop\Corso Epicode B.E\1°Mese\1_Settimana\1_Giorno\proggetto_1g\proggetto_1g\bin\Debug\net8.0\proggetto_1g.exe
+C:\Users\mirko\OneDrive\Desktop\Corso Epicode B.E\1°Mese\1_Settimana\1_Giorno\proggetto_1g\proggetto_1g\bin\Debug\net8.0\proggetto_1g.deps.json
+C:\Users\mirko\OneDrive\Desktop\Corso Epicode B.E\1°Mese\1_Settimana\1_Giorno\proggetto_1g\proggetto_1g\bin\Debug\net8.0\proggetto_1g.runtimeconfig.json
+C:\Users\mirko\OneDrive\Desktop\Corso Epicode B.E\1°Mese\1_Settimana\1_Giorno\proggetto_1g\proggetto_1g\bin\Debug\net8.0\proggetto_1g.dll
+C:\Users\mirko\OneDrive\Desktop\Corso Epicode B.E\1°Mese\1_Settimana\1_Giorno\proggetto_1g\proggetto_1g\bin\Debug\net8.0\proggetto_1g.pdb
+C:\Users\mirko\OneDrive\Desktop\Corso Epicode B.E\1°Mese\1_Settimana\1_Giorno\proggetto_1g\proggetto_1g\obj\Debug\net8.0\proggetto_1g.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\mirko\OneDrive\Desktop\Corso Epicode B.E\1°Mese\1_Settimana\1_Giorno\proggetto_1g\proggetto_1g\obj\Debug\net8.0\proggetto_1g.AssemblyInfoInputs.cache
+C:\Users\mirko\OneDrive\Desktop\Corso Epicode B.E\1°Mese\1_Settimana\1_Giorno\proggetto_1g\proggetto_1g\obj\Debug\net8.0\proggetto_1g.AssemblyInfo.cs
+C:\Users\mirko\OneDrive\Desktop\Corso Epicode B.E\1°Mese\1_Settimana\1_Giorno\proggetto_1g\proggetto_1g\obj\Debug\net8.0\proggetto_1g.csproj.CoreCompileInputs.cache
+C:\Users\mirko\OneDrive\Desktop\Corso Epicode B.E\1°Mese\1_Settimana\1_Giorno\proggetto_1g\proggetto_1g\obj\Debug\net8.0\proggetto_1g.dll
+C:\Users\mirko\OneDrive\Desktop\Corso Epicode B.E\1°Mese\1_Settimana\1_Giorno\proggetto_1g\proggetto_1g\obj\Debug\net8.0\refint\proggetto_1g.dll
+C:\Users\mirko\OneDrive\Desktop\Corso Epicode B.E\1°Mese\1_Settimana\1_Giorno\proggetto_1g\proggetto_1g\obj\Debug\net8.0\proggetto_1g.pdb
+C:\Users\mirko\OneDrive\Desktop\Corso Epicode B.E\1°Mese\1_Settimana\1_Giorno\proggetto_1g\proggetto_1g\obj\Debug\net8.0\proggetto_1g.genruntimeconfig.cache
+C:\Users\mirko\OneDrive\Desktop\Corso Epicode B.E\1°Mese\1_Settimana\1_Giorno\proggetto_1g\proggetto_1g\obj\Debug\net8.0\ref\proggetto_1g.dll

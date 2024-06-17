@@ -1,0 +1,75 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\mirko\\OneDrive\\Desktop\\Corso Epicode B.E\\1\u00B0Mese\\1_Settimana\\1_Giorno\\proggetto_1g\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{310A8D69-AB57-41CC-9003-93860E89AEE0}|proggetto_1g\\proggetto_1g.csproj|c:\\users\\mirko\\onedrive\\desktop\\corso epicode b.e\\1\u00B0mese\\1_settimana\\1_giorno\\proggetto_1g\\proggetto_1g\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{310A8D69-AB57-41CC-9003-93860E89AEE0}|proggetto_1g\\proggetto_1g.csproj|solutionrelative:proggetto_1g\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{310A8D69-AB57-41CC-9003-93860E89AEE0}|proggetto_1g\\proggetto_1g.csproj|c:\\users\\mirko\\onedrive\\desktop\\corso epicode b.e\\1\u00B0mese\\1_settimana\\1_giorno\\proggetto_1g\\proggetto_1g\\dipendente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{310A8D69-AB57-41CC-9003-93860E89AEE0}|proggetto_1g\\proggetto_1g.csproj|solutionrelative:proggetto_1g\\dipendente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{310A8D69-AB57-41CC-9003-93860E89AEE0}|proggetto_1g\\proggetto_1g.csproj|c:\\users\\mirko\\onedrive\\desktop\\corso epicode b.e\\1\u00B0mese\\1_settimana\\1_giorno\\proggetto_1g\\proggetto_1g\\atleta.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{310A8D69-AB57-41CC-9003-93860E89AEE0}|proggetto_1g\\proggetto_1g.csproj|solutionrelative:proggetto_1g\\atleta.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 3,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Dipendente.cs",
+              "DocumentMoniker": "C:\\Users\\mirko\\OneDrive\\Desktop\\Corso Epicode B.E\\1\u00B0Mese\\1_Settimana\\1_Giorno\\proggetto_1g\\proggetto_1g\\Dipendente.cs",
+              "RelativeDocumentMoniker": "proggetto_1g\\Dipendente.cs",
+              "ToolTip": "C:\\Users\\mirko\\OneDrive\\Desktop\\Corso Epicode B.E\\1\u00B0Mese\\1_Settimana\\1_Giorno\\proggetto_1g\\proggetto_1g\\Dipendente.cs",
+              "RelativeToolTip": "proggetto_1g\\Dipendente.cs",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAABcAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-17T13:59:01.575Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Atleta.cs",
+              "DocumentMoniker": "C:\\Users\\mirko\\OneDrive\\Desktop\\Corso Epicode B.E\\1\u00B0Mese\\1_Settimana\\1_Giorno\\proggetto_1g\\proggetto_1g\\Atleta.cs",
+              "RelativeDocumentMoniker": "proggetto_1g\\Atleta.cs",
+              "ToolTip": "C:\\Users\\mirko\\OneDrive\\Desktop\\Corso Epicode B.E\\1\u00B0Mese\\1_Settimana\\1_Giorno\\proggetto_1g\\proggetto_1g\\Atleta.cs",
+              "RelativeToolTip": "proggetto_1g\\Atleta.cs",
+              "ViewState": "AQIAAAsAAAAAAAAAAAAIwBkAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-17T13:09:57.276Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\mirko\\OneDrive\\Desktop\\Corso Epicode B.E\\1\u00B0Mese\\1_Settimana\\1_Giorno\\proggetto_1g\\proggetto_1g\\Program.cs",
+              "RelativeDocumentMoniker": "proggetto_1g\\Program.cs",
+              "ToolTip": "C:\\Users\\mirko\\OneDrive\\Desktop\\Corso Epicode B.E\\1\u00B0Mese\\1_Settimana\\1_Giorno\\proggetto_1g\\proggetto_1g\\Program.cs",
+              "RelativeToolTip": "proggetto_1g\\Program.cs",
+              "ViewState": "AQIAAAUAAAAAAAAAAAAAwBcAAAAaAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-17T12:59:15.18Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
