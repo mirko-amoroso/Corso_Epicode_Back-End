@@ -1,0 +1,15 @@
+﻿################################################################################
+# Il file gitignore è stato creato automaticamente da Microsoft(R) Visual Studio.
+################################################################################
+
+/1°Mese/1_Settimana/1_Giorno/proggetto_1g/.vs/proggetto_1g/FileContentIndex
+/1°Mese/1_Settimana/1_Giorno/proggetto_1g/proggetto_1g/obj/Release/net8.0
+/1°Mese/1_Settimana/2_Giorno/Esercizio_2G/.vs/Esercizio_2G/FileContentIndex
+/1°Mese/1_Settimana/2_Giorno/Esercizio_2G/.vs/Esercizio_2G/v17
+/1°Mese/1_Settimana/2_Giorno/Esercizio_2G/.vs/Esercizio_2G/DesignTimeBuild
+/1°Mese/1_Settimana/2_Giorno/Esercizio_2G/.vs/ProjectEvaluation
+/1°Mese/1_Settimana/2_Giorno/Esercizio_2G/Esercizio_2G/bin/Debug/net8.0
+/1°Mese/1_Settimana/1_Giorno/proggetto_1g/.vs/proggetto_1g/v17
+/1°Mese/1_Settimana/1_Giorno/proggetto_1g/.vs
+/1°Mese/1_Settimana/2_Giorno/Esercizio_2G/Esercizio_2G/obj
+/1°Mese/1_Settimana/2_Giorno/Esercizio_2G/persona/obj
