@@ -1,0 +1,192 @@
+Soluzione 1) CONTO CORRENTE
+=================================================
+   public class ContoCorrente
+    {
+        private string _cognomeCorrentista;
+        public string CognomeCorrentista
+        {
+            get { return _cognomeCorrentista; }
+            set { _cognomeCorrentista = value; }
+        }
+
+        private string _nomeCorrentista;
+
+        public string NomeCorrentista
+        {
+            get { return _nomeCorrentista; }
+            set { _nomeCorrentista = value; }
+        }
+
+        private decimal _saldo=0;
+        public decimal Saldo
+        {
+            get { return _saldo; }
+            set { _saldo = value; }
+        }
+
+        private bool _contoAperto=false;
+
+        public bool ContoAperto
+        {
+            get { return _contoAperto; }
+            set { _contoAperto= value; }
+        }
+
+        public ContoCorrente()
+        {
+
+        }
+
+        public void MenuInizialeStart()
+        {
+           
+            Console.WriteLine("==========================================");
+            Console.WriteLine("I N T E S A   S A N   M A R C O   B A N K");
+            Console.WriteLine("==========================================");
+
+            Console.WriteLine("\n Scegli l'operazione da effettuare:");
+            Console.WriteLine("1. APRI NUOVO CONTO CORRENTE");
+            Console.WriteLine("2. EFFETTUA UN VERSAMENTO");
+            Console.WriteLine("3. EFFETTUA UN PRELEVAMENTO");
+            Console.WriteLine("4. ESCI");
+
+            int scelta = int.Parse(Console.ReadLine());
+
+            if (scelta == 1)
+            {
+                ApriNuovoContoCorrente();
+            } else if(scelta==2)
+            {
+                EffettuaVersamento();
+            }else if (scelta == 3)
+            {
+                EffettuaPrelevamento();
+            }else if (scelta == 4)
+            {
+                Console.WriteLine("Chiusura programma in corso");
+            } 
+            else
+            {
+                Console.WriteLine("Hai selezionato una voce non valida.");
+                MenuInizialeStart();
+            }
+
+        }
+
+        private void ApriNuovoContoCorrente()
+        {
+            Console.WriteLine("Cognome Correntista: ");
+            string Cognome = Console.ReadLine();
+
+            Console.WriteLine("Nome Correntista: ");
+            string Nome = Console.ReadLine();
+
+            ContoCorrente c = new ContoCorrente();
+            _cognomeCorrentista= Cognome;
+            _nomeCorrentista = Nome;
+            _saldo = 0;
+            _contoAperto = true;
+            Console.WriteLine($"Conto corrente nr. 2555411 intestato a: {_cognomeCorrentista} {_nomeCorrentista} aperto correttamente");
+            MenuInizialeStart();
+        }
+
+        private void EffettuaPrelevamento()
+        {
+            if (_contoAperto == false)
+            {
+                Console.WriteLine("E' necessario aprire un conto prima di effettuare un prelevamento");
+            }
+            else
+            {
+                Console.WriteLine("Inserisci l'importo del prelevamento da effettuare: ");
+                decimal importoPrelevato = Decimal.Parse(Console.ReadLine());
+
+                if (importoPrelevato > _saldo)
+                {
+                    Console.WriteLine("Prelevamento non consentito!!!");
+                }
+                else
+                {
+                    Console.WriteLine("Prelevamento effettuato");
+                    _saldo -= importoPrelevato;
+                    Console.WriteLine($"Nuovo saldo del CC odierno: {_saldo.ToString("N")}" );
+                }
+            }
+            MenuInizialeStart();
+        }
+
+        private void EffettuaVersamento()
+        {
+            if (_contoAperto == false)
+            {
+                Console.WriteLine("E' necessario aprire un conto prima di effettuare un versamento");
+            } else
+            {
+                Console.WriteLine("Inserisci l'importo del versamento da effettuare: ");
+                decimal importoVersato = Decimal.Parse(Console.ReadLine());
+
+                Console.WriteLine("Versamento effettuato");
+                _saldo += importoVersato;
+                Console.WriteLine($"Nuovo saldo del CC odierno: {_saldo.ToString("N")}");
+            }
+            MenuInizialeStart();
+        }
+
+        
+    }
+
+=================================================
+
+Soluzione 2) 
+static void Main(string[] args)
+        {
+            string[] listanomi = { "francesco", "marco","mario","chiara","lorenzo" };
+            string nome;
+            int i;
+            bool verifica = false;
+
+            Console.WriteLine("Inserire il nome da ricercare");
+            nome = Console.ReadLine();
+
+            for (i = 0; i < listanomi.Length; i++)
+            {
+                if (listanomi[i]==nome)
+                {
+                    Console.WriteLine("Il nome è presente nella lista");
+                    verifica = true;
+                }
+                
+            }
+            if (verifica==false)
+            {
+                Console.WriteLine("Il nome non è presente nella lista");
+            }
+
+            Console.ReadLine();
+        }
+
+Soluzione 3) 
+
+static void Main(string[] args)
+        {
+            int x = 0;
+            Console.WriteLine("Specifica dimensione array");
+            x = int.Parse(Console.ReadLine());
+            int[] listanumeri = new int[x];
+
+            int i;
+            int somma=0;
+
+            for (i = 0; i < listanumeri.Length; i++)
+            {
+                Console.WriteLine("Inserisci numero");
+                listanumeri[i] = int.Parse(Console.ReadLine());
+            }
+            for(i = 0; i < listanumeri.Length; i++)
+            {
+                somma += listanumeri[i];
+            }
+            Console.WriteLine($"\nLa somma è: {somma}\n");
+            Console.WriteLine($"La media è: {somma/x}");
+            Console.ReadLine();
+        }
