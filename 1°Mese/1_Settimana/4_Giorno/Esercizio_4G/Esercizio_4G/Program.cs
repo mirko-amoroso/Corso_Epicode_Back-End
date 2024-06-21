@@ -1,4 +1,4 @@
-﻿using System;
+﻿    using System;
 
 namespace Esercizio_4G
 {
@@ -136,7 +136,7 @@ namespace Esercizio_4G
     {
         static void Main(string[] args)
         {
-            User user = new User();
+            User user = new User ();
             user.MenuInizialeStart();
         }
     }
