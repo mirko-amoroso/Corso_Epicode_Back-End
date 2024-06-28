@@ -1,0 +1,28 @@
+﻿@model List<Sala>
+@{
+}
+<div class="text-center display-4">Return del form</div>
+
+<div>
+    @foreach (var sala in Model)
+    {
+        foreach (var utenti in sala.UtenteList)
+        {
+            <div class="text-center">
+                <span> Nome: </span> <span>@utenti.nome,</span>
+                <span> Congome: </span> <span>@utenti.cognome,</span>
+                <span> Tipo Biglietto:  </span>
+                @if (utenti.biglietto)
+                {
+                    <span>Il biglietto è ridotto</span>
+                } else
+                {
+                    <span>Il biglietto è intero</span>
+                }
+                    <span> Sala scelta: </span> <span>@sala.nome</span>
+            </div>
+        }
+    }
+
+
+</div>

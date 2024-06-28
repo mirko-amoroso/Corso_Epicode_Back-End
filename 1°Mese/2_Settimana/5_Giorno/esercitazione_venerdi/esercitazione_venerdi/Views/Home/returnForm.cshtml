@@ -1,0 +1,19 @@
+﻿@model List<Scarpe>
+@{
+}
+
+<div>
+    @foreach (var s in Model)
+    {
+        <div class="card col-2">
+            <img src="@s.path" class="card-img-top">
+            <div class="card-body">
+                <h5 class="card-title">@s.Name</h5>
+                <p class="card-text">@s.Prize €</p>
+                <form asp-action="Info">
+                    <input class="invisible"  value="@s.Id" />
+                    <button href="#">info</button>
+                </form>
+            </div>
+        </div>
+    }

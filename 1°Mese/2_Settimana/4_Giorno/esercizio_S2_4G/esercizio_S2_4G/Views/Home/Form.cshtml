@@ -1,0 +1,52 @@
+﻿@model Utente
+@{
+    List<Sala> sale = ViewBag.sale;
+}
+<div class="text-center">
+    <h1 class="display-4">Dati utente</h1>
+</div>
+<form asp-action="RiempiForm" >
+    <fieldset>
+        <legend>Dati Anagrafici</legend>
+
+        <div>
+            <label asp-for=nome></label>
+            <input asp-for="nome"/>
+        </div>
+        <div>
+            <label asp-for=cognome></label>
+            <input asp-for="cognome" />
+        </div>
+        <div>
+
+        </div>
+        <div class="form-group">
+            <label asp-for=biglietto></label>
+            <input asp-for=biglietto type="radio" value="true" />
+            <label asp-for=biglietto>Ridotto</label>
+            <input asp-for=biglietto type="radio" value="false" />
+            <label asp-for=biglietto>Intero</label>
+        </div>
+
+        <div class="form-group>
+            <label for="sale">seleziona una sala</label>
+            <select id=" sale" name="sale" class="form-control">
+                @foreach (var sala in sale)
+            {
+                    @if (sala.UtenteList.Count < 120) {
+                    <option value="@sala.nome">@sala.nome</option>
+                    }
+            }
+            </select>
+        </div>
+
+        <div class="form-group">
+            <p>Posti disponibili: </p> 
+            
+        </div>
+        
+
+    <button>Salva</button>
+    </fieldset>
+</form>
+

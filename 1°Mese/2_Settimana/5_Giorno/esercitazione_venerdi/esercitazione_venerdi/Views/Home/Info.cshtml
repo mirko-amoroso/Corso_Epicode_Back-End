@@ -1,0 +1,30 @@
+﻿@model Scarpe
+@{
+}
+<div class="container">
+    <div>
+        <h2 class="text-center">@Model.Name</h2>
+    </div>
+
+     <div class="row">
+    @if (Model.path_2 != null)
+    {
+        <div class="col-3">
+            <img src="@Model.path_2" width="200"/>
+        </div>
+    }
+
+    @if (Model.path_3 != null)
+    {
+        <div class="col-3">
+            <img src="@Model.path_3" width="200" />
+        </div>
+    }
+    </div>
+
+    <div>
+        <p class="text-center">@Model.Description</p>
+    </div>
+</div>
+
+

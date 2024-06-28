@@ -1,0 +1,15 @@
+﻿@model List<Scarpe>
+@{
+}
+
+<div>
+    @foreach (var s in Model)
+    {
+        <p>@s.Name</p>  
+        <p>@s.Description</p>
+        <img src="@s.img_1"/>
+    }
+</div>
+        
+        <figcaption>text</figcaption>        
+   </figure>

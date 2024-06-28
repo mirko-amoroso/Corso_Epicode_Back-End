@@ -1,0 +1,24 @@
+﻿@model List<Utente>
+@{
+    
+}
+<div class="text-center display-4">Return del form</div>
+
+<div>
+    @foreach (var utenti in Model)
+    {
+    <div class="text-center">
+        <span> Nome: </span> <span>@utenti.nome,</span>
+        <span> Congome: </span> <span>@utenti.cognome,</span>
+        <span> Tipo Biglietto:  </span>
+        @if (utenti.biglietto)
+        {
+        <span>Il biglietto è ridotto</span>
+        } else
+        {
+            <span>Il biglietto è intero</span>
+        }
+
+    </div>
+    }
+</div>

@@ -1,0 +1,38 @@
+﻿@model Scarpe
+@{
+}
+
+<form asp-action="returnForm" enctype="multipart/form-data">
+    <div>
+        <label asp-for=Name class="control-label"></label>
+        <input asp-for="Name" class="form-control" />
+        <span asp-validation-for="Name" class="text-danger">*Campo obbligatorio</span>
+    </div>
+    <div>
+        <label asp-for=Description class="control-label"></label>
+        <textarea asp-for="Description" class="form-control"></textarea>
+        <span asp-validation-for="Name" class="text-danger">*Campo obbligatorio</span>
+    </div>
+    <div>
+        <label asp-for=Prize class="control-label"></label>
+        <input asp-for="Prize" class="form-control" />
+        <span asp-validation-for="Name" class="text-danger">*Campo obbligatorio</span>
+    </div>
+
+    <div>
+        <label asp-for=img_1 class="control-label"></label>
+        <input asp-for="img_1" class="form-control" />
+        <span asp-validation-for="Name" class="text-danger">*Campo obbligatorio</span>
+    </div>
+    <div>
+        <label asp-for=img_2 class="control-label"></label>
+        <input asp-for="img_2" class="form-control" />
+    </div>
+    <div>
+        <label asp-for=img_3 class="control-label"></label>
+        <input asp-for="img_3" class="form-control" />
+    </div>
+
+    <button class="form-group mt-3 ">Salva</button>
+
+</form>
