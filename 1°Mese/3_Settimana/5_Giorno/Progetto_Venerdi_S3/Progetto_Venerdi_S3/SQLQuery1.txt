@@ -1,0 +1,126 @@
+﻿-- ********* AGGIUNTA COLONNA: FOREING KEY *********
+--ALTER TABLE VERBALE ADD IdAnagrafa INT NULL
+--ALTER TABLE VERBALE
+--ADD CONSTRAINT FK_VERBALE_ANAGRAFICA
+--FOREIGN KEY (IdAnagrafa) REFERENCES ANAGRAFICA(IdAnagrafica);
+
+-- ********* AGGIUNTA COLONNA: FOREING KEY *********
+--ALTER TABLE VERBALE ADD IdViolazione INT NULL
+--ALTER TABLE VERBALE
+--ADD CONSTRAINT FK_VERBALE_VIOLAZIONE
+--FOREIGN KEY (IdViolazione) REFERENCES TIPO_VIOLAZIONE(IdViolazione);
+
+-- ********* RECORD ANAGRAFICA *********
+--INSERT INTO [dbo].[ANAGRAFICA] (Cognome, Nome, Indirizzo, Città, CAP, Cod_Fisc)
+--VALUES
+--('Rossi', 'Mario', 'Via Roma', 'Milano', '20100', 'RSSMRA85M01H501Z'),
+--('Bianchi', 'Luigi', 'Via Milano', 'Torino', '10100', 'BNCGLG85M01L219Z'),
+--('Verdi', 'Giuseppe', 'Via Verdi', 'Napoli', '80100', 'VRDGSU85M01F839Z'),
+--('Gialli', 'Marco', 'Via Napoli', 'Roma', '00100', 'GLLMRC85M01H501Z'),
+--('Neri', 'Antonio', 'Via Torino', 'Firenze', '50100', 'NRIANT85M01L219Z'),
+--('Blu', 'Roberto', 'Via Firenze', 'Bologna', '40100', 'BLURRT85M01H501Z'),
+--('Rosa', 'Paolo', 'Via Bologna', 'Genova', '16100', 'RSAPLL85M01L219Z'),
+--('Marroni', 'Carlo', 'Via Genova', 'Bari', '70100', 'MRRCRL85M01F839Z'),
+--('Azzurri', 'Franco', 'Via Bari', 'Palermo', '90100', 'ZZRFNC85M01H501Z'),
+--('Arancioni', 'Davide', 'Via Palermo', 'Cagliari', '09100', 'RNCFNC85M01L219Z'),
+--('Gialli', 'Pietro', 'Via Roma', 'Milano', '20100', 'GLLPTR85M01H501Z')
+
+-- ********* RECORD TIPO_VIOLAZIONE *********
+--INSERT INTO [dbo].[TIPO_VIOLAZIONE] (Descrizione)
+--VALUES
+--('Eccesso di velocità'),
+--('Passaggio con semaforo rosso'),
+--('Guida senza cintura'),
+--('Uso del cellulare alla guida'),
+--('Sosta vietata'),
+--('Guida in stato di ebbrezza'),
+--('Senza assicurazione'),
+--('Senza revisione'),
+--('Sorpasso vietato'),
+--('Guida pericolosa'),
+--('Inversione di marcia vietata'),
+--('Guida contromano'),
+--('Eccesso di carico'),
+--('Uso improprio della corsia'),
+--('Violazione della segnaletica'),
+--('Guida senza patente'),
+--('Veicolo non in regola'),
+--('Mancata esibizione dei documenti');
+
+-- ********* RECORD VERBALE *********
+-- Inserisci dati nella tabella VERBALE rispettando le relazioni 1 a molti con ANAGRAFICA e TIPO_VIOLAZIONE
+--INSERT INTO [dbo].[VERBALE] (DataViolazione, IndirizzoViolazione, NominativoAgente, DataTrascrizioneVerbale, Importo, DecurtamentoPunti, IdAnagrafa, IdViolazione)
+--VALUES
+--(GETDATE(), 'Via Milano', 'Agente Bianchi', DATEADD(HOUR, -1, GETDATE()), 200.00, 4, 2, 2),
+--(GETDATE(), 'Via Verdi', 'Agente Verdi', DATEADD(HOUR, -1, GETDATE()), 120.00, 2, 3, 3),
+--(GETDATE(), 'Via Napoli', 'Agente Gialli', DATEADD(HOUR, -1, GETDATE()), 180.00, 3, 4, 4),
+--(GETDATE(), 'Via Torino', 'Agente Neri', DATEADD(HOUR, -1, GETDATE()), 250.00, 5, 5, 5),
+--(GETDATE(), 'Via Firenze', 'Agente Blu', DATEADD(HOUR, -1, GETDATE()), 300.00, 6, 6, 6),
+--(GETDATE(), 'Via Bologna', 'Agente Rosa', DATEADD(HOUR, -1, GETDATE()), 75.00, 1, 7, 7),
+--(GETDATE(), 'Via Genova', 'Agente Marroni', DATEADD(HOUR, -1, GETDATE()), 95.00, 2, 8, 8),
+--(GETDATE(), 'Via Bari', 'Agente Azzurri', DATEADD(HOUR, -1, GETDATE()), 160.00, 3, 9, 9),
+--(GETDATE(), 'Via Palermo', 'Agente Arancioni', DATEADD(HOUR, -1, GETDATE()), 110.00, 2, 10, 10),
+--(GETDATE(), 'Via Roma', 'Agente Gialli', DATEADD(HOUR, -1, GETDATE()), 130.00, 2, 11, 11),
+--(GETDATE(), 'Via Milano', 'Agente Rossi', DATEADD(HOUR, -1, GETDATE()), 90.00, 1, 12, 12),
+--(GETDATE(), 'Via Verdi', 'Agente Bianchi', DATEADD(HOUR, -1, GETDATE()), 140.00, 3, 12, 3),
+--(GETDATE(), 'Via Napoli', 'Agente Verdi', DATEADD(HOUR, -1, GETDATE()), 170.00, 3, 9, 6),
+--(GETDATE(), 'Via Torino', 'Agente Gialli', DATEADD(HOUR, -1, GETDATE()), 210.00, 4, 3, 8),
+--(GETDATE(), 'Via Firenze', 'Agente Neri', DATEADD(HOUR, -1, GETDATE()), 220.00, 5, 7, 4),
+--(GETDATE(), 'Via Bologna', 'Agente Blu', DATEADD(HOUR, -1, GETDATE()), 240.00, 5, 5, 2),
+--(GETDATE(), 'Via Genova', 'Agente Rosa', DATEADD(HOUR, -1, GETDATE()), 260.00, 6, 11, 12)
+
+--1)
+--SELECT count(*) AS TOT_VERBALE FROM VERBALE
+
+--2)
+--SELECT COUNT(*) AS ANAGRAFE_VERBALE FROM VERBALE
+--GROUP BY IdAnagrafa
+
+--3)
+--SELECT COUNT(*) AS ANAGRAFE_VERBALE FROM VERBALE
+--GROUP BY IdViolazione
+
+--4)
+--SELECT COUNT(DecurtamentoPunti) AS TOT_DECURT FROM VERBALE
+--GROUP BY IdAnagrafa
+
+--5)
+--SELECT A.Nome, A.Cognome, V.DataViolazione, V.IndirizzoViolazione, V.Importo FROM ANAGRAFICA as A
+--JOIN VERBALE as V on V.IdAnagrafa = A.IdAnagrafica
+--where A.Città = 'Palermo'
+
+--6)
+--SELECT A.Nome, A.Cognome, A.Indirizzo, V.DataViolazione, V.Importo, V.DecurtamentoPunti FROM ANAGRAFICA as A
+--JOIN VERBALE as V on V.IdAnagrafa = A.IdAnagrafica
+--where DataViolazione between '01/02/09' and '01/07/09'
+
+--7)
+--SELECT A.Nome, A.Cognome, SUM(Importo) AS IMPORT_ANAGR FROM VERBALE AS V
+--JOIN ANAGRAFICA AS A ON V.IdAnagrafa = A.IdAnagrafica
+--GROUP BY A.IdAnagrafica, A.Nome, A.Cognome
+
+--8)
+--SELECT A.* FROM ANAGRAFICA AS A
+--WHERE A.Città = 'Palermo'
+
+--9)
+--SELECT DataViolazione, Importo, DecurtamentoPunti FROM VERBALE
+--WHERE DataViolazione = '10/03/2003'
+
+--10)
+--SELECT COUNT(IdViolazione) AS NUMERO_VIOLAZIONI, NominativoAgente AS NOME_AGENTE FROM VERBALE
+--GROUP BY NominativoAgente
+
+--11)
+--SELECT A.Nome AS NOME, A.Cognome AS COGNOME, A.Città AS CITTA, V.DataViolazione AS GIORNO, CAST(V.Importo AS VARCHAR) + '€' AS MULTA FROM VERBALE AS V
+--JOIN ANAGRAFICA AS A ON A.IdAnagrafica = V.IdAnagrafa
+--WHERE V.DecurtamentoPunti > 5
+
+--12)
+--SELECT A.Nome AS NOME, A.Cognome AS COGNOME, A.Città AS CITTA, V.DataViolazione AS GIORNO, CAST(V.Importo AS VARCHAR) + '€' AS MULTA, V.DecurtamentoPunti AS PUNTI_DECURTATI
+--FROM VERBALE AS V
+--JOIN ANAGRAFICA AS A ON A.IdAnagrafica = V.IdAnagrafa
+--WHERE V.Importo > 200
+
+
+
