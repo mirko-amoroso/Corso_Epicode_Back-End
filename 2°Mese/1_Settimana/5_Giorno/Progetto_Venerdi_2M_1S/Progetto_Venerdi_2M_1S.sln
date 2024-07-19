@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.35027.167
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Progetto_Venerdi_2M_1S", "Progetto_Venerdi_2M_1S\Progetto_Venerdi_2M_1S.csproj", "{935E6E38-A3C1-4F7C-8ADA-B9971AE15459}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Prog_S1_V", "DaoBase\Prog_S1_V.csproj", "{D89D16B8-CE41-4937-96E0-2A155AEEECBD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{935E6E38-A3C1-4F7C-8ADA-B9971AE15459}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{935E6E38-A3C1-4F7C-8ADA-B9971AE15459}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{935E6E38-A3C1-4F7C-8ADA-B9971AE15459}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{935E6E38-A3C1-4F7C-8ADA-B9971AE15459}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D89D16B8-CE41-4937-96E0-2A155AEEECBD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D89D16B8-CE41-4937-96E0-2A155AEEECBD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D89D16B8-CE41-4937-96E0-2A155AEEECBD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D89D16B8-CE41-4937-96E0-2A155AEEECBD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B71D895E-27E9-4A82-864C-DDDAC00E4665}
+	EndGlobalSection
+EndGlobal

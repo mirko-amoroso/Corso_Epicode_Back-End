@@ -14,11 +14,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Remove="Models\ErrorViewModel.cs" />
+    <PackageReference Include="System.Data.SqlClient" Version="4.8.6" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Service\" />
+    <ProjectReference Include="..\Dao_2M_1S\Dao_2M_1S.csproj" />
   </ItemGroup>
 
 </Project>
