@@ -1,6 +1,7 @@
 ﻿
 @model List<Prog_S1_V.Model.Anagrafica_Verbale>
 
+    <h2>Tutti gli utenti per le violazioni che superano i 10 Pt:</h2>
      @foreach (var verbale in Model)
     {
         <div class="card">
@@ -11,4 +12,4 @@
             <p class="card-text">Totali punti decurtati: @verbale.DecurtamentoPunti</p
           </div>
         </div>
-    }s
+    }

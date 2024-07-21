@@ -1,12 +1,14 @@
 ﻿@model List<Prog_S1_V.Model.Anagrafica>
 
+    <h2>Tutti i trasgressori:</h2>
+
 @foreach (var Trasghessore in Model)
 {
     <div class="card">
       <div class="card-body">
         <h5 class="card-title">L'utente: @Trasghessore.Nome @Trasghessore.Cognome</h5>
       </div>
-      <form method="post" asp-action="BottoneScgliTragressore">
+        <form method="post" asp-action="BottoneScgliTragressore">
         <input type="hidden" name="Id" value="@Trasghessore.IdAnagrafica" />
         <div class="m-3">
         <button type="submit" class="btn btn-primary">

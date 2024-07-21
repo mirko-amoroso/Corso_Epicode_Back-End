@@ -73,13 +73,14 @@ namespace Progetto_Venerdi_2M_1S.Controllers
 
         //****************************************************
 
-        public IActionResult FormVerbale()
+        public IActionResult FormVerbale(int? idTizio)
         {
-            IEnumerable<Prog_S1_V.Model.TipoViolazione> ListaViolazioni = _tipoViolazione.getAllViolazione();
-            Console.WriteLine(ListaViolazioni);
+            IEnumerable<TipoViolazione> ListaViolazioni = _tipoViolazione.getAllViolazione();
             ViewBag.Violazioni = ListaViolazioni;
+            ViewBag.IdTizio = idTizio;
             return View();
         }
+
 
         public IActionResult BottoneFormVerbale(Verbale verb)
         {
@@ -90,9 +91,12 @@ namespace Progetto_Venerdi_2M_1S.Controllers
 
         public IActionResult BottoneScgliTragressore(int id)
         {
+            IEnumerable<TipoViolazione> ListaViolazioni = _tipoViolazione.getAllViolazione();
+            ViewBag.Violazioni = ListaViolazioni;
             ViewBag.IdTizio = id;
-            return RedirectToAction("FormVerbale");
+            return View("FormVerbale");
         }
+
 
 
         public IActionResult Privacy()
