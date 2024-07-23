@@ -34,7 +34,7 @@ namespace Progetto_2M_1S.Controllers
 
                 if (u == null)
                 {
-                    Console.WriteLine("4: Utente non trovato, reindirizzamento a Index");
+                    Console.WriteLine("4: Utente non trovato, reindirizzamento a Index"); 
                     return RedirectToAction("Index", "Home");
                 }
 

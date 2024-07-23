@@ -1,0 +1,20 @@
+﻿@model List<Soluzione_S2_M2.Model.Camere>
+
+<h2>Tutte le Camere:</h2>
+@foreach (var camera in Model)
+{
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Camera N°: @camera.NumCam</h5>
+            <h6 class="card-subtitle mb-2 text-body-secondary">@camera.Descrizione</h6>
+            @if (camera.Doppia)
+            {
+                <p class="card-subtitle mb-2 text-body-secondary">Camera Doppia</p>
+            }
+            else
+            {
+                <p class="card-subtitle mb-2 text-body-secondary">Camera Singola</p>
+            }
+        </div>
+    </div>
+}

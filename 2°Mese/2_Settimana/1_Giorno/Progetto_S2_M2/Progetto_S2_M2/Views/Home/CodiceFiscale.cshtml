@@ -1,0 +1,13 @@
+﻿@model List<Soluzione_S2_M2.Model.Clienti>
+
+<div class="form-group">
+    
+    <select typeof="select" class="form-control">
+        @foreach (var cf in Model)
+        {
+            <option value="@cf.Cod_Fisc">
+                @cf.Cod_Fisc
+            </option>
+        }
+    </select>
+</div>

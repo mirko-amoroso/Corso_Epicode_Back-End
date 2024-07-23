@@ -1,0 +1,19 @@
+﻿@model Progetto_S2_M2.Controllers.NegateController
+@{
+    ViewData["Title"] = "Access Denied";
+}
+
+<h1 class="text-warning">Accesso Negato</h1>
+<p>Non hai il consenso</p>
+@if (User.IsInRole("Amministratore"))
+{
+    <form asp-action="ReturnToHome" method="post">
+    <button class="btn btn-outline-primary">Vai a Home</button>
+    </form>
+} else
+{
+    <form asp-action="ReturnLogin" method="post">
+        <button class="btn btn-outline-primary">Vai a Login</button>
+    </form>
+}
+
