@@ -1,13 +1,26 @@
-﻿@model List<Soluzione_S2_M2.Model.Clienti>
+﻿@model IEnumerable<Soluzione_S2_M2.Model.UPrenotazioniCliente>
 
-<div class="form-group">
-    
-    <select typeof="select" class="form-control">
-        @foreach (var cf in Model)
-        {
-            <option value="@cf.Cod_Fisc">
-                @cf.Cod_Fisc
-            </option>
-        }
-    </select>
-</div>
+    @{var primoNomeList = Model.FirstOrDefault();}
+ 
+    <h2>Tutti le prenotazioni del cliente: @primoNomeList.Nome @primoNomeList.Nome </h2>
+@foreach (var pren in Model)
+{
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Prenotazione Effettuata @pren.DataPrenotazioni</h5>
+            <h6 class="card-subtitle mb-2 text-body-secondary">@pren.DataInizio al @pren.DataFine</h6>
+            @if (pren.PensioneCompleta)
+            {
+                <p class="card-subtitle mb-2 text-body-secondary">Pensione completa</p>
+            }
+            else if (pren.MezzaPensione)
+            {
+                <p class="card-subtitle mb-2 text-body-secondary">Mezza pensione</p>
+            }
+            else if (pren.PernottamentoPrimaColazione)
+            {
+                <p class="card-subtitle mb-2 text-body-secondary">Pernottamento e prima colazione</p>
+            }
+        </div>
+    </div>
+}

@@ -16,6 +16,7 @@ namespace Soluzione_S2_M2.Connessione
             services
                 .AddScoped<IAuthService, AuthService>()
                 .AddScoped<IServiceCamereDao, ServiceCamereDao>()
+                .AddScoped<IServicePrenotazioneDao, ServicePrenotazioneDao>()
                 .AddScoped<IServiceClientDao, ServiceClientiDao>();
 
     }

@@ -10,5 +10,8 @@ namespace Soluzione_S2_M2.Interfacce
     public interface IServiceClientDao
     {
         public IEnumerable<Clienti> GetAllClienti();
+        public IEnumerable<UPrenotazioniCliente> GetAllPrenotazioniById(Clienti clienti);
+        public Clienti GetByCodFisc(string cod);
+        public void CreaFormClient(Clienti C);
     }
 }
