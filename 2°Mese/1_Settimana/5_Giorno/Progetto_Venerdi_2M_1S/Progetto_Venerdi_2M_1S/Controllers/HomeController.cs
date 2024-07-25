@@ -73,7 +73,7 @@ namespace Progetto_Venerdi_2M_1S.Controllers
 
         //****************************************************
 
-        public IActionResult FormVerbale(int? idTizio)
+        public IActionResult FormVerbale(int idTizio)
         {
             IEnumerable<TipoViolazione> ListaViolazioni = _tipoViolazione.getAllViolazione();
             ViewBag.Violazioni = ListaViolazioni;

@@ -1,0 +1,21 @@
+﻿@model List<Soluzione_S2_M2.Model.Clienti>
+
+<h2>Scegli il Cliente</h2>
+@foreach (var cliente in Model)
+{
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Cliente: @cliente.Nome @cliente.Cognome</h5>
+            <h6 class="card-subtitle mb-2 text-body-secondary">@cliente.Cod_Fisc</h6>
+            <h6 class="card-subtitle mb-2 text-body-secondary">@cliente.Citta @cliente.Provincia</h6>
+            <ul class="card-subtitle mb-2 text-body-secondary">Contatti:
+                <li>Telefono: @cliente.Telefono</li>
+                <li>Email:@cliente.Email</li>
+            </ul>
+            <form asp-action="RedirectFormPrenotazioni" method="post">
+                <input type="hidden" name="IdCliente" value="@cliente.IdCliente" />
+                <button class="btn btn-outline-dark">Vai</button>
+            </form>
+        </div>
+    </div>
+}

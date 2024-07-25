@@ -27,11 +27,6 @@
 
   <ItemGroup>
     <_ContentIncludedByDefault Remove="Views\Home\Camere.cshtml" />
-    <_ContentIncludedByDefault Remove="Views\Home\CamereHotel.cshtml" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <UpToDateCheckInput Remove="Views\Home\CamereHotel.cshtml" />
   </ItemGroup>
 
 </Project>

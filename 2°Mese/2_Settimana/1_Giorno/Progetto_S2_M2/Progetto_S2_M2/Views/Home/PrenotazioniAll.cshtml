@@ -1,0 +1,30 @@
+﻿@model List<Soluzione_S2_M2.Model.UPrenotazioniCliente>
+
+<h2>Tutte le Prenotazioni:</h2>
+@foreach (var Pren in Model)
+{
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title"> Prenotazione di: @Pren.Nome @Pren.Cognome</h5>
+            <h6 class="card-subtitle mb-2 text-body-secondary">Check-In <i>non dopo il</i>: @Pren.DataInizio</h6>
+            <h6 class="card-subtitle mb-2 text-body-secondary">Check-out <i>non dopo il</i>: @Pren.DataFine</h6>
+            <p class="card-body mb-2 text-body-secondary">Caparra già versata: @Pren.Caparra&#8364;</p>
+            @if (Pren.MezzaPensione)
+            {
+                <p class="card-body mb-2 text-body-secondary">Mezza Pensione</p>
+            }
+            else if(Pren.PensioneCompleta)
+            {
+                <p class="card-body mb-2 text-body-secondary">Pensione Completa</p>
+            }
+            else if (Pren.PernottamentoPrimaColazione)
+            {
+                <p class="card-body mb-2 text-body-secondary">Pernottamento prima con colazione</p>
+            }
+            <form asp-action="RedirectServizi" method="post">
+                <input type="hidden" name="IdPrenotazioni" value="@Pren.IdPrenotazioni" />
+                <button class="btn btn-outline-dark">Servizi</button>
+            </form>
+        </div>
+    </div>
+}

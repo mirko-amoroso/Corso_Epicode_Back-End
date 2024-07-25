@@ -8,7 +8,7 @@ namespace Soluzione_S2_M2.Model
 {
     public class Camere
     {
-        public required int IDCamera {  get; set; }
+        public required int IdCamera {  get; set; }
         public int NumCam { get; set; }
         public string Descrizione { get; set; }
         public bool Doppia { get; set; }

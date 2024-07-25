@@ -88,8 +88,6 @@ namespace Soluzione_S2_M2.Service
             }
         }
 
-        //GRTPLS85M01H501K
-        //GRTPLS85M01H501K
 
         public IEnumerable<UPrenotazioniCliente> GetAllPrenotazioniById(Clienti clienti)
         {
@@ -164,6 +162,7 @@ namespace Soluzione_S2_M2.Service
             }
             catch (Exception ex) { Console.WriteLine($"non funziona CreaForm {ex}"); }
         }
+
 
     }
 }

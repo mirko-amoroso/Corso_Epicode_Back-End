@@ -9,16 +9,16 @@ namespace Soluzione_S2_M2.Model
 {
     public class Prenotazioni
     {
-        public required int IdPrenotazioni { get; set; }
+        public required int IdPrenServ { get; set; }
         [Display(Name = "DataPrenotazioni")]
-        public required DateTime DataPrenotazioni { get; set; }
+        public required DateTime DataPrenotazione { get; set; }
         [Display(Name = "DataInizio")]
         public required DateTime DataInizio { get; set; }
         [Display(Name = "DataFine")]
         public required DateTime DataFine { get; set; }
         [Display(Name = "Caparra"), Required(ErrorMessage = "Inserire il costo della caparra")]
         public decimal Caparra {  get; set; }
-        [Display(Name = "Caparra"), Required(ErrorMessage = "Inserire il costo dell'importo")]
+        [Display(Name = "Importo"), Required(ErrorMessage = "Inserire il costo dell'importo")]
         public decimal Importo { get; set; }
         [Display(Name = "MezzaPensione")]
         public bool MezzaPensione { get; set; }

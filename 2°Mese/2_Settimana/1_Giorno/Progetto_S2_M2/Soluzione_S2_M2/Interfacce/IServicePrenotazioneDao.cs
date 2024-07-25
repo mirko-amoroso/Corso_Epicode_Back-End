@@ -10,6 +10,7 @@ namespace Soluzione_S2_M2.Interfacce
     public interface IServicePrenotazioneDao
     {
         public void CreaFormPreno(Prenotazioni P);
+        public IEnumerable<UPrenotazioniCliente> CreaPreno();
 
     }
 }

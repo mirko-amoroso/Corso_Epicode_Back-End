@@ -44,7 +44,7 @@ namespace Soluzione_S2_M2.Service
         {
             return new Camere
             {
-                IDCamera = reader.GetInt32(reader.GetOrdinal("IdCamera")),
+                IdCamera = reader.GetInt32(reader.GetOrdinal("IdCamera")),
                 NumCam = reader.GetInt32(reader.GetOrdinal("NumCam")),
                 Descrizione = reader.GetString(reader.GetOrdinal("Descrizione")),
                 Doppia = reader.GetBoolean(reader.GetOrdinal("Doppia")),

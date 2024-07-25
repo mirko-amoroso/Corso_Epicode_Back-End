@@ -14,13 +14,15 @@ namespace Soluzione_S2_M2.Connessione
         public IServiceCamereDao CamereDao { get; set; }
         public IServiceClientDao ClientiDao { get; set; }
         public IServicePrenotazioneDao PrenotazioniDao { get; set; }
+        public IServiceServiziDao ServiziDao { get; set; }
 
-        public DbContextConn(IAuthService Auth, IServiceCamereDao _CamereDao, IServiceClientDao _ClientiDao, IServicePrenotazioneDao _prenotazioniDao)
+        public DbContextConn(IAuthService Auth, IServiceCamereDao _CamereDao, IServiceClientDao _ClientiDao, IServicePrenotazioneDao _prenotazioniDao, IServiceServiziDao _serviziDao)
         {
             _Auth = Auth;
             CamereDao = _CamereDao;
             ClientiDao = _ClientiDao;
             PrenotazioniDao = _prenotazioniDao;
+            ServiziDao = _serviziDao;
         }
     }
 }
