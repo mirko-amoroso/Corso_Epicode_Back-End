@@ -6,9 +6,10 @@
     foreach (var serv in ViewBag.TotaleServizi)
     {
         TimeSpan intervallo = serv.DataFine - serv.DataInizio;
-        int secondiDay = 86400;
-        var inter = intervallo.Seconds / secondiDay;
-        CostoServizi.Add((decimal)inter * serv.Costo * (decimal)serv.Quantita);
+        var giorni = (decimal)intervallo.TotalDays;
+        var quantita = (decimal)serv.Quantita;
+        var costo = giorni * serv.Costo * quantita;
+        CostoServizi.Add(costo);
     }
     var risultato = CostoServizi.Sum() + onlyImportoCaparra;
 }
