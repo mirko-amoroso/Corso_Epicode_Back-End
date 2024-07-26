@@ -1,0 +1,48 @@
+﻿@model List<Soluzione_S2_M2.Model.UPrenotazioniCamere>
+@{
+    Soluzione_S2_M2.Model.UPrenotazioniCamere modale = Model.FirstOrDefault();
+    var onlyImportoCaparra = modale.Importo - modale.Caparra;
+    List<decimal> CostoServizi = new List<decimal>();
+    foreach (var serv in ViewBag.TotaleServizi)
+    {
+        TimeSpan intervallo = serv.DataFine - serv.DataInizio;
+        int secondiDay = 86400;
+        var inter = intervallo.Seconds / secondiDay;
+        CostoServizi.Add((decimal)inter * serv.Costo * (decimal)serv.Quantita);
+    }
+    var risultato = CostoServizi.Sum() + onlyImportoCaparra;
+}
+
+    <p>ciao beli</p>
+    @foreach (var Upc in Model){
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">@Upc.NumCam </h5>
+                <h6 class="card-subtitle mb-2 text-body-secondary">Dal: @Upc.DataInizio</h6>
+                <h6 class="card-subtitle mb-2 text-body-secondary">Al: @Upc.DataFine</h6>
+                <p class="card-body mb-2 text-body-secondary">@Upc.DataFine - @Upc.DataInizio</p>
+             @if (Upc.MezzaPensione)
+            {
+                <p class="card-body mb-2 text-body-secondary">Mezza Pensione</p>
+            }
+            else if (Upc.PensioneCompleta)
+            {
+                <p class="card-body mb-2 text-body-secondary">Pensione Completa</p>
+            }
+            else if (Upc.PernottamentoPrimaColazione)
+            {
+                <p class="card-body mb-2 text-body-secondary">Pernottamento prima con colazione</p>
+            }
+            <ul>Tutti i servizi:
+                @foreach (var servizi in ViewBag.TotaleServizi)
+            {
+                <li>@servizi.Descrizione</li>
+                    <li>@servizi.Costo</li>
+            }
+            </ul>
+            <h2>Importo da pagare:</h2>
+            <span>@risultato&#8364;</span>
+            
+        </div> 
+        </div>
+    }

@@ -12,6 +12,7 @@ namespace Soluzione_S2_M2.Interfacce
         public void CreaFormServizi(Servizi servizio);
         public void AddServizi(PrenotazioniServizi SGestione);
         public IEnumerable<Servizi> TuttiServizi();
-       
+        public void Delete(int id);
+        public IEnumerable<UPrenotazioneServizi> TrovaServById(int id);
     }
 }

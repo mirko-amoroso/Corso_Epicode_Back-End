@@ -11,6 +11,6 @@ namespace Soluzione_S2_M2.Interfacce
     {
         public void CreaFormPreno(Prenotazioni P);
         public IEnumerable<UPrenotazioniCliente> CreaPreno();
-
+        public IEnumerable<UPrenotazioniCliente> AllPrenPensione();
     }
 }

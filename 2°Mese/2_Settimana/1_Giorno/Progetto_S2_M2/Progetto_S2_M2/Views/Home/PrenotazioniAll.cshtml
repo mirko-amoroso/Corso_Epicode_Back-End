@@ -1,12 +1,17 @@
 ﻿@model List<Soluzione_S2_M2.Model.UPrenotazioniCliente>
 
+
+<form action="RedirectPensione" method="post">
+    <button class="btn btn-outline-dark">Solo pensione completa</button>
+</form>
+
 <h2>Tutte le Prenotazioni:</h2>
 @foreach (var Pren in Model)
 {
-    <div class="card">
+    <div class="card mb-3">
         <div class="card-body">
             <h5 class="card-title"> Prenotazione di: @Pren.Nome @Pren.Cognome</h5>
-            <h6 class="card-subtitle mb-2 text-body-secondary">Check-In <i>non dopo il</i>: @Pren.DataInizio</h6>
+            <h6 class="card-subtitle mb-2 text-body-secondary">Check-In <i>non dopo il</i>: @Pren.DataInizio.ToString("yyyy-MM-dd")</h6>
             <h6 class="card-subtitle mb-2 text-body-secondary">Check-out <i>non dopo il</i>: @Pren.DataFine</h6>
             <p class="card-body mb-2 text-body-secondary">Caparra già versata: @Pren.Caparra&#8364;</p>
             @if (Pren.MezzaPensione)
@@ -21,9 +26,13 @@
             {
                 <p class="card-body mb-2 text-body-secondary">Pernottamento prima con colazione</p>
             }
-            <form asp-action="RedirectServizi" method="post">
+            <form asp-action="RedirectServizi" method="post" class="mb-2">
                 <input type="hidden" name="IdPrenotazioni" value="@Pren.IdPrenotazioni" />
                 <button class="btn btn-outline-dark">Servizi</button>
+            </form>
+            <form asp-action="CheckOut" method="post">
+                <input type="hidden" name="IdPrenotazioni" value="@Pren.IdPrenotazioni" />
+                <button class="btn btn-outline-dark">Check-out</button>
             </form>
         </div>
     </div>

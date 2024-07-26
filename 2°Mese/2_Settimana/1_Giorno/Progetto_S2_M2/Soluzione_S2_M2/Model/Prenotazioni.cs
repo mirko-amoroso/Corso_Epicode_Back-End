@@ -9,7 +9,7 @@ namespace Soluzione_S2_M2.Model
 {
     public class Prenotazioni
     {
-        public required int IdPrenServ { get; set; }
+        public required int IdPrenotazione { get; set; }
         [Display(Name = "DataPrenotazioni")]
         public required DateTime DataPrenotazione { get; set; }
         [Display(Name = "DataInizio")]

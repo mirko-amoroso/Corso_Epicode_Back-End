@@ -26,7 +26,17 @@
   </ItemGroup>
 
   <ItemGroup>
+    <_ContentIncludedByDefault Remove="Views\Home\AllPrenotazioniPensione.cshtml" />
     <_ContentIncludedByDefault Remove="Views\Home\Camere.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\Home\CheckOut.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <UpToDateCheckInput Remove="Views\Home\CheckOut.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <UpToDateCheckInput Remove="Views\Home\AllPrenotazioniPensione.cshtml" />
   </ItemGroup>
 
 </Project>

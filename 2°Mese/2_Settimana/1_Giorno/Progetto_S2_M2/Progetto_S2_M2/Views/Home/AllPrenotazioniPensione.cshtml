@@ -1,0 +1,20 @@
+﻿@model List<Soluzione_S2_M2.Model.UPrenotazioniCliente>
+
+
+<form action="RedirectAllPensione" method="post">
+    <button class="btn btn-outline-dark">Tutte le prenotazioni</button>
+</form>
+
+<h2>Tutte le Prenotazioni con pensione completa:</h2>
+@foreach (var Pren in Model)
+{
+    <div class="card mb-3">
+        <div class="card-body">
+            <h5 class="card-title"> @Pren.Nome @Pren.Cognome</h5>
+            <h6 class="card-subtitle mb-2 text-body-secondary">Check-In <i>non dopo il</i>: @Pren.DataInizio.ToString("yyyy-MM-dd")</h6>
+            <h6 class="card-subtitle mb-2 text-body-secondary">Check-out <i>non dopo il</i>: @Pren.DataFine.ToString("yyyy-MM-dd")</h6>
+            <p class="card-body mb-2 text-body-secondary">Caparra già versata: @Pren.Caparra&#8364;</p>
+        </div>
+    </div>
+}
+

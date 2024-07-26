@@ -10,5 +10,6 @@ namespace Soluzione_S2_M2.Interfacce
     public interface IServiceCamereDao
     {
         public IEnumerable<Camere> GetAllCamere();
+        public IEnumerable<UPrenotazioniCamere> GetUninon(int idPren);
     }
 }

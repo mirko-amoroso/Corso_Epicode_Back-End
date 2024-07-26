@@ -32,6 +32,7 @@ namespace Progetto_S2_M2.Controllers
         }
 
         //********************************************************
+        //FORM CLIENTI
 
         [Authorize(Roles = "Amministratore, Master")]
         public IActionResult FormCliente()
@@ -47,6 +48,8 @@ namespace Progetto_S2_M2.Controllers
         }
 
         //********************************************************
+        //SCEGLI CLIENTE PER LA PRENOTAZIONE
+        
         [Authorize(Roles = "Amministratore, Master")]
         public IActionResult ClientiAll() 
         {
@@ -59,10 +62,14 @@ namespace Progetto_S2_M2.Controllers
             return RedirectToAction("FormPrenotazioni", new { IdCliente });
         }
 
+        //********************************************************
+
+        //FORM PRENOTAZIONI
 
         [Authorize(Roles = "Amministratore, Master")]
         public IActionResult FormPrenotazioni(int IdCliente)
         {
+            ViewBag.clienti = ClientiDao.GetAllClienti();
             ViewBag.camere = CamereDao.GetAllCamere();
             ViewBag.IdTizio = IdCliente;
             return View();
@@ -73,7 +80,7 @@ namespace Progetto_S2_M2.Controllers
         {
             prenotazione.IdClienti = IdCliente;
 
-            // Assicurati che le date siano impostate correttamente
+            
             if (prenotazione.DataInizio < DateTime.Now)
             {
                 ModelState.AddModelError("DataInizio", "La data di inizio non può essere nel passato.");
@@ -84,6 +91,7 @@ namespace Progetto_S2_M2.Controllers
             prenotazione.PernottamentoPrimaColazione = false;
             prenotazione.PensioneCompleta = false;
 
+            //CONTROLLA IL TIPO DI TARIFFA
             switch (TipoPensione)
             {
                 case "MezzaPensione":
@@ -104,11 +112,11 @@ namespace Progetto_S2_M2.Controllers
 
 
         //********************************************************
-
+        // FORM SERVIZI
         [Authorize(Roles = "Master")]
         public IActionResult FormServizi()
         {
-
+            ViewBag.servizi = ServiziDao.TuttiServizi();
             return View();
         }
 
@@ -117,9 +125,19 @@ namespace Progetto_S2_M2.Controllers
             ServiziDao.CreaFormServizi(servizio);
             return RedirectToAction("Index");
         }
-        
+
+        //ELIMINA SERVIZI
+        public IActionResult Delete(int IdServizio)
+        {
+            ServiziDao.Delete(IdServizio);
+            return RedirectToAction("Index");
+        }
+
+
 
         //********************************************************
+
+        //FUNZIONE CHE PERMETTE DI VEDERE I CLIENTI PER CODICE FISCALE
 
         [Authorize(Roles = "Amministratore, Master")]
         public IActionResult CodiceFiscale(string codFisc)
@@ -142,14 +160,44 @@ namespace Progetto_S2_M2.Controllers
 
         //**********************************************************
 
-
+        //TUTTE LE PRENOTAZIONI:
+        //PORTALE DI ACCESSO AD ALTRE FUNZIONI AUSILIARI
 
         [Authorize(Roles = "Master, Amministratore")]
         public IActionResult PrenotazioniAll(int IdPrenotazioni)
         {
+            ViewBag.clienti = ClientiDao.GetAllClienti();
             var TuttePreno = PrenotazioniDao.CreaPreno();
             return View(TuttePreno);
         }
+
+        //**********************************************************
+
+        //FUNZIONE PER VEDE SOLO LE PENSIONI COMPLETI E BOTTONI PER RITORNARE NELLE VIEW
+
+        [Authorize(Roles = "Master, Amministratore")]
+        public IActionResult RedirectPensione()
+        {
+            return RedirectToAction("AllPrenotazioniPensione");
+        }
+
+        [Authorize(Roles = "Master, Amministratore")]
+        public IActionResult AllPrenotazioniPensione()
+        {
+            ViewBag.clienti = ClientiDao.GetAllClienti();
+            var AllServPensione = PrenotazioniDao.AllPrenPensione(); 
+            return View(AllServPensione);
+        }
+
+        [Authorize(Roles = "Master, Amministratore")]
+        public IActionResult RedirectAllPensione()
+        {
+            return RedirectToAction("PrenotazioniAll");
+        }
+
+        //**********************************************************
+
+        //FUNZIONE PER GESTIRE I SERVIZI PER CLIENTE
 
         [Authorize(Roles = "Master, Amministratore")]
         public IActionResult RedirectServizi(int IdPrenotazioni)
@@ -180,6 +228,15 @@ namespace Progetto_S2_M2.Controllers
 
         //**********************************************************
 
+        //FUNZIONE CHE TI PERMETTE DI FARE IL CHECK-OUT
+        public IActionResult CheckOut(int IdPrenotazioni) 
+        {
+            var UPrenCam = CamereDao.GetUninon(IdPrenotazioni);
+            ViewBag.TotaleServizi = ServiziDao.TrovaServById(IdPrenotazioni);
+            return View(UPrenCam);
+        }
+
+        //**********************************************************
         [Authorize(Roles = "Master")]
         public IActionResult Privacy()
         {
