@@ -1,0 +1,35 @@
+﻿@model Project_M2_S3.Models.ListProductEccAddress
+
+@{
+    List<decimal> tot = [];
+    for (int i = 0; i < Model.listaClasse.Count; i++)
+    {
+        tot.Add(Model.listaClasse[i].Price*Model.listaClasse[i].quantita);
+    }
+    var totalePagamento = tot.Sum();
+}
+
+    <h2>Resoconto ordine:</h2>
+
+    <ul>
+        <form asp-action="InviaOrdine" method="post">
+        @for (int i = 0; i < Model.listaClasse.Count; i++)
+    { 
+        <li>
+            Quantità: @Model.listaClasse[i].quantita,
+            Pizza: @Model.listaClasse[i].Name,
+                @Model.listaClasse[i].Price €,
+            Tempo D'attesa: @Model.listaClasse[i].DeliveryTimeInMinutes
+        </li>
+        <input type="hidden" name="ListaPizza.ListaClasse[@i].quantita" value="@Model.listaClasse[i].quantita" />
+        <input type="hidden" name="ListaPizza.ListaClasse[@i].Id" value="@Model.listaClasse[i].Id" />
+    }
+    <label for="ListaPizza.notes">Note</label>
+    <input type="text" name="ListaPizza.notes" />
+    <label for="ListaPizza.address">Indirizzo</label>
+    <input type="text" name="ListaPizza.address" />
+    <h4>prezzo totale: @totalePagamento</h4>
+    <button class="btn btn-outline-success">Ordina</button>
+    </form>
+    </ul>
+
