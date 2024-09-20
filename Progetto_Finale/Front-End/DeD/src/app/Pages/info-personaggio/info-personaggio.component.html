@@ -1,0 +1,496 @@
+<body class="sfondo">
+
+  <!-- SE LA GET NON è FINITA PRINTA CARICAMENTO, SENNO IL RESTO  -->
+  <div *ngIf="isLoading" class="spinner-container">
+    <!-- HTML per la rotellina di caricamento -->
+    <div class="spinner"></div>
+    <p>Caricamento in corso...</p>
+  </div>
+
+  <!-- RACCOGLITORE DI ATTRIBUTI E TIRI SALVEZZA -->
+  <div class="d-flex" *ngIf="!isLoading">
+    <!-- INSIME DI ATTRIBBUTI -->
+
+    <div class="d-flex flex-column col-9">
+      <!-- PARTE SUPERIORE COL-9 -->
+      <div class="d-flex justify-content-around mt-2">
+        <!-- FORZA -->
+        <div class="d-flex flex-column align-items-center cardAtt">
+          <h6>Forza</h6>
+          <div class="Cornice_Classe d-flex justify-content-center align-items-center flex-column">
+            <p class="mt-2"><span class="fw-medium fs-5">{{PersonaggioFull.attributi?.forza}}</span>
+              <br>
+              <span class="tondoTondo">{{calcoloAttribbuto(PersonaggioFull.attributi!.forza)}}</span>
+            </p>
+          </div>
+        </div>
+        <!-- DESTREZZA -->
+        <div class="d-flex flex-column align-items-center cardAtt">
+          <h6>Destrezza</h6>
+          <div class="Cornice_Classe d-flex justify-content-center align-items-center flex-column">
+            <p class="mt-2"><span class="fw-medium fs-5">{{PersonaggioFull.attributi?.destrezza}}</span>
+              <br>
+              <span class="tondoTondo">{{calcoloAttribbuto(PersonaggioFull.attributi!.destrezza)}}</span>
+            </p>
+          </div>
+        </div>
+        <!-- COSTITUZIONE -->
+        <div class="d-flex flex-column align-items-center cardAtt">
+          <h6>Costituzione</h6>
+          <div class="Cornice_Classe d-flex justify-content-center align-items-center flex-column">
+            <p class="mt-2"><span class="fw-medium fs-5">{{PersonaggioFull.attributi?.costituzione}}</span>
+              <br>
+              <span class="tondoTondo">{{calcoloAttribbuto(PersonaggioFull.attributi!.costituzione)}}</span>
+            </p>
+          </div>
+        </div>
+        <!-- SAGGEZZA -->
+        <div class="d-flex flex-column align-items-center cardAtt">
+          <h6>Saggezza</h6>
+          <div class="Cornice_Classe d-flex justify-content-center align-items-center flex-column">
+            <p class="mt-2"><span class="fw-medium fs-5">{{PersonaggioFull.attributi?.saggezza}}</span>
+              <br>
+              <span class="tondoTondo">{{calcoloAttribbuto(PersonaggioFull.attributi!.saggezza)}}</span>
+            </p>
+          </div>
+        </div>
+        <!-- INTELLIGENZA -->
+        <div class="d-flex flex-column align-items-center cardAtt">
+          <h6>Intelligenza</h6>
+          <div class="Cornice_Classe d-flex justify-content-center align-items-center flex-column">
+            <p class="mt-2"><span class="fw-medium fs-5">{{PersonaggioFull.attributi?.intelligenza}}</span>
+              <br>
+              <span class="tondoTondo">{{calcoloAttribbuto(PersonaggioFull.attributi!.intelligenza)}}</span>
+            </p>
+          </div>
+        </div>
+        <!--CARISMA -->
+        <div class="d-flex flex-column align-items-center cardAtt">
+          <h6>Carisma</h6>
+          <div class="Cornice_Classe d-flex justify-content-center align-items-center flex-column">
+            <p class="mt-2"><span class="fw-medium fs-5">{{PersonaggioFull.attributi?.carisma}}</span>
+              <br>
+              <span class="tondoTondo">{{calcoloAttribbuto(PersonaggioFull.attributi!.carisma)}}</span>
+            </p>
+          </div>
+        </div>
+
+
+      </div>
+
+      <!-- PARTE INFERIORE COL-9 -->
+      <div class="d-flex m-5">
+        <!-- TIRI SALVEZZA -->
+        <div class="CorniceBordo card">
+          <h5 class="border-bottom border-black mb-2">Tiri Salvezza</h5>
+          <div>
+            <p *ngIf="PersonaggioFull.tiri_Salvezza?.forza == true">
+              <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" fill="currentColor"
+                class="bi bi-circle-fill" viewBox="0 0 16 16">
+                <circle cx="8" cy="8" r="8" />
+              </svg>
+              Forza
+            </p>
+            <p *ngIf="PersonaggioFull.tiri_Salvezza?.forza == false">
+              <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" fill="currentColor" class="bi bi-circle"
+                viewBox="0 0 16 16">
+                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16" />
+              </svg>
+              Forza
+            </p>
+          </div>
+          <div>
+            <p *ngIf="PersonaggioFull.tiri_Salvezza?.destrezza == true">
+              <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" fill="currentColor"
+                class="bi bi-circle-fill" viewBox="0 0 16 16">
+                <circle cx="8" cy="8" r="8" />
+              </svg>
+              Destrezza
+            </p>
+            <p *ngIf="PersonaggioFull.tiri_Salvezza?.destrezza == false">
+              <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" fill="currentColor" class="bi bi-circle"
+                viewBox="0 0 16 16">
+                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16" />
+              </svg>
+              Destrezza
+            </p>
+          </div>
+          <div>
+            <p *ngIf="PersonaggioFull.tiri_Salvezza?.saggezza == true">
+              <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" fill="currentColor"
+                class="bi bi-circle-fill" viewBox="0 0 16 16">
+                <circle cx="8" cy="8" r="8" />
+              </svg>
+              Saggezza
+            </p>
+            <p *ngIf="PersonaggioFull.tiri_Salvezza?.saggezza == false">
+              <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" fill="currentColor" class="bi bi-circle"
+                viewBox="0 0 16 16">
+                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16" />
+              </svg>
+              Saggezza
+            </p>
+          </div>
+          <div>
+            <p *ngIf="PersonaggioFull.tiri_Salvezza?.intelligenza == true">
+              <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" fill="currentColor"
+                class="bi bi-circle-fill" viewBox="0 0 16 16">
+                <circle cx="8" cy="8" r="8" />
+              </svg>
+              Intelligenza
+            </p>
+            <p *ngIf="PersonaggioFull.tiri_Salvezza?.intelligenza == false">
+              <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" fill="currentColor" class="bi bi-circle"
+                viewBox="0 0 16 16">
+                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16" />
+              </svg>
+              Intelligenza
+            </p>
+          </div>
+          <div>
+            <p *ngIf="PersonaggioFull.tiri_Salvezza?.carisma == true">
+              <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" fill="currentColor"
+                class="bi bi-circle-fill" viewBox="0 0 16 16">
+                <circle cx="8" cy="8" r="8" />
+              </svg>
+              Carisma
+            </p>
+            <p *ngIf="PersonaggioFull.tiri_Salvezza?.carisma == false">
+              <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" fill="currentColor" class="bi bi-circle"
+                viewBox="0 0 16 16">
+                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16" />
+              </svg>
+              Carisma
+            </p>
+          </div>
+        </div>
+
+        <div class="CorniceBordo card" id="Ca" *ngFor="let armatura of PersonaggioFull.armatura">
+          <p>{{Ca}}</p>
+        </div>
+
+      </div>
+
+      <div class="">
+
+      </div>
+
+    </div>
+
+    <!--  ABILITA -->
+    <div class="d-flex flex-column justify-content-center align-items-center col-3">
+      <!-- COMPENTENZE -->
+      <div class="competenze card">
+        <h5 class="border-bottom border-black">Abilità</h5>
+        <div>
+          <p *ngIf="PersonaggioFull.abilita?.acrobazia">
+            <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" fill="currentColor" class="bi bi-circle-fill"
+              viewBox="0 0 16 16">
+              <circle cx="8" cy="8" r="8" />
+            </svg>
+            Acrobazia
+          </p>
+          <p *ngIf="PersonaggioFull.abilita?.acrobazia == false">
+            <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" fill="currentColor" class="bi bi-circle"
+              viewBox="0 0 16 16">
+              <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16" />
+            </svg>
+            Acrobazia
+          </p>
+        </div>
+
+        <div>
+          <p *ngIf="PersonaggioFull.abilita?.addestrare_Animali">
+            <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" fill="currentColor" class="bi bi-circle-fill"
+              viewBox="0 0 16 16">
+              <circle cx="8" cy="8" r="8" />
+            </svg>
+            Addestrare Animali
+          </p>
+          <p *ngIf="PersonaggioFull.abilita?.addestrare_Animali == false">
+            <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" fill="currentColor" class="bi bi-circle"
+              viewBox="0 0 16 16">
+              <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16" />
+            </svg>
+            Addestrare Animali
+          </p>
+        </div>
+
+        <div>
+          <p *ngIf="PersonaggioFull.abilita?.arcano">
+            <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" fill="currentColor" class="bi bi-circle-fill"
+              viewBox="0 0 16 16">
+              <circle cx="8" cy="8" r="8" />
+            </svg>
+            Arcano
+          </p>
+          <p *ngIf="PersonaggioFull.abilita?.arcano == false">
+            <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" fill="currentColor" class="bi bi-circle"
+              viewBox="0 0 16 16">
+              <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16" />
+            </svg>
+            Arcano
+          </p>
+        </div>
+
+        <div>
+          <p *ngIf="PersonaggioFull.abilita?.atletica">
+            <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" fill="currentColor" class="bi bi-circle-fill"
+              viewBox="0 0 16 16">
+              <circle cx="8" cy="8" r="8" />
+            </svg>
+            Atletica
+          </p>
+          <p *ngIf="PersonaggioFull.abilita?.atletica == false">
+            <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" fill="currentColor" class="bi bi-circle"
+              viewBox="0 0 16 16">
+              <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16" />
+            </svg>
+            Atletica
+          </p>
+        </div>
+
+        <div>
+          <p *ngIf="PersonaggioFull.abilita?.furtivita">
+            <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" fill="currentColor" class="bi bi-circle-fill"
+              viewBox="0 0 16 16">
+              <circle cx="8" cy="8" r="8" />
+            </svg>
+            Furtività
+          </p>
+          <p *ngIf="PersonaggioFull.abilita?.furtivita == false">
+            <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" fill="currentColor" class="bi bi-circle"
+              viewBox="0 0 16 16">
+              <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16" />
+            </svg>
+            Furtività
+          </p>
+        </div>
+
+        <div>
+          <p *ngIf="PersonaggioFull.abilita?.indagare">
+            <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" fill="currentColor" class="bi bi-circle-fill"
+              viewBox="0 0 16 16">
+              <circle cx="8" cy="8" r="8" />
+            </svg>
+            Indagare
+          </p>
+          <p *ngIf="PersonaggioFull.abilita?.indagare == false">
+            <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" fill="currentColor" class="bi bi-circle"
+              viewBox="0 0 16 16">
+              <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16" />
+            </svg>
+            Indagare
+          </p>
+        </div>
+
+        <div>
+          <p *ngIf="PersonaggioFull.abilita?.inganno">
+            <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" fill="currentColor" class="bi bi-circle-fill"
+              viewBox="0 0 16 16">
+              <circle cx="8" cy="8" r="8" />
+            </svg>
+            Inganno
+          </p>
+          <p *ngIf="PersonaggioFull.abilita?.inganno == false">
+            <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" fill="currentColor" class="bi bi-circle"
+              viewBox="0 0 16 16">
+              <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16" />
+            </svg>
+            Inganno
+          </p>
+        </div>
+
+        <div>
+          <p *ngIf="PersonaggioFull.abilita?.intimidire">
+            <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" fill="currentColor" class="bi bi-circle-fill"
+              viewBox="0 0 16 16">
+              <circle cx="8" cy="8" r="8" />
+            </svg>
+            Intimidire
+          </p>
+          <p *ngIf="PersonaggioFull.abilita?.intimidire == false">
+            <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" fill="currentColor" class="bi bi-circle"
+              viewBox="0 0 16 16">
+              <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16" />
+            </svg>
+            Intimidire
+          </p>
+        </div>
+
+        <div>
+          <p *ngIf="PersonaggioFull.abilita?.intrattenere">
+            <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" fill="currentColor" class="bi bi-circle-fill"
+              viewBox="0 0 16 16">
+              <circle cx="8" cy="8" r="8" />
+            </svg>
+            Intrattenere
+          </p>
+          <p *ngIf="PersonaggioFull.abilita?.intrattenere == false">
+            <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" fill="currentColor" class="bi bi-circle"
+              viewBox="0 0 16 16">
+              <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16" />
+            </svg>
+            Intrattenere
+          </p>
+        </div>
+
+        <div>
+          <p *ngIf="PersonaggioFull.abilita?.intuizione">
+            <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" fill="currentColor" class="bi bi-circle-fill"
+              viewBox="0 0 16 16">
+              <circle cx="8" cy="8" r="8" />
+            </svg>
+            Intuizione
+          </p>
+          <p *ngIf="PersonaggioFull.abilita?.intuizione == false">
+            <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" fill="currentColor" class="bi bi-circle"
+              viewBox="0 0 16 16">
+              <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16" />
+            </svg>
+            Intuizione
+          </p>
+        </div>
+
+        <div>
+          <p *ngIf="PersonaggioFull.abilita?.medicina">
+            <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" fill="currentColor" class="bi bi-circle-fill"
+              viewBox="0 0 16 16">
+              <circle cx="8" cy="8" r="8" />
+            </svg>
+            Medicina
+          </p>
+          <p *ngIf="PersonaggioFull.abilita?.medicina == false">
+            <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" fill="currentColor" class="bi bi-circle"
+              viewBox="0 0 16 16">
+              <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16" />
+            </svg>
+            Medicina
+          </p>
+        </div>
+
+        <div>
+          <p *ngIf="PersonaggioFull.abilita?.natura">
+            <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" fill="currentColor" class="bi bi-circle-fill"
+              viewBox="0 0 16 16">
+              <circle cx="8" cy="8" r="8" />
+            </svg>
+            Natura
+          </p>
+          <p *ngIf="PersonaggioFull.abilita?.natura == false">
+            <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" fill="currentColor" class="bi bi-circle"
+              viewBox="0 0 16 16">
+              <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16" />
+            </svg>
+            Natura
+          </p>
+        </div>
+
+        <div>
+          <p *ngIf="PersonaggioFull.abilita?.percezione">
+            <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" fill="currentColor" class="bi bi-circle-fill"
+              viewBox="0 0 16 16">
+              <circle cx="8" cy="8" r="8" />
+            </svg>
+            Percezione
+          </p>
+          <p *ngIf="PersonaggioFull.abilita?.percezione == false">
+            <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" fill="currentColor" class="bi bi-circle"
+              viewBox="0 0 16 16">
+              <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16" />
+            </svg>
+            Percezione
+          </p>
+        </div>
+
+        <div>
+          <p *ngIf="PersonaggioFull.abilita?.persuasione">
+            <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" fill="currentColor" class="bi bi-circle-fill"
+              viewBox="0 0 16 16">
+              <circle cx="8" cy="8" r="8" />
+            </svg>
+            Persuasione
+          </p>
+          <p *ngIf="PersonaggioFull.abilita?.persuasione == false">
+            <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" fill="currentColor" class="bi bi-circle"
+              viewBox="0 0 16 16">
+              <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16" />
+            </svg>
+            Persuasione
+          </p>
+        </div>
+
+        <div>
+          <p *ngIf="PersonaggioFull.abilita?.rapidita_di_Mano">
+            <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" fill="currentColor" class="bi bi-circle-fill"
+              viewBox="0 0 16 16">
+              <circle cx="8" cy="8" r="8" />
+            </svg>
+            Rapidita di Mano
+          </p>
+          <p *ngIf="PersonaggioFull.abilita?.rapidita_di_Mano == false">
+            <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" fill="currentColor" class="bi bi-circle"
+              viewBox="0 0 16 16">
+              <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16" />
+            </svg>
+            Rapidita di Mano
+          </p>
+        </div>
+
+        <div>
+          <p *ngIf="PersonaggioFull.abilita?.religione">
+            <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" fill="currentColor" class="bi bi-circle-fill"
+              viewBox="0 0 16 16">
+              <circle cx="8" cy="8" r="8" />
+            </svg>
+            Religione
+          </p>
+          <p *ngIf="PersonaggioFull.abilita?.religione == false">
+            <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" fill="currentColor" class="bi bi-circle"
+              viewBox="0 0 16 16">
+              <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16" />
+            </svg>
+            Religione
+          </p>
+        </div>
+
+        <div>
+          <p *ngIf="PersonaggioFull.abilita?.sopravvivenza">
+            <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" fill="currentColor" class="bi bi-circle-fill"
+              viewBox="0 0 16 16">
+              <circle cx="8" cy="8" r="8" />
+            </svg>
+            Sopravvivenza
+          </p>
+          <p *ngIf="PersonaggioFull.abilita?.sopravvivenza == false">
+            <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" fill="currentColor" class="bi bi-circle"
+              viewBox="0 0 16 16">
+              <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16" />
+            </svg>
+            Sopravvivenza
+          </p>
+        </div>
+
+        <div>
+          <p *ngIf="PersonaggioFull.abilita?.storia">
+            <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" fill="currentColor" class="bi bi-circle-fill"
+              viewBox="0 0 16 16">
+              <circle cx="8" cy="8" r="8" />
+            </svg>
+            Storia
+          </p>
+          <p *ngIf="PersonaggioFull.abilita?.storia == false">
+            <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" fill="currentColor" class="bi bi-circle"
+              viewBox="0 0 16 16">
+              <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16" />
+            </svg>
+            Storia
+          </p>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+
+</body>

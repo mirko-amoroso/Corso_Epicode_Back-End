@@ -1,0 +1,11 @@
+<div class="d-flex flex-wrap justify-content-around">
+  <div class="card d-flex col-3 my-3" *ngFor="let personaggi of ArrayPersonaggi">
+    <div class="card-body">
+      <h5 class="card-title">{{personaggi.nome}}</h5>
+      <div class="card-text" *ngFor="let classe of personaggi.classi">
+        <p>{{classe.tipoClasse}} {{classe.livello}}</p>
+      </div>
+    </div>
+    <button (click)="RedirectPersonaggio(personaggi.personaggioID)">Personaggio</button>
+  </div>
+</div>

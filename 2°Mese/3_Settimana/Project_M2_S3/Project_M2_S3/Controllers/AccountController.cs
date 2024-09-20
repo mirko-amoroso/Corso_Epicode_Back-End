@@ -24,7 +24,6 @@ namespace Project_M2_S3.Controllers
             return RedirectToAction("Login");
         }
 
-
         public IActionResult Login([FromQuery] string? returnUrl = "/")
         {
             TempData["ReturnUrl"] = returnUrl;

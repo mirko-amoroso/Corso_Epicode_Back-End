@@ -1,6 +1,7 @@
 ﻿using System.IO;
 using System.Security.Claims;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -33,7 +34,7 @@ namespace Project_M2_S3.Controllers
         }
 
         //Il form
-
+        [Authorize(Roles = "Amministratore")]
         public async Task<IActionResult> Create()
         {
             var tuttiIngredienti = await ServiceIngredienti.GetAll(); // Usa 'await' per aspettare il completamento del Task
@@ -92,6 +93,7 @@ namespace Project_M2_S3.Controllers
         }
         //*************************************************************
 
+        [Authorize(Roles = "Utente, Amministratore")]
         public async Task<IActionResult> TuttePizze()
         {
             var pizze = ServicePizze.GetAll();
@@ -107,6 +109,7 @@ namespace Project_M2_S3.Controllers
             return View(ProdottoFinale);
         }
 
+        [Authorize(Roles = "Amministratore, Utente")]
         public ActionResult InviaOrdine(ListProductEccAddress ListaPizza)
         {
             if (User.Identity.IsAuthenticated)
@@ -129,7 +132,7 @@ namespace Project_M2_S3.Controllers
 
 
         //*************************************************************
-
+        [Authorize(Roles = "Utente")]
         public async Task<IActionResult> Index()
         {
             var prodotti = await DContext.Products.ToListAsync();
