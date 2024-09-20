@@ -12,6 +12,8 @@ namespace backend_D_D.Models.Entity
         public int IdUtente { get; set; }
         [Required, MaxLength(50)]
         public string Nome { get; set; }
+        public string Razza { get; set; }
+        public int MoneteOro { get; set; }
         public Utente? Utente { get; set; }
         public ICollection<Armi>? Armi { get; set; }
         public ICollection<Armatura>? Armatura { get; set; }

@@ -165,10 +165,69 @@
           </div>
         </div>
 
-        <div class="CorniceBordo card" id="Ca" *ngFor="let armatura of PersonaggioFull.armatura">
-          <p>{{Ca}}</p>
+        <!-- statistiche pentagono -->
+        <div class="d-flex flex-column col-6">
+
+          <div class="d-flex justify-content-around">
+            <div class="CorniceScudi card In_Ve d-flex justify-content-center align-items-center">
+              <h6 class="position-absolute top-0">Inizativa</h6>
+              <div>
+                <p>{{calcoloAttribbuto(PersonaggioFull.attributi!.destrezza)}}</p>
+              </div>
+            </div>
+            <div class="CorniceScudi card Ca d-flex justify-content-center align-items-center">
+              <p>CA {{Ca}}</p>
+            </div>
+            <div class="CorniceScudi card In_Ve d-flex justify-content-center align-items-center">
+              <h6 class="position-absolute top-0">Velocità</h6>
+              <div>
+                <p>{{Velocita}}</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="d-flex justify-content-evenly mt-3">
+            <div class="CorniceScudi card In_Ve d-flex justify-content-center align-items-center">
+              <h6 class="position-absolute top-0">Competenza</h6>
+              <div>
+                <p>+{{Competenza}}</p>
+              </div>
+            </div>
+            <div class="CorniceScudi card In_Ve d-flex justify-content-center align-items-center">
+              <h6 class="position-absolute top-0">P. passiva</h6>
+              <div>
+                <p>{{Saggezza_passiva}}</p>
+              </div>
+            </div>
+          </div>
         </div>
 
+        <div class="d-flex col-1"></div>
+
+        <div class="d-flex flex-column col-3">
+          <div class="d-flex justify-content-around">
+            <div class="CorniceScudi card Dv d-flex justify-content-center align-items-center">
+              <h6 class="position-absolute top-0">Dadi Vita:</h6>
+              <div *ngFor="let d of Dadi_Vita">
+                <span> {{d}}</span> <br>
+              </div>
+            </div>
+            <div class="CorniceScudi card Dv d-flex justify-content-center align-items-center">
+              <h6 class="position-absolute top-0">Punti Ferita:</h6>
+              <div>
+                <span>{{PersonaggioFull.attributi?.pv}}</span>
+              </div>
+            </div>
+          </div>
+          <div class="d-flex justify-content-center mt-3">
+            <div class="CorniceScudi card Mo d-flex justify-content-center align-items-center">
+              <h6 class="position-absolute top-0">M. Oro:</h6>
+              <div class="mt-4">
+                <span>{{PersonaggioFull.moneteOro}}</span>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
 
       <div class="">

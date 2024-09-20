@@ -11,6 +11,8 @@ export interface IPersonaggio {
     idUtente: number;
     nome: string;
     utente: any;
+    razza: string;
+    moneteOro : number;
     armi: IArmi | null;
     armatura: IArmatura[] | null;
     inventario: any;

@@ -1,0 +1,96 @@
+// body{
+//   background-image: url("http://localhost:4200/assets/immagine_ti_sfondo.jpg");
+//   background-size: cover; /* L'immagine copre l'intero contenitore */
+//   background-position: center;
+//   background-repeat: no-repeat;
+//   height: 90.5vh;
+//   color: rgb(0, 0, 0) !important;
+// }
+
+/* Contenitore del radio button */
+.custom-radio {
+  display: inline-block;
+  position: relative;
+  padding-left: 35px;
+  margin-right: 20px;
+  cursor: pointer;
+  font-size: 18px;
+  color: #333;
+  font-family: Arial, sans-serif;
+  user-select: none;
+}
+
+/* Nascondi il radio button originale */
+.custom-radio input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* Cerchio esterno del radio button */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 24px;
+  width: 24px;
+  background-color: #f0f0f0;
+  border-radius: 50%;
+  border: 2px solid #888;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Effetto hover per il cerchio esterno */
+.custom-radio:hover input ~ .checkmark {
+  background-color: #e6e6e6;
+  border-color: #666;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Pallino interno quando selezionato */
+.custom-radio input:checked ~ .checkmark {
+  background-color: #030095;
+  border-color: #030095;
+  box-shadow: 0 4px 12px rgba(76, 175, 80, 0.5);
+}
+
+/* Pallino al centro */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Mostra il pallino quando selezionato */
+.custom-radio input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Stile del pallino interno */
+.custom-radio .checkmark:after {
+  top: 6px;
+  left: 6px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: white;
+}
+
+/* Animazione di rimbalzo quando selezionato */
+.custom-radio input:checked ~ .checkmark:after {
+  animation: bounce 0.3s ease forwards;
+}
+
+/* Definizione dell'animazione per il pallino interno */
+@keyframes bounce {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}

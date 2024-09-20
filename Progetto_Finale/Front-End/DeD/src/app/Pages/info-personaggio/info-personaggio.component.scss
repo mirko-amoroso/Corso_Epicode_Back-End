@@ -56,17 +56,34 @@
     background-color: #ffffff21;
 }
 
-#Ca {
+.Ca {
   background-image: url("http://localhost:4200/assets/fotoCA.png");
   background-size: contain; /* L'immagine copre l'intero contenitore */
   background-position: center; /* L'immagine è centrata */
   background-repeat: no-repeat;
 }
 
+.Dv {
+  background-image: url("http://localhost:4200/assets/Vita.png");
+  background-size: contain; /* L'immagine copre l'intero contenitore */
+  background-position: center; /* L'immagine è centrata */
+  background-repeat: no-repeat;
+}
 
-  // .sfondo {
-  //   background-color: rgb(41, 149, 149);
-  // }
-// .lod {
-//   background-color: rgb(255, 255, 255, 0.8);
-// }
+.In_Ve {
+  background-image: url("http://localhost:4200/assets/Vel_Ini.png");
+  background-size: contain; /* L'immagine copre l'intero contenitore */
+  background-position: center; /* L'immagine è centrata */
+  background-repeat: no-repeat;
+}
+.Mo {
+  background-image: url("http://localhost:4200/assets/Monete_Doro.png");
+  background-size: contain; /* L'immagine copre l'intero contenitore */
+  background-position: center; /* L'immagine è centrata */
+  background-repeat: no-repeat;
+}
+
+.CorniceScudi {
+  width: 100px;
+  height: 110px;
+}

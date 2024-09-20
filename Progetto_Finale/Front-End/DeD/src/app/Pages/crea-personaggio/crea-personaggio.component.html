@@ -1,1 +1,139 @@
-<p>crea-personaggio works!</p>
+<body>
+
+
+  <h2 class="text-center">Crea Personaggio</h2>
+
+  <form [formGroup]="personaggioForm" (ngSubmit)="continua()" class="m-3">
+    <div class="mb-3">
+      <label class="custom-radio" for="Nome" class="form-label">Nome:</label>
+      <input type="text" class="form-control" id="EmailRegiter" formControlName="Nome" name="nome">
+    </div>
+    <div class="mb-3">
+      <h5 for="Razza" class="form-label">Razza</h5>
+      <label class="custom-radio" for="Dragonide">Dragonide
+        <input type="radio" id="Dragonide" formControlName="Razza" name="Razza" value="Dragonide">
+        <span class="checkmark"></span>
+      </label>
+
+      <label class="custom-radio" for="Nano">Nano
+        <input type="radio" id="Nano" formControlName="Razza" name="Razza" value="Nano">
+        <span class="checkmark"></span>
+      </label>
+
+      <label class="custom-radio" for="Elfo">Elfo
+        <input type="radio" id="Elfo" formControlName="Razza" name="Razza" value="Elfo">
+        <span class="checkmark"></span>
+      </label>
+
+      <label class="custom-radio" for="Gnomo">Gnomo
+        <input type="radio" id="Gnomo" formControlName="Razza" name="Razza" value="Gnomo">
+        <span class="checkmark"></span>
+      </label>
+
+      <label class="custom-radio" for="MezzElfo">MezzElfo
+        <input type="radio" id="MezzElfo" formControlName="Razza" name="Razza" value="MezzElfo">
+        <span class="checkmark"></span>
+      </label>
+
+      <label class="custom-radio" for="MezzOrco">MezzOrco
+        <input type="radio" id="MezzOrco" formControlName="Razza" name="Razza" value="MezzOrco">
+        <span class="checkmark"></span>
+      </label>
+
+      <label class="custom-radio" for="Halfling">Halfling
+        <input type="radio" id="Halfling" formControlName="Razza" name="Razza" value="Halfling">
+        <span class="checkmark"></span>
+      </label>
+
+      <label class="custom-radio" for="Umano">Umano
+        <input type="radio" id="Umano" formControlName="Razza" name="Razza" value="Umano">
+        <span class="checkmark"></span>
+      </label>
+
+      <label class="custom-radio" for="Tiefling">Tiefling
+        <input type="radio" id="Tiefling" formControlName="Razza" name="Razza" value="Tiefling">
+        <span class="checkmark"></span>
+      </label>
+
+    </div>
+
+    <div class="d-flex">
+      <div class="mb-3">
+        <button type="submit" class="btn btn-primary">Continua</button>
+      </div>
+    </div>
+  </form>
+
+  <form [formGroup]="classiForm" class="m-3">
+    <div class="mb-3">
+      <h5 for="Razza" class="form-label">Razza</h5>
+      <label class="custom-radio" for="Barbaro">Barbaro
+        <input type="radio" id="Barbaro" formControlName="Razza" name="Razza" value="Barbaro">
+        <span class="checkmark"></span>
+      </label>
+
+      <label class="custom-radio" for="Bardo">Bardo
+        <input type="radio" id="Bardo" formControlName="Razza" name="Razza" value="Bardo">
+        <span class="checkmark"></span>
+      </label>
+
+      <label class="custom-radio" for="Chierico">Chierico
+        <input type="radio" id="Chierico" formControlName="Razza" name="Razza" value="Chierico">
+        <span class="checkmark"></span>
+      </label>
+
+      <label class="custom-radio" for="Druido">Druido
+        <input type="radio" id="Druido" formControlName="Razza" name="Razza" value="Druido">
+        <span class="checkmark"></span>
+      </label>
+
+      <label class="custom-radio" for="Guerriero">Guerriero
+        <input type="radio" id="Guerriero" formControlName="Razza" name="Razza" value="Guerriero">
+        <span class="checkmark"></span>
+      </label>
+
+      <label class="custom-radio" for="Ladro">Ladro
+        <input type="radio" id="Ladro" formControlName="Razza" name="Razza" value="Ladro">
+        <span class="checkmark"></span>
+      </label>
+
+      <label class="custom-radio" for="Mago">Mago
+        <input type="radio" id="Mago" formControlName="Razza" name="Razza" value="Mago">
+        <span class="checkmark"></span>
+      </label>
+
+      <label class="custom-radio" for="Monaco">Monaco
+        <input type="radio" id="Monaco" formControlName="Razza" name="Razza" value="Monaco">
+        <span class="checkmark"></span>
+      </label>
+
+      <label class="custom-radio" for="Paladino">Paladino
+        <input type="radio" id="Paladino" formControlName="Razza" name="Razza" value="Paladino">
+        <span class="checkmark"></span>
+      </label>
+
+      <label class="custom-radio" for="Ranger">Ranger
+        <input type="radio" id="Ranger" formControlName="Razza" name="Razza" value="Ranger">
+        <span class="checkmark"></span>
+      </label>
+
+      <label class="custom-radio" for="Stregone">Stregone
+        <input type="radio" id="Stregone" formControlName="Razza" name="Razza" value="Stregone">
+        <span class="checkmark"></span>
+      </label>
+
+      <label class="custom-radio" for="Warlock">Warlock
+        <input type="radio" id="Warlock" formControlName="Razza" name="Razza" value="Warlock">
+        <span class="checkmark"></span>
+      </label>
+
+    </div>
+
+    <div class="d-flex">
+      <div class="mb-3">
+        <button type="submit" class="btn btn-primary">Continua</button>
+      </div>
+    </div>
+  </form>
+
+</body>
