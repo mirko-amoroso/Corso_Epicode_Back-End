@@ -1,8 +1,9 @@
 export interface IBackground {
   backgroundId: number,
-  trattiCaratteriali: number,
-  ideali: number,
-  legami: number,
-  difetti: number,
+  trattiCaratteriali: string,
+  ideali: string,
+  legami: string,
+  difetti: string,
   allineamento: string
+  backGround: string
 }

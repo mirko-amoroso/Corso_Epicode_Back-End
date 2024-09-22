@@ -1,6 +1,6 @@
 export interface IAbilita {
   abilitaId: number;
-  personaggioID: boolean;
+  personaggioID: number;
   acrobazia: boolean;
   addestrare_Animali: boolean;
   arcano: boolean;

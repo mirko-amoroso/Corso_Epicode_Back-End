@@ -9,14 +9,15 @@ namespace backend_D_D.Models.Entity
         public int BackgroundId { get; set; }
         [ForeignKey("Personaggio"), Required]
         public int PersonaggioID { get; set; }
+        public string BackGround { get; set; }
         [Required]
-        public int TrattiCaratteriali { get; set; }
+        public string TrattiCaratteriali { get; set; }
         [Required]
-        public int Ideali { get; set; }
+        public string Ideali { get; set; }
         [Required]
-        public int Legami { get; set; }
+        public string Legami { get; set; }
         [Required]
-        public int Difetti { get; set; }
+        public string Difetti { get; set; }
         [Required]
         public string Allineamento { get; set; }
         //public Personaggio? Personaggio { get; set; }

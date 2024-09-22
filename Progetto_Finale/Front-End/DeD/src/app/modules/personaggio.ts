@@ -7,15 +7,15 @@ import { IClassi } from "./classi";
 import { ITiriSalvezza } from "./tiri-salvezza";
 
 export interface IPersonaggio {
-    personaggioID: number;
+    personaggioID: number | null;
     idUtente: number;
     nome: string;
-    utente: any;
+    utente: any | null;
     razza: string;
-    moneteOro : number;
+    moneteOro : number | null;
     armi: IArmi | null;
     armatura: IArmatura[] | null;
-    inventario: any;
+    inventario: any | null;
     abilita: IAbilita | null;
     attributi: IAttributi | null;
     backgound: IBackground | null;

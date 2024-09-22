@@ -3,7 +3,8 @@
 
   <h2 class="text-center">Crea Personaggio</h2>
 
-  <form [formGroup]="personaggioForm" (ngSubmit)="continua()" class="m-3">
+  <!-- Razza e Nome radio -->
+  <form [formGroup]="personaggioForm" (ngSubmit)="continua()" class="m-3" *ngIf="contatore === 0">
     <div class="mb-3">
       <label class="custom-radio" for="Nome" class="form-label">Nome:</label>
       <input type="text" class="form-control" id="EmailRegiter" formControlName="Nome" name="nome">
@@ -64,66 +65,67 @@
     </div>
   </form>
 
-  <form [formGroup]="classiForm" class="m-3">
+  <!-- Classe radio -->
+  <form [formGroup]="classiForm" (ngSubmit)="continua()" class="m-3" *ngIf="contatore === 1">
     <div class="mb-3">
-      <h5 for="Razza" class="form-label">Razza</h5>
+      <h5 for="Razza" class="form-label">Classe</h5>
       <label class="custom-radio" for="Barbaro">Barbaro
-        <input type="radio" id="Barbaro" formControlName="Razza" name="Razza" value="Barbaro">
+        <input type="radio" id="Barbaro" formControlName="TipoClasse" name="TipoClasse" value="Barbaro">
         <span class="checkmark"></span>
       </label>
 
       <label class="custom-radio" for="Bardo">Bardo
-        <input type="radio" id="Bardo" formControlName="Razza" name="Razza" value="Bardo">
+        <input type="radio" id="Bardo" formControlName="TipoClasse" name="TipoClasse" value="Bardo">
         <span class="checkmark"></span>
       </label>
 
       <label class="custom-radio" for="Chierico">Chierico
-        <input type="radio" id="Chierico" formControlName="Razza" name="Razza" value="Chierico">
+        <input type="radio" id="Chierico" formControlName="TipoClasse" name="TipoClasse" value="Chierico">
         <span class="checkmark"></span>
       </label>
 
       <label class="custom-radio" for="Druido">Druido
-        <input type="radio" id="Druido" formControlName="Razza" name="Razza" value="Druido">
+        <input type="radio" id="Druido" formControlName="TipoClasse" name="TipoClasse" value="Druido">
         <span class="checkmark"></span>
       </label>
 
       <label class="custom-radio" for="Guerriero">Guerriero
-        <input type="radio" id="Guerriero" formControlName="Razza" name="Razza" value="Guerriero">
+        <input type="radio" id="Guerriero" formControlName="TipoClasse" name="TipoClasse" value="Guerriero">
         <span class="checkmark"></span>
       </label>
 
       <label class="custom-radio" for="Ladro">Ladro
-        <input type="radio" id="Ladro" formControlName="Razza" name="Razza" value="Ladro">
+        <input type="radio" id="Ladro" formControlName="TipoClasse" name="TipoClasse" value="Ladro">
         <span class="checkmark"></span>
       </label>
 
       <label class="custom-radio" for="Mago">Mago
-        <input type="radio" id="Mago" formControlName="Razza" name="Razza" value="Mago">
+        <input type="radio" id="Mago" formControlName="TipoClasse" name="TipoClasse" value="Mago">
         <span class="checkmark"></span>
       </label>
 
       <label class="custom-radio" for="Monaco">Monaco
-        <input type="radio" id="Monaco" formControlName="Razza" name="Razza" value="Monaco">
+        <input type="radio" id="Monaco" formControlName="TipoClasse" name="TipoClasse" value="Monaco">
         <span class="checkmark"></span>
       </label>
 
       <label class="custom-radio" for="Paladino">Paladino
-        <input type="radio" id="Paladino" formControlName="Razza" name="Razza" value="Paladino">
+        <input type="radio" id="Paladino" formControlName="TipoClasse" name="TipoClasse" value="Paladino">
         <span class="checkmark"></span>
       </label>
 
       <label class="custom-radio" for="Ranger">Ranger
-        <input type="radio" id="Ranger" formControlName="Razza" name="Razza" value="Ranger">
+        <input type="radio" id="Ranger" formControlName="TipoClasse" name="TipoClasse" value="Ranger">
         <span class="checkmark"></span>
       </label>
 
       <label class="custom-radio" for="Stregone">Stregone
-        <input type="radio" id="Stregone" formControlName="Razza" name="Razza" value="Stregone">
+        <input type="radio" id="Stregone" formControlName="TipoClasse" name="TipoClasse" value="Stregone">
         <span class="checkmark"></span>
       </label>
 
       <label class="custom-radio" for="Warlock">Warlock
-        <input type="radio" id="Warlock" formControlName="Razza" name="Razza" value="Warlock">
+        <input type="radio" id="Warlock" formControlName="TipoClasse" name="TipoClasse" value="Warlock">
         <span class="checkmark"></span>
       </label>
 
@@ -133,6 +135,289 @@
       <div class="mb-3">
         <button type="submit" class="btn btn-primary">Continua</button>
       </div>
+    </div>
+  </form>
+
+  <!-- Background radio -->
+  <form [formGroup]="backgroundSceltaForm" (ngSubmit)="continua()" class="m-3" *ngIf="contatore === 2">
+    <div class="mb-3">
+      <h5 for="Razza" class="form-label">Background</h5>
+      <label class="custom-radio" for="Accolito">Accolito
+        <input type="radio" id="Accolito" formControlName="Background" name="Background" value="Accolito">
+        <span class="checkmark"></span>
+      </label>
+
+      <label class="custom-radio" for="Ciarlatano">Ciarlatano
+        <input type="radio" id="Ciarlatano" formControlName="Background" name="Background" value="Ciarlatano">
+        <span class="checkmark"></span>
+      </label>
+
+      <label class="custom-radio" for="Criminale">Criminale
+        <input type="radio" id="Criminale" formControlName="Background" name="Background" value="Criminale">
+        <span class="checkmark"></span>
+      </label>
+
+      <label class="custom-radio" for="Intrattenitore">Intrattenitore
+        <input type="radio" id="Intrattenitore" formControlName="Background" name="Background" value="Intrattenitore">
+        <span class="checkmark"></span>
+      </label>
+
+      <label class="custom-radio" for="Eroe_Popolare">Eroe Popolare
+        <input type="radio" id="Eroe_Popolare" formControlName="Background" name="Background" value="Eroe_Popolare">
+        <span class="checkmark"></span>
+      </label>
+
+      <label class="custom-radio" for="Artigiano_della_Corporazione">Artigiano della Corporazione
+        <input type="radio" id="Artigiano_della_Corporazione" formControlName="Background" name="Background"
+          value="Artigiano_della_Corporazione">
+        <span class="checkmark"></span>
+      </label>
+
+      <label class="custom-radio" for="Eremita">Eremita
+        <input type="radio" id="Eremita" formControlName="Background" name="Background" value="Eremita">
+        <span class="checkmark"></span>
+      </label>
+
+      <label class="custom-radio" for="Nobile">Nobile
+        <input type="radio" id="Nobile" formControlName="Background" name="Background" value="Nobile">
+        <span class="checkmark"></span>
+      </label>
+
+      <label class="custom-radio" for="Fuorilegge">Fuorilegge
+        <input type="radio" id="Fuorilegge" formControlName="Background" name="Background" value="Fuorilegge">
+        <span class="checkmark"></span>
+      </label>
+
+      <label class="custom-radio" for="Saggio">Saggio
+        <input type="radio" id="Saggio" formControlName="Background" name="Background" value="Saggio">
+        <span class="checkmark"></span>
+      </label>
+
+      <label class="custom-radio" for="Marinaio">Marinaio
+        <input type="radio" id="Marinaio" formControlName="Background" name="Background" value="Marinaio">
+        <span class="checkmark"></span>
+      </label>
+
+      <label class="custom-radio" for="Soldato">Soldato
+        <input type="radio" id="Soldato" formControlName="Background" name="Background" value="Soldato">
+        <span class="checkmark"></span>
+      </label>
+
+      <label class="custom-radio" for="Monello">Monello
+        <input type="radio" id="Monello" formControlName="Background" name="Background" value="Monello">
+        <span class="checkmark"></span>
+      </label>
+
+    </div>
+
+    <div class="d-flex">
+      <div class="mb-3">
+        <button type="submit" class="btn btn-primary">Continua</button>
+      </div>
+    </div>
+  </form>
+
+  <!-- Attirbuti -->
+  <form [formGroup]="attributiForm" (ngSubmit)="continua()" class="m-3 " *ngIf="contatore === 3">
+    <div class="row">
+      <div class="d-flex justify-content-around col-12">
+        <!-- FORZA-->
+        <div class="d-flex flex-column cardAtt">
+          <h6 class="">Forza</h6>
+          <div class="Cornice_Classe d-flex justify-content-center align-items-center flex-column">
+            <!-- Select per la Forza -->
+            <select [(ngModel)]="selectedValue" formControlName="Forza" class="form-select mt-2 custom-select"
+              (change)="rimuovi($event, 'Forza')" *ngIf="attributi.forza === 0">
+              <ng-container *ngFor="let valore of valore_dado">
+                <option [value]="valore" *ngIf="valore !== 0">{{ valore }} </option>
+              </ng-container>
+            </select>
+            <p class="mt-2" *ngIf="attributi.forza !== 0"><span class="fw-medium fs-5">{{attributi.forza}}</span></p>
+          </div>
+        </div>
+        <!-- DESTREZZA -->
+        <div class="d-flex flex-column cardAtt">
+          <h6>Destrezza</h6>
+          <div class="Cornice_Classe d-flex justify-content-center align-items-center flex-column">
+            <select [(ngModel)]="selectedValue" formControlName="Destrezza" class="form-select mt-2 custom-select"
+              (change)="rimuovi($event, 'Destrezza')" *ngIf="attributi.destrezza === 0">
+              <ng-container *ngFor="let valore of valore_dado">
+                <option [value]="valore" *ngIf="valore !== 0">{{ valore }} </option>
+              </ng-container>
+            </select>
+            <p class="mt-2" *ngIf="attributi.destrezza !== 0"><span
+                class="fw-medium fs-5">{{attributi.destrezza}}</span></p>
+          </div>
+        </div>
+        <!-- COSTITUZIONE -->
+        <div class="d-flex flex-column cardAtt">
+          <h6>Costituzione</h6>
+          <div class="Cornice_Classe d-flex justify-content-center align-items-center flex-column">
+            <select [(ngModel)]="selectedValue" formControlName="Costituzione" class="form-select mt-2 custom-select"
+              (change)="rimuovi($event, 'Costituzione')" *ngIf="attributi.costituzione === 0">
+              <ng-container *ngFor="let valore of valore_dado">
+                <option [value]="valore" *ngIf="valore !== 0">{{ valore }} </option>
+              </ng-container>
+            </select>
+            <p class="mt-2" *ngIf="attributi.costituzione !== 0"><span
+                class="fw-medium fs-5">{{attributi.costituzione}}</span></p>
+          </div>
+        </div>
+        <!-- SAGGEZZA -->
+        <div class="d-flex flex-column cardAtt">
+          <h6>Saggezza</h6>
+          <div class="Cornice_Classe d-flex justify-content-center align-items-center flex-column">
+            <select [(ngModel)]="selectedValue" formControlName="Saggezza" class="form-select mt-2 custom-select"
+              (change)="rimuovi($event, 'Saggezza')" *ngIf="attributi.saggezza === 0">
+              <ng-container *ngFor="let valore of valore_dado">
+                <option [value]="valore" *ngIf="valore !== 0">{{ valore }} </option>
+              </ng-container>
+            </select>
+            <p class="mt-2" *ngIf="attributi.saggezza !== 0"><span class="fw-medium fs-5">{{attributi.saggezza}}</span>
+            </p>
+          </div>
+        </div>
+        <!-- INTELLIGENZA -->
+        <div class="d-flex flex-column cardAtt">
+          <h6>Intelligenza</h6>
+          <div class="Cornice_Classe d-flex justify-content-center align-items-center flex-column">
+            <select [(ngModel)]="selectedValue" formControlName="Intelligenza" class="form-select mt-2 custom-select"
+              (change)="rimuovi($event, 'Intelligenza')" *ngIf="attributi.intelligenza === 0">
+              <ng-container *ngFor="let valore of valore_dado">
+                <option [value]="valore" *ngIf="valore !== 0">{{ valore }} </option>
+              </ng-container>
+            </select>
+            <p class="mt-2" *ngIf="attributi.intelligenza !== 0"><span
+                class="fw-medium fs-5">{{attributi.intelligenza}}</span></p>
+          </div>
+        </div>
+        <!--CARISMA -->
+        <div class="d-flex flex-column cardAtt">
+          <h6>Carisma</h6>
+          <div class="Cornice_Classe d-flex justify-content-center align-items-center flex-column">
+            <select [(ngModel)]="selectedValue" formControlName="Carisma" class="form-select mt-2 custom-select"
+              (change)="rimuovi($event, 'Carisma')" *ngIf="attributi.carisma === 0">
+              <ng-container *ngFor="let valore of valore_dado">
+                <option [value]="valore" *ngIf="valore !== 0">{{ valore }} </option>
+              </ng-container>
+            </select>
+            <p class="mt-2" *ngIf="attributi.carisma !== 0"><span class="fw-medium fs-5">{{attributi.carisma}}</span>
+            </p>
+          </div>
+        </div>
+
+        <div class="d-flex flex-column cardAtt"></div>
+        <h6>Punti vita</h6>
+        <div class="Cornice_Classe d-flex justify-content-center align-items-center flex-column">
+        </div>
+        <button type="button" class="btn btn-primary" (click)="calcoloPv()" *ngIf="attributi.costituzione !== 0"> tira punti vita</button>
+        <p class="mt-2" *ngIf="attributi.pv !== 0"><span class="fw-medium fs-5">{{attributi.pv}}</span>
+        </p>
+
+      </div>
+    </div>
+
+
+    <div class="row mt-5">
+
+      <div class="d-flex justify-content-center" *ngIf="valore_dado_copia.length < 7">
+        <button type="button" class="btn btn-primary" (click)="rollDice()">Tira il dado</button>
+      </div>
+      <div class="d-flex justify-content-center">
+        <button type="button" class="btn btn-primary" (click)="reset()">Resetta</button>
+      </div>
+    </div>
+    <div class="d-flex col-5">
+      <div class="d-flex" *ngFor="let statistiche of valore_dado">
+        <p *ngIf="statistiche !== 0">{{statistiche}}</p>
+      </div>
+    </div>
+    <div class="d-flex">
+      <div class="mb-3">
+        <button type="submit" class="btn btn-primary">Continua</button>
+      </div>
+    </div>
+  </form>
+
+  <form [formGroup]="abilitaForm" (ngSubmit)="Salva()" class="m-3 " *ngIf="contatore === 4">
+    <div class="mb-3">
+      <h5 for="Razza" class="form-label">Abilità</h5>
+      <label class="custom-checkbox" for="Acrobazia">Acrobazia
+        <input type="checkbox" id="Acrobazia" formControlName="Acrobazia" name="Acrobazia">
+        <span class="check ms-2"></span>
+      </label>
+      <label class="custom-checkbox" for="Addestrare_Animali">Addestrare Animali
+        <input type="checkbox" id="Addestrare_Animali" formControlName="Addestrare_Animali" name="Addestrare_Animali">
+        <span class="check ms-2"></span>
+      </label>
+      <label class="custom-checkbox" for="Arcano">Arcano
+        <input type="checkbox" id="Arcano" formControlName="Arcano" name="Arcano">
+        <span class="check ms-2"></span>
+      </label>
+      <label class="custom-checkbox" for="Atletica">Atletica
+        <input type="checkbox" id="Atletica" formControlName="Atletica" name="Atletica">
+        <span class="check ms-2"></span>
+      </label>
+      <label class="custom-checkbox" for="Furtivita">Furtivita
+        <input type="checkbox" id="Furtivita" formControlName="Furtivita" name="Furtivita">
+        <span class="check ms-2"></span>
+      </label>
+      <label class="custom-checkbox" for="Indagare">Indagare
+        <input type="checkbox" id="Indagare" formControlName="Indagare" name="Indagare">
+        <span class="check ms-2"></span>
+      </label>
+      <label class="custom-checkbox" for="Inganno">Inganno
+        <input type="checkbox" id="Inganno" formControlName="Inganno" name="Inganno">
+        <span class="check ms-2"></span>
+      </label>
+      <label class="custom-checkbox" for="Intimidire">Intimidire
+        <input type="checkbox" id="Intimidire" formControlName="Intimidire" name="Intimidire">
+        <span class="check ms-2"></span>
+      </label>
+      <label class="custom-checkbox" for="Intrattenere">Intrattenere
+        <input type="checkbox" id="Intrattenere" formControlName="Intrattenere" name="Intrattenere">
+        <span class="check ms-2"></span>
+      </label>
+      <label class="custom-checkbox" for="Intuizione">Intuizione
+        <input type="checkbox" id="Intuizione" formControlName="Intuizione" name="Intuizione">
+        <span class="check ms-2"></span>
+      </label>
+      <label class="custom-checkbox" for="Medicina">Medicina
+        <input type="checkbox" id="Medicina" formControlName="Medicina" name="Medicina">
+        <span class="check ms-2"></span>
+      </label>
+      <label class="custom-checkbox" for="Natura">Natura
+        <input type="checkbox" id="Natura" formControlName="Natura" name="Natura">
+        <span class="check ms-2"></span>
+      </label>
+      <label class="custom-checkbox" for="Percezione">Percezione
+        <input type="checkbox" id="Percezione" formControlName="Percezione" name="Percezione">
+        <span class="check ms-2"></span>
+      </label>
+      <label class="custom-checkbox" for="Persuasione">Persuasione
+        <input type="checkbox" id="Persuasione" formControlName="Persuasione" name="Persuasione">
+        <span class="check ms-2"></span>
+      </label>
+      <label class="custom-checkbox" for="Rapidita_di_Mano">Rapidita di Mano
+        <input type="checkbox" id="Rapidita_di_Mano" formControlName="Rapidita_di_Mano" name="Rapidita_di_Mano">
+        <span class="check ms-2"></span>
+      </label>
+      <label class="custom-checkbox" for="Religione">Religione
+        <input type="checkbox" id="Religione" formControlName="Religione" name="Religione">
+        <span class="check ms-2"></span>
+      </label>
+      <label class="custom-checkbox" for="Sopravvivenza">Sopravvivenza
+        <input type="checkbox" id="Sopravvivenza" formControlName="Sopravvivenza" name="Sopravvivenza">
+        <span class="ms-2 check ms-2"></span>
+      </label>
+      <label class="custom-checkbox" for="Storia">Storia
+        <input type="checkbox" id="Storia" formControlName="Storia" name="Storia">
+        <span class="check ms-2"></span>
+      </label>
+    </div>
+    <div class="d-flex"></div>
+    <div class="mb-3">
+      <button type="submit" class="btn btn-primary">Salva</button>
     </div>
   </form>
 

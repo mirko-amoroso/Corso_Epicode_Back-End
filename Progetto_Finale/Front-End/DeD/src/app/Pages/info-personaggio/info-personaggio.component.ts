@@ -51,9 +51,9 @@ export class InfoPersonaggioComponent implements OnInit {
   calcoloAttribbuto(att: number) {
     var res: string;
     if (att >= 10) {
-      res = '+'.concat(((att - 10) / 2).toFixed(0));
+      res = '+'.concat(Math.floor((att - 10) / 2).toString());
     } else {
-      res = '-'.concat((att - 2).toFixed(0));
+      res = '-'.concat(Math.floor(att - 2).toString());
     }
     return res;
   }

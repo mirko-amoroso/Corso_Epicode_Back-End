@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using backend_D_D.Data;
 
@@ -10,9 +11,11 @@ using backend_D_D.Data;
 namespace backend_D_D.Migrations
 {
     [DbContext(typeof(AppDBContext))]
-    partial class AppDBContextModelSnapshot : ModelSnapshot
+    [Migration("20240922143438_aggiuntaBackground")]
+    partial class aggiuntaBackground
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -211,24 +214,20 @@ namespace backend_D_D.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Difetti")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("Difetti")
+                        .HasColumnType("int");
 
-                    b.Property<string>("Ideali")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("Ideali")
+                        .HasColumnType("int");
 
-                    b.Property<string>("Legami")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("Legami")
+                        .HasColumnType("int");
 
                     b.Property<int>("PersonaggioID")
                         .HasColumnType("int");
 
-                    b.Property<string>("TrattiCaratteriali")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("TrattiCaratteriali")
+                        .HasColumnType("int");
 
                     b.HasKey("BackgroundId");
 

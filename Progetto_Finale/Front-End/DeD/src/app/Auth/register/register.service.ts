@@ -10,6 +10,7 @@ export class RegisterService {
   private ApiUrl = 'https://localhost:7075/';
 
   constructor(private http: HttpClient) {}
+
   Register(newCredenziali: INewCredenziali): Observable<any> {
     return this.http.post<any>(this.ApiUrl.concat('Utente/Register'), newCredenziali)
       .pipe(
