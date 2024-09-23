@@ -1,0 +1,26 @@
+<h2 class="text-center">Accedi</h2>
+<div class="row">
+
+  <div class="col-3"><!-- spazio per centrare il form--></div>
+
+  <form [formGroup]="form" (ngSubmit)="OnLogin()" class="m-3 col-6">
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label">Email:</label>
+      <input type="email" class="form-control" id="exampleInputEmail1" formControlName="email" name="email"
+        aria-describedby="emailHelp">
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputPassword1" class="form-label">Password:</label>
+      <input type="password" class="form-control" id="exampleInputPassword1" formControlName="password" name="password">
+    </div>
+    <div class="d-flex">
+      <div class="mb-3">
+        <button type="submit" class="btn btn-primary">Accedi</button>
+        <a class="ms-3" routerLink="/register">Registarti</a>
+      </div>
+    </div>
+  </form>
+
+  <div class="col-3"><!-- spazio per centrare il form--></div>
+
+</div>

@@ -35,13 +35,40 @@ namespace backend_D_D.Controllers
             return abilita;
         }
 
-        //Chiamta per inserire abilita 
         [HttpPost]
         public async Task<ActionResult<Abilita>> PostAbilita(Abilita abilita)
         {
-            _dbContext.Abilita.Add(abilita);
-            await _dbContext.SaveChangesAsync();
-            return Ok();
+            // Verifica se esiste già un'abilità per questo PersonaggioID
+            var existingAbilita = await _dbContext.Abilita
+                .FirstOrDefaultAsync(a => a.PersonaggioID == abilita.PersonaggioID);
+
+            if (existingAbilita != null)
+            {
+                // Se esiste già, aggiorna i campi dell'abilità esistente
+                existingAbilita.Acrobazia = abilita.Acrobazia;
+                existingAbilita.Addestrare_Animali = abilita.Addestrare_Animali;
+                // Aggiorna anche gli altri campi...
+
+                _dbContext.Abilita.Update(existingAbilita);
+            }
+            else
+            {
+                // Se non esiste, aggiungi una nuova abilità
+                _dbContext.Abilita.Add(abilita);
+            }
+
+            try
+            {
+                await _dbContext.SaveChangesAsync();
+            }
+            catch (DbUpdateException ex)
+            {
+                // Log dettagli aggiuntivi per la diagnosi
+                Console.WriteLine($"Errore nel salvataggio delle abilità: {ex.InnerException?.Message}");
+                return BadRequest("Si è verificato un errore durante il salvataggio.");
+            }
+
+            return Ok(abilita); // Restituisce l'oggetto abilità creato o aggiornato
         }
 
         //chiamata per modificare le Abilità 

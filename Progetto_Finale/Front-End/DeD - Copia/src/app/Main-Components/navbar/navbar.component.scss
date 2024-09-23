@@ -1,0 +1,16 @@
+.logo-container {
+  position: relative;
+  width: 50px;  /* Set width to contain the images */
+  height: 50px; /* Set height to contain the images */
+}
+
+.logo1, .logo2 {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.logo2 {
+  left: 15px; /* Adjust this value to control overlap */
+  top: 8px;  /* Adjust this value to control overlap */
+}

@@ -34,12 +34,12 @@ namespace backend_D_D.Controllers
             }
             return personaggio;
         }
-        
+
         // chimata per prendere i personaggi per id dell'utente 
         [HttpGet("Utente/{IdUtente}")]
         public async Task<ActionResult<IEnumerable<Personaggio>>> GetPersonaggiobyUtenteId(int IdUtente)
         {
-            var personaggio = await _dbContext.Personaggio.Where(p=> p.IdUtente == IdUtente).Include(c => c.Classi).ToListAsync();
+            var personaggio = await _dbContext.Personaggio.Where(p => p.IdUtente == IdUtente).Include(c => c.Classi).ToListAsync();
             Console.WriteLine(personaggio[0].Nome);
             if (personaggio == null)
             {
@@ -47,7 +47,7 @@ namespace backend_D_D.Controllers
             }
             return personaggio;
         }
-        
+
         [HttpGet("Completo/{personaggioID}")]
         public async Task<ActionResult<Personaggio>> GetFullPersonaggio(int personaggioID)
         {
@@ -67,13 +67,31 @@ namespace backend_D_D.Controllers
             return personaggio;
         }
 
-        //Chiamta per inserire un personaggio 
+        ////Chiamta per inserire un personaggio 
+        //[HttpPost]
+        //public async Task<ActionResult<Personaggio>> PostPersonaggio(Personaggio personaggio)
+        //{
+        //    _dbContext.Personaggio.Add(personaggio);
+        //    await _dbContext.SaveChangesAsync();
+        //    return Ok();
+        //}
+
         [HttpPost]
-        public async Task<ActionResult<Personaggio>> PostPersonaggio(Personaggio personaggio)
+        public async Task<IActionResult> CreatePersonaggio([FromBody] Personaggio personaggio)
         {
-            _dbContext.Personaggio.Add(personaggio);
+            if (personaggio == null)
+            {
+                return BadRequest("Il personaggio non può essere nullo.");
+            }
+
+            // Aggiungi il personaggio al contesto
+            await _dbContext.Personaggio.AddAsync(personaggio);
+
+            // Salva le modifiche nel database
             await _dbContext.SaveChangesAsync();
-            return Ok();
+
+            // Restituisci l'ID del personaggio creato con un 201 Created
+            return CreatedAtAction(nameof(GetPersonaggioById), new { Id = personaggio.PersonaggioID }, new { PersonaggioID = personaggio.PersonaggioID });
         }
 
         //chiamata per modificare un personaggio 
@@ -95,13 +113,68 @@ namespace backend_D_D.Controllers
             return Ok();
         }
 
-        //chiamata per eiminare un personaggio
         [HttpDelete("{personaggioId}")]
-        public async Task eliminazionePersonaggioAsync(int personaggioId)
+        public async Task<IActionResult> EliminazionePersonaggioAsync(int personaggioId)
         {
-            var Charatter = await _dbContext.Personaggio.SingleAsync(c => c.PersonaggioID == personaggioId);
-            _dbContext.Personaggio.Remove(Charatter);
+            // Trova il personaggio e le sue entità correlate
+            var personaggio = await _dbContext.Personaggio
+                .Include(p => p.Classi)
+                .Include(p => p.Armi)
+                .Include(p => p.Armatura)
+                .Include(p => p.Abilita)
+                .Include(p => p.Attributi)
+                .Include(p => p.Tiri_Salvezza)
+                .Include(p => p.Backgound)
+                .Include(p => p.Inventario)
+                .FirstOrDefaultAsync(p => p.PersonaggioID == personaggioId);
+
+            if (personaggio == null)
+            {
+                return NotFound();
+            }
+
+            // Rimuovi le entità correlate
+            if (personaggio.Classi != null && personaggio.Classi.Count > 0)
+            {
+                _dbContext.Classi.RemoveRange(personaggio.Classi);
+            }
+            if (personaggio.Armi != null && personaggio.Armi.Count > 0)
+            {
+                _dbContext.Armi.RemoveRange(personaggio.Armi);
+            }
+            if (personaggio.Armatura != null && personaggio.Armatura.Count > 0) // Assuming Armatura is a single entity
+            {
+                _dbContext.Armatura.RemoveRange(personaggio.Armatura);
+            }
+            if (personaggio.Inventario != null && personaggio.Inventario.Count > 0) // Assuming Armatura is a single entity
+            {
+                _dbContext.Inventario.RemoveRange(personaggio.Inventario);
+            }
+            if (personaggio.Abilita != null) // Assuming Abilita is a single entity
+            {
+                _dbContext.Abilita.Remove(personaggio.Abilita);
+            }
+            if (personaggio.Attributi != null) // Assuming Attributi is a single entity
+            {
+                _dbContext.Attributi.Remove(personaggio.Attributi);
+            }
+            if (personaggio.Tiri_Salvezza != null)
+            {
+                _dbContext.Tiri_Salvezza.Remove(personaggio.Tiri_Salvezza);
+            }
+            if (personaggio.Backgound != null)
+            {
+                _dbContext.Backgound.Remove(personaggio.Backgound);
+            }
+
+            // Rimuovi il personaggio stesso
+            _dbContext.Personaggio.Remove(personaggio);
+
+            // Salva le modifiche nel database
             await _dbContext.SaveChangesAsync();
+
+            return NoContent();
         }
+
     }
 }

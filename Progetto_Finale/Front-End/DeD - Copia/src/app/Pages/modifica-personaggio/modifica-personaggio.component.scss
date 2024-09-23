@@ -1,0 +1,105 @@
+// .cornice {
+//   width: 80px;
+//   height: 110px;
+// }
+
+.sfondo{
+  background-image: url("http://localhost:4200/assets/sfondoDeD.jpg");
+  background-size: cover; /* L'immagine copre l'intero contenitore */
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.Cornice_Classe {
+  background-image: url("http://localhost:4200/assets/cornice_intera-removebg-preview.png");
+  background-size: contain; /* L'immagine copre l'intero contenitore */
+  background-position: center; /* L'immagine è centrata */
+  background-repeat: no-repeat;
+  width: 100px;
+  height: 130px;
+}
+
+.tondoTondo{
+  border-top: black 1px solid;
+}
+
+.CorniceBordo {
+  border: black 1px solid;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 38px;
+  padding-right: 38px;
+  border-radius: 20%;
+  font-size: 13px ;
+}
+
+.competenze{
+  border: black 1px solid;
+  margin-top: 5px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 40px;
+  padding-right: 40px;
+  border-radius: 50px;
+  font-size: 11px ;
+}
+
+.cardAtt {
+  border:none;
+  backdrop-filter: blur(16px);
+    background-color: #ffffff12;
+    border-radius: 15%;
+}
+.card {
+  border: black 1px solid;
+  backdrop-filter: blur(30px);
+    background-color: #ffffff21;
+}
+
+.Ca {
+  background-image: url("http://localhost:4200/assets/fotoCA.png");
+  background-size: contain; /* L'immagine copre l'intero contenitore */
+  background-position: center; /* L'immagine è centrata */
+  background-repeat: no-repeat;
+}
+
+.Dv {
+  background-image: url("http://localhost:4200/assets/Vita.png");
+  background-size: contain; /* L'immagine copre l'intero contenitore */
+  background-position: center; /* L'immagine è centrata */
+  background-repeat: no-repeat;
+}
+
+.In_Ve {
+  background-image: url("http://localhost:4200/assets/Vel_Ini.png");
+  background-size: contain; /* L'immagine copre l'intero contenitore */
+  background-position: center; /* L'immagine è centrata */
+  background-repeat: no-repeat;
+}
+.Mo {
+  background-image: url("http://localhost:4200/assets/Monete_Doro.png");
+  background-size: contain; /* L'immagine copre l'intero contenitore */
+  background-position: center; /* L'immagine è centrata */
+  background-repeat: no-repeat;
+}
+
+.CorniceScudi {
+  width: 100px;
+  height: 110px;
+}
+
+.trasparent-select {
+  background-color: transparent; /* Rende la select trasparente */
+  border: 1px solid #ccc; /* Aggiunge un bordo per renderla visibile */
+  color: #000; /* Colore del testo */
+  padding: 5px;
+}
+
+.transparent-select option {
+  background-color: white; /* Mantiene visibili le opzioni del menu a discesa */
+  color: #000;
+}
+
+.allineamnetoForm {
+  min-width: 60px;
+}
