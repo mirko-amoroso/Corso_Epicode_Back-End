@@ -9,7 +9,7 @@ const BackgroundArray = [
       "Fede. Confido che il mio dio guiderà le mie azioni. Ho fede che tutto andrà come previsto. (Legale)",
       "Aspirazione. Aspiro alla saggezza divina in tutto quello che faccio. (Neutrale)"
     ],
-    tratti_caratteriali: [
+    trattiCaratteriali: [
       "Sono tollerante nei confronti delle altre fedi e rispetto la devozione sincera degli altri.",
       "Posso trovare un linguaggio comune con chiunque lo voglia discutere di argomenti religiosi.",
       "Presto aiuto a chiunque sia in difficoltà, indipendentemente dal rischio.",
@@ -46,7 +46,7 @@ const BackgroundArray = [
       "Mistero. Non devo mai rivelare la mia vera identità. (Neutrale)",
       "Perspicacia. Penso sempre tre passi avanti rispetto ai miei avversari. (Neutrale)"
     ],
-    tratti_caratteriali: [
+    trattiCaratteriali: [
       "La prima cosa che faccio in una nuova città è conoscere i suoi criminali.",
       "Ho sempre un piano per ciò che farò quando le cose andranno male.",
       "Sono calmo qualunque cosa accada, e non faccio domande sugli ordini.",
@@ -83,7 +83,7 @@ const BackgroundArray = [
       "Fede. Credo fermamente che l'unica strada per migliorare il mondo sia attraverso il coraggio. (Qualsiasi)",
       "Onore. La mia gente mi guarda con orgoglio e io non la deluderò. (Qualsiasi)"
     ],
-    tratti_caratteriali: [
+    trattiCaratteriali: [
       "Sono abituato a far fronte a situazioni di tensione e a lavorare sotto pressione.",
       "Non posso fare a meno di aiutare qualcuno in difficoltà, anche se so che mi metterà nei guai.",
       "Sono sempre pronto a combattere per proteggere chi non può difendersi.",
@@ -120,7 +120,7 @@ const BackgroundArray = [
       "Famiglia. La mia lealtà va prima di tutto alla mia famiglia. (Neutrale)",
       "Nobile. La nobiltà mi dà il diritto di governare, ma devo farlo con giustizia. (Qualsiasi)"
     ],
-    tratti_caratteriali: [
+    trattiCaratteriali: [
       "La mia famiglia, la mia casa e il mio titolo sono tutto per me.",
       "Non permetto che un insulto contro la mia nobiltà passi senza conseguenze.",
       "Cerco di sembrare sempre al di sopra degli altri.",
@@ -157,7 +157,7 @@ const BackgroundArray = [
       "Vita. La vita è sacra e deve essere preservata. (Buono)",
       "Libertà. Non sarò mai incatenato dalla civilizzazione. (Caotico)"
     ],
-    tratti_caratteriali: [
+    trattiCaratteriali: [
       "Sono guidato da un grande amore per la natura, e cerco di proteggere il mondo naturale.",
       "Non sono abituato alla civilizzazione e tendo ad evitare le città e le folle.",
       "Mi adatto rapidamente a nuove situazioni, anche se sono pericolose o difficili.",
@@ -194,7 +194,7 @@ const BackgroundArray = [
       "Ricchezza. Navigo per arricchirmi, qualunque sia il costo. (Malvagio)",
       "Avventura. La vita in mare è un'avventura continua, e io vivo per questo. (Caotico)"
     ],
-    tratti_caratteriali: [
+    trattiCaratteriali: [
       "Parlo costantemente del mare, delle sue meraviglie e dei suoi pericoli.",
       "Ho una storia incredibile da raccontare su ogni porto in cui sono stato.",
       "Non mi fido facilmente, ma una volta guadagnata la mia fiducia, sono un amico leale.",

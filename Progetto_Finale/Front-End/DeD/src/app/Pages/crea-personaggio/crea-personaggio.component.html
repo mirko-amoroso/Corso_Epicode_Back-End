@@ -235,7 +235,7 @@
           <h6 class="">Forza</h6>
           <div class="Cornice_Classe d-flex justify-content-center align-items-center flex-column">
             <!-- Select per la Forza -->
-            <select [(ngModel)]="selectedValue" formControlName="Forza" class="form-select mt-2 custom-select"
+            <select [(ngModel)]="attributi.forza" formControlName="Forza" class="form-select mt-2 custom-select"
               (change)="rimuovi($event, 'Forza')" *ngIf="attributi.forza === 0">
               <ng-container *ngFor="let valore of valore_dado">
                 <option [value]="valore" *ngIf="valore !== 0">{{ valore }} </option>
@@ -248,7 +248,7 @@
         <div class="d-flex flex-column align-items-center cardAtt">
           <h6>Destrezza</h6>
           <div class="Cornice_Classe d-flex justify-content-center align-items-center flex-column">
-            <select [(ngModel)]="selectedValue" formControlName="Destrezza" class="form-select mt-2 custom-select"
+            <select [(ngModel)]="attributi.destrezza" formControlName="Destrezza" class="form-select mt-2 custom-select"
               (change)="rimuovi($event, 'Destrezza')" *ngIf="attributi.destrezza === 0">
               <ng-container *ngFor="let valore of valore_dado">
                 <option [value]="valore" *ngIf="valore !== 0">{{ valore }} </option>
@@ -262,7 +262,7 @@
         <div class="d-flex flex-column align-items-center cardAtt">
           <h6>Costituzione</h6>
           <div class="Cornice_Classe d-flex justify-content-center align-items-center flex-column">
-            <select [(ngModel)]="selectedValue" formControlName="Costituzione" class="form-select mt-2 custom-select"
+            <select [(ngModel)]="attributi.costituzione" formControlName="Costituzione" class="form-select mt-2 custom-select"
               (change)="rimuovi($event, 'Costituzione')" *ngIf="attributi.costituzione === 0">
               <ng-container *ngFor="let valore of valore_dado">
                 <option [value]="valore" *ngIf="valore !== 0">{{ valore }} </option>
@@ -276,7 +276,7 @@
         <div class="d-flex flex-column align-items-center cardAtt">
           <h6>Saggezza</h6>
           <div class="Cornice_Classe d-flex justify-content-center align-items-center flex-column">
-            <select [(ngModel)]="selectedValue" formControlName="Saggezza" class="form-select mt-2 custom-select"
+            <select [(ngModel)]="attributi.saggezza" formControlName="Saggezza" class="form-select mt-2 custom-select"
               (change)="rimuovi($event, 'Saggezza')" *ngIf="attributi.saggezza === 0">
               <ng-container *ngFor="let valore of valore_dado">
                 <option [value]="valore" *ngIf="valore !== 0">{{ valore }} </option>
@@ -290,7 +290,7 @@
         <div class="d-flex flex-column align-items-center cardAtt">
           <h6>Intelligenza</h6>
           <div class="Cornice_Classe d-flex justify-content-center align-items-center flex-column">
-            <select [(ngModel)]="selectedValue" formControlName="Intelligenza" class="form-select mt-2 custom-select"
+            <select [(ngModel)]="attributi.intelligenza" formControlName="Intelligenza" class="form-select mt-2 custom-select"
               (change)="rimuovi($event, 'Intelligenza')" *ngIf="attributi.intelligenza === 0">
               <ng-container *ngFor="let valore of valore_dado">
                 <option [value]="valore" *ngIf="valore !== 0">{{ valore }} </option>
@@ -304,7 +304,7 @@
         <div class="d-flex flex-column align-items-center cardAtt">
           <h6>Carisma</h6>
           <div class="Cornice_Classe d-flex justify-content-center align-items-center flex-column">
-            <select [(ngModel)]="selectedValue" formControlName="Carisma" class="form-select mt-2 custom-select"
+            <select [(ngModel)]="attributi.carisma" formControlName="Carisma" class="form-select mt-2 custom-select"
               (change)="rimuovi($event, 'Carisma')" *ngIf="attributi.carisma === 0">
               <ng-container *ngFor="let valore of valore_dado">
                 <option [value]="valore" *ngIf="valore !== 0">{{ valore }} </option>

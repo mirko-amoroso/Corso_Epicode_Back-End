@@ -19,7 +19,7 @@
       <form [formGroup]="allineamentoForm" class="my-3 allineamnetoForm">
         <div>
           <div>
-            <select formControlName="allineamento" class="form-select custom-select trasparent-select card text-white">
+            <select formControlName="allineamento" class="form-select custom-select trasparent-select card">
               <ng-container *ngFor="let valore of Allineamenti">
                 <option [value]="valore">{{ valore }} </option>
               </ng-container>
