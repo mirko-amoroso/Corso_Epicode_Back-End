@@ -1,0 +1,49 @@
+<body class="sfondo">
+  <div class="d-flex justify-content-around"> <!-- Utilizza justify-content-center e gap per spazio -->
+    <div class="my-4">
+      <div>
+        <p class="card text-white custom-card">backGround: {{ back.backGround }}</p>
+      </div>
+    </div>
+
+    <div class="my-4">
+      <div>
+        <p class="card text-white custom-card">Allineamento: {{ back.allineamento }}</p>
+      </div>
+    </div>
+  </div>
+  <div class="d-flex flex-column justify-content-center align-items-center">
+    <div class="d-flex card col-4 mt-3">
+      <div class="">
+        Difetti:
+      </div>
+      <div class="">
+        <p>{{back.difetti}}</p>
+      </div>
+    </div>
+    <div class="d-flex card col-4 mt-4">
+      <div class="">
+        <p>Ideali:</p>
+        <div>
+          <p>{{back.ideali}}</p>
+        </div>
+      </div>
+    </div>
+    <div class="d-flex card col-4 mt-4">
+      <div class="">
+        <p>Legami</p>
+        <div class="">
+          <p>{{back.legami}}</p>
+        </div>
+      </div>
+    </div>
+    <div class="d-flex card col-4 mt-4">
+      <div class="">
+        <p>Tratti Caratteriali</p>
+        <div class="">
+          <p>{{back.trattiCaratteriali}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>

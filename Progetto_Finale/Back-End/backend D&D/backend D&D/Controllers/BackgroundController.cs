@@ -34,6 +34,17 @@ namespace backend_D_D.Controllers
             }
             return background;
         }
+        [HttpGet("Personaggio/{PersonaggioId}")]
+        public async Task<ActionResult<Background>> GertBackGroundByIdPersonaggio(int PersonaggioId)
+        {
+            var background = await _dbContext.Backgound.FirstOrDefaultAsync(P =>P.PersonaggioID == PersonaggioId);
+            Console.WriteLine("entro dentro get back ecc", background);
+            if (background == null)
+            {
+                return NotFound();
+            }
+            return background;
+        }
 
         //Chiamta per inserire un personaggio 
         [HttpPost]

@@ -33,17 +33,12 @@
       <!-- Area Login/Logout -->
       <div class="d-flex align-items-center">
         <div *ngIf="!Loog">
-          <a class="btn btn-outline-light me-2" routerLink="/login" routerLinkActive="active">Accedi</a>
-          <a class="btn btn-outline-light" routerLink="/register" routerLinkActive="active">Registrati</a>
+          <a class="btn btn-outline-light me-2" routerLink="/login">Accedi</a>
+          <a class="btn btn-outline-light" routerLink="/register">Registrati</a>
         </div>
         <div *ngIf="Loog" class="d-flex">
           <button class="btn btn-outline-light me-2" (click)="Logout()">Logout</button>
           <!-- <a class="nav-link text-white" routerLink="/profilo" routerLinkActive="active">Profilo</a> -->
-          <ul class="navbar-nav">
-            <li class="nav-item">
-              <a class="nav-link" routerLink="/profilo" routerLinkActive="active">Profilo</a>
-            </li>
-          </ul>
         </div>
       </div>
     </div>

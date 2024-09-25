@@ -53,6 +53,7 @@ export class PersonaggiComponent {
       (response) => {
         console.log(`Personaggio ${Id} eliminato con successo.`);
         this.getPersonaggi(); // Ricarica i personaggi
+        window.location.reload();
       },
       (error) => {
         console.error(

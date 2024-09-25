@@ -1,3 +1,5 @@
+import { BackgroundRoutingModule } from './Pages/background/background-routing.module';
+import { BackgroundComponent } from './Pages/background/background.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
@@ -66,6 +68,7 @@ const routes: Routes = [
     loadChildren: () =>
       import('./Pages/armi/armi.module').then((m) => m.ArmiModule),
   },
+  { path: 'background', loadChildren: () => import('./Pages/background/background.module').then(m => m.BackgroundModule) },
 ];
 
 @NgModule({

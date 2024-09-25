@@ -1,0 +1,27 @@
+.sfondo{
+  background-image: url("http://localhost:4200/assets/sfondoDeD.jpg");
+  background-size: cover; /* L'immagine copre l'intero contenitore */
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 88.5vh;
+}
+
+.card {
+  border: black 1px solid;
+  backdrop-filter: blur(30px);
+  background-color: #ffffff21;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.custom-card {
+  border-radius: 10px; /* Angoli arrotondati */
+  padding: 7px; /* Spaziatura interna */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Ombra per profondità */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transizione per effetto hover */
+}
+
+.custom-card:hover {
+  // transform: translateY(-5px); /* Solleva la card al passaggio del mouse */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.312); /* Ombra più intensa al passaggio del mouse */
+}
+

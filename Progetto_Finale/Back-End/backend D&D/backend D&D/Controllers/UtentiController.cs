@@ -22,7 +22,7 @@ namespace backend_D_D.Controllers
         {
             return await _dbContext.Utente.ToArrayAsync();
         }
-        
+
         [HttpGet("{Id}")]
         public async Task<ActionResult<Utente>> GertUtenteById(int Id)
         {
@@ -32,7 +32,6 @@ namespace backend_D_D.Controllers
                 return NotFound();
             }
             return utente;
-
         }
 
         [HttpPost("Register")]
@@ -47,14 +46,23 @@ namespace backend_D_D.Controllers
         [HttpPost("Login")]
         public async Task<ActionResult<Utente>> LoginUtente(Credenziale credenziale)
         {
-            var utente = await _dbContext.Utente.SingleOrDefaultAsync (u => u.Email == credenziale.Email && u.Password == credenziale.Password);
+            var utente = await _dbContext.Utente.SingleOrDefaultAsync(u =>
+                u.Email == credenziale.Email && u.Password == credenziale.Password
+            );
             Console.WriteLine("entra qui dentro login");
-            if (utente == null) 
+            if (utente == null)
             {
                 return NotFound();
             }
             return utente;
+        }
 
+        [HttpDelete("{Id}")]
+        public async Task DeleteUtente(int Id)
+        {
+            var Object = await _dbContext.Utente.SingleAsync(c => c.UtenteId == Id);
+            _dbContext.Utente.Remove(Object);
+            await _dbContext.SaveChangesAsync();
         }
     }
 }

@@ -84,7 +84,6 @@ export class InfoPersonaggioComponent implements OnInit {
     }
   }
 
-
   dadiVita() {
     if (this.PersonaggioFull.classi) {
     ;
@@ -121,15 +120,14 @@ export class InfoPersonaggioComponent implements OnInit {
   }
 
   calcolaCompetenza() {
-    if (this.PersonaggioFull.classi) {
+    if (this.PersonaggioFull.classi![0]) {
       let lvl: number = 0;
-      for (let i = 0; i < this.PersonaggioFull.classi.length; i++) {
-        lvl += this.PersonaggioFull.classi[i].livello;
-      }
+        lvl += this.PersonaggioFull.classi![0].livello;
 
-      if (lvl >= 1 && lvl <= 4) {
+
+      if (lvl >= 1 && lvl < 4) {
         this.Competenza = 2;
-      } else if (lvl >= 5 && lvl <= 8) {
+      } else if (lvl >= 4 && lvl <= 8) {
         this.Competenza = 3;
       } else if (lvl >= 9 && lvl <= 12) {
         this.Competenza = 4;
@@ -163,5 +161,9 @@ export class InfoPersonaggioComponent implements OnInit {
 
   Arma = async() => {
     await this.router.navigate(['armi', this.personaggioId]);
+  }
+
+  Background = async() => {
+    await this.router.navigate(['background', this.personaggioId]);
   }
 }

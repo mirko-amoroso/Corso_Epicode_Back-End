@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { InfoPersonaggioService } from '../info-personaggio/info-personaggio.service';
 import { IPersonaggio } from '../../modules/personaggio';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -53,7 +53,8 @@ export class ModificaPersonaggioComponent {
   constructor(
     private route: ActivatedRoute,
     private srvModPers: ModificaPersonaggioService,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private router : Router
   ) {}
 
   ngOnInit() {
@@ -203,6 +204,7 @@ export class ModificaPersonaggioComponent {
     await this.SalvaAllineamento();
     await this.SalvaNome();
     await this.SalvaLivello();
+    await this.redirect()
   };
 
   SalvaAttributi = async () => {
@@ -243,10 +245,7 @@ export class ModificaPersonaggioComponent {
   };
 
   SalvaLivello = async () => {
-    if (
-      this.livelloForm.get('livello')?.value !==
-      this.PersonaggioFull.classi![0].livello
-    ) {
+    {
       this.PersonaggioFull.classi![0].livello =
         this.livelloForm.get('livello')?.value;
       console.log(
@@ -256,4 +255,8 @@ export class ModificaPersonaggioComponent {
       this.srvModPers.PutClasse(this.PersonaggioFull.classi![0]).subscribe();
     }
   };
+
+  redirect = async () => {
+    await this.router.navigate(['infoPersonaggio', this.personaggioId]);
+  }
 }
