@@ -1,5 +1,6 @@
 export interface IArmatura {
-  armaturaID : number,
+  armaturaId : number,
+  personaggioId: number,
   nome : string,
   ca : number,
   effetto : string,

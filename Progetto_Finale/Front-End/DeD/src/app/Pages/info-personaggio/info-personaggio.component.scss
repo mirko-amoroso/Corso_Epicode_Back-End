@@ -53,7 +53,13 @@
 .card {
   border: black 1px solid;
   backdrop-filter: blur(30px);
-    background-color: #ffffff21;
+  background-color: #ffffff21;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px); /* Solleva la card al passaggio del mouse */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.312); /* Ombra più intensa al passaggio del mouse */
 }
 
 .Ca {
@@ -86,4 +92,46 @@
 .CorniceScudi {
   width: 100px;
   height: 110px;
+}
+
+.custom-card {
+  border-radius: 10px; /* Angoli arrotondati */
+  padding: 7px; /* Spaziatura interna */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Ombra per profondità */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transizione per effetto hover */
+}
+
+.custom-card:hover {
+  // transform: translateY(-5px); /* Solleva la card al passaggio del mouse */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.312); /* Ombra più intensa al passaggio del mouse */
+}
+
+.Inventario {
+  background-image: url("http://localhost:4200/assets/inventario.png");
+  background-size: contain; /* L'immagine copre l'intero contenitore */
+  background-position: center; /* L'immagine è centrata */
+  background-repeat: no-repeat;
+}
+
+.btn-custom {
+  background-color: transparent; /* Sfondo trasparente */
+  color: white; /* Colore del testo */
+  border: 2px solid white; /* Bordo scuro */
+  border-radius: 5px; /* Angoli arrotondati */
+  font-size: 1rem; /* Dimensione del testo */
+  transition: background-color 0.3s, color 0.3s; /* Transizione per gli effetti hover */
+  width: 93px;
+  height: 38px;
+}
+
+/* Effetto hover */
+.btn-custom:hover {
+  background-color: white; /* Sfondo scuro al passaggio del mouse */
+  color: #34495e; /* Colore del testo al passaggio del mouse */
+}
+
+.size {
+  padding: 10px;
+  width: 70px;
+  height: 70px;
 }

@@ -42,7 +42,30 @@ const routes: Routes = [
         (m) => m.InfoPersonaggioModule
       ),
   },
-  { path: 'modificaPersonaggio', loadChildren: () => import('./Pages/modifica-personaggio/modifica-personaggio.module').then(m => m.ModificaPersonaggioModule) },
+  {
+    path: 'modificaPersonaggio',
+    loadChildren: () =>
+      import('./Pages/modifica-personaggio/modifica-personaggio.module').then(
+        (m) => m.ModificaPersonaggioModule
+      ),
+  },
+  {
+    path: 'inventario',
+    loadChildren: () =>
+      import('./Pages/inventario/inventario.module').then(
+        (m) => m.InventarioModule
+      ),
+  },
+  {
+    path: 'armatura',
+    loadChildren: () =>
+      import('./Pages/armatura/armatura.module').then((m) => m.ArmaturaModule),
+  },
+  {
+    path: 'armi',
+    loadChildren: () =>
+      import('./Pages/armi/armi.module').then((m) => m.ArmiModule),
+  },
 ];
 
 @NgModule({

@@ -103,7 +103,7 @@ namespace backend_D_D.Controllers
             {
                 return NotFound();
             }
-
+            
             Charatter.Nome = personaggio.Nome;
             Charatter.Razza = personaggio.Razza;
             Charatter.MoneteOro = personaggio.MoneteOro;

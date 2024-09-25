@@ -7,20 +7,19 @@
     <p>Caricamento in corso...</p>
   </div>
 
+  <!-- FORM NOME, ALLINEAMENTO,LIVELLO -->
   <div *ngIf="!isLoading">
     <div class="col-12 d-flex justify-content-around ">
       <form [formGroup]="nomeForm" class="my-3">
         <div>
-          <input type="text" formControlName="nome" id="nome" class="form-control  trasparent-select card"
-            [defaultValue]="PersonaggioFull.nome">
+          <input type="text" formControlName="Nome" id="nome" class="form-control trasparent-select card text-white">
         </div>
       </form>
 
       <form [formGroup]="allineamentoForm" class="my-3 allineamnetoForm">
         <div>
           <div>
-            <select [(ngModel)]="selectedValue" formControlName="Forza"
-              class="form-select custom-select trasparent-select">
+            <select formControlName="allineamento" class="form-select custom-select trasparent-select card text-white">
               <ng-container *ngFor="let valore of Allineamenti">
                 <option [value]="valore">{{ valore }} </option>
               </ng-container>
@@ -31,8 +30,8 @@
 
       <form [formGroup]="livelloForm" class="my-3 allineamnetoForm">
         <div>
-          <input type="number" formControlName="livello" id="livello" class="form-control trasparent-select card"
-            [defaultValue]="PersonaggioFull.classi![0].livello">
+          <input type="number" formControlName="livello" id="livello"
+            class="form-control trasparent-select card text-white">
         </div>
       </form>
 
@@ -42,561 +41,155 @@
 
       <!-- INSIME DI ATTRIBBUTI -->
 
-      <div class="d-flex flex-column col-9">
+      <div class="d-flex flex-column col-12">
         <!-- PARTE SUPERIORE COL-9 -->
         <div class="d-flex justify-content-around mt-2">
           <!-- FORZA -->
-          <div class="d-flex flex-column align-items-center cardAtt">
-            <h6>Forza</h6>
-            <div class="Cornice_Classe d-flex justify-content-center align-items-center flex-column">
-              <p class="mt-2"><span class="fw-medium fs-5">{{PersonaggioFull.attributi?.forza}}</span>
-                <br>
-                <span class="tondoTondo">{{calcoloAttribbuto(PersonaggioFull.attributi!.forza)}}</span>
-              </p>
+          <div class="d-flex">
+            <div class="d-flex flex-column align-items-center cardAtt">
+              <h6>Forza</h6>
+              <div class="Cornice_Classe d-flex justify-content-center align-items-center flex-column">
+                <p class="mt-2">
+                  <span class="fw-medium fs-5">{{attributi.forza}}</span>
+                  <br>
+                  <span
+                    class="tondoTondo d-flex justify-content-center">{{calcoloAttribbuto(PersonaggioFull.attributi!.forza)}}</span>
+                </p>
+              </div>
+            </div>
+            <div class="d-flex flex-column justify-content-center align-items-center">
+              <button class="btn-custom mb-2 ms-2" (click)="FunzionePiu('F')">+</button>
+              <button class="btn-custom mt-2 ms-2" (click)="FunzioneMeno('F')">-</button>
             </div>
           </div>
           <!-- DESTREZZA -->
-          <div class="d-flex flex-column align-items-center cardAtt">
-            <h6>Destrezza</h6>
-            <div class="Cornice_Classe d-flex justify-content-center align-items-center flex-column">
-              <p class="mt-2"><span class="fw-medium fs-5">{{PersonaggioFull.attributi?.destrezza}}</span>
-                <br>
-                <span class="tondoTondo">{{calcoloAttribbuto(PersonaggioFull.attributi!.destrezza)}}</span>
-              </p>
+          <div class="d-flex">
+            <div class="d-flex flex-column align-items-center cardAtt">
+              <h6>Destrezza</h6>
+              <div class="Cornice_Classe d-flex justify-content-center align-items-center flex-column">
+                <p class="mt-2">
+                  <span class="fw-medium fs-5">{{attributi.destrezza}}</span>
+                  <br>
+                  <span class="tondoTondo">{{calcoloAttribbuto(PersonaggioFull.attributi!.destrezza)}}</span>
+                </p>
+              </div>
+            </div>
+            <div class="d-flex flex-column justify-content-center align-items-center">
+              <button class="btn-custom mb-2 ms-2" (click)="FunzionePiu('D')">+</button>
+              <button class="btn-custom mt-2 ms-2" (click)="FunzioneMeno('D')">-</button>
             </div>
           </div>
           <!-- COSTITUZIONE -->
-          <div class="d-flex flex-column align-items-center cardAtt">
-            <h6>Costituzione</h6>
-            <div class="Cornice_Classe d-flex justify-content-center align-items-center flex-column">
-              <p class="mt-2"><span class="fw-medium fs-5">{{PersonaggioFull.attributi?.costituzione}}</span>
-                <br>
-                <span class="tondoTondo">{{calcoloAttribbuto(PersonaggioFull.attributi!.costituzione)}}</span>
-              </p>
+          <div class="d-flex">
+            <div class="d-flex flex-column align-items-center cardAtt">
+              <h6>Costituzione</h6>
+              <div class="Cornice_Classe d-flex justify-content-center align-items-center flex-column">
+                <p class="mt-2">
+                  <span class="fw-medium fs-5">{{attributi.costituzione}}</span>
+                  <br>
+                  <span class="tondoTondo">{{calcoloAttribbuto(PersonaggioFull.attributi!.costituzione)}}</span>
+                </p>
+              </div>
+            </div>
+            <div class="d-flex flex-column justify-content-center align-items-center">
+              <button class="btn-custom mb-2 ms-2" (click)="FunzionePiu('CO')">+</button>
+              <button class="btn-custom mt-2 ms-2" (click)="FunzioneMeno('CO')">-</button>
             </div>
           </div>
           <!-- SAGGEZZA -->
-          <div class="d-flex flex-column align-items-center cardAtt">
-            <h6>Saggezza</h6>
-            <div class="Cornice_Classe d-flex justify-content-center align-items-center flex-column">
-              <p class="mt-2"><span class="fw-medium fs-5">{{PersonaggioFull.attributi?.saggezza}}</span>
-                <br>
-                <span class="tondoTondo">{{calcoloAttribbuto(PersonaggioFull.attributi!.saggezza)}}</span>
-              </p>
+          <div class="d-flex">
+            <div class="d-flex flex-column align-items-center cardAtt">
+              <h6>Saggezza</h6>
+              <div class="Cornice_Classe d-flex justify-content-center align-items-center flex-column">
+                <p class="mt-2">
+                  <span class="fw-medium fs-5">{{attributi.saggezza}}</span>
+                  <br>
+                  <span class="tondoTondo">{{calcoloAttribbuto(PersonaggioFull.attributi!.saggezza)}}</span>
+                </p>
+              </div>
+            </div>
+            <div class="d-flex flex-column justify-content-center align-items-center">
+              <button class="btn-custom mb-2 ms-2" (click)="FunzionePiu('S')">+</button>
+              <button class="btn-custom mt-2 ms-2" (click)="FunzioneMeno('S')">-</button>
             </div>
           </div>
           <!-- INTELLIGENZA -->
-          <div class="d-flex flex-column align-items-center cardAtt">
-            <h6>Intelligenza</h6>
-            <div class="Cornice_Classe d-flex justify-content-center align-items-center flex-column">
-              <p class="mt-2"><span class="fw-medium fs-5">{{PersonaggioFull.attributi?.intelligenza}}</span>
-                <br>
-                <span class="tondoTondo">{{calcoloAttribbuto(PersonaggioFull.attributi!.intelligenza)}}</span>
-              </p>
+          <div class="d-flex">
+            <div class="d-flex flex-column align-items-center cardAtt">
+              <h6>Intelligenza</h6>
+              <div class="Cornice_Classe d-flex justify-content-center align-items-center flex-column">
+                <p class="mt-2">
+                  <span class="fw-medium fs-5">{{attributi.intelligenza}}</span>
+                  <br>
+                  <span class="tondoTondo">{{calcoloAttribbuto(PersonaggioFull.attributi!.intelligenza)}}</span>
+                </p>
+              </div>
+            </div>
+            <div class="d-flex flex-column justify-content-center align-items-center">
+              <button class="btn-custom mb-2 ms-2" (click)="FunzionePiu('I')">+</button>
+              <button class="btn-custom mt-2 ms-2" (click)="FunzioneMeno('I')">-</button>
             </div>
           </div>
           <!--CARISMA -->
-          <div class="d-flex flex-column align-items-center cardAtt">
-            <h6>Carisma</h6>
-            <div class="Cornice_Classe d-flex justify-content-center align-items-center flex-column">
-              <p class="mt-2"><span class="fw-medium fs-5">{{PersonaggioFull.attributi?.carisma}}</span>
-                <br>
-                <span class="tondoTondo">{{calcoloAttribbuto(PersonaggioFull.attributi!.carisma)}}</span>
-              </p>
+          <div class="d-flex">
+            <div class="d-flex flex-column align-items-center cardAtt">
+              <h6>Carisma</h6>
+              <div class="Cornice_Classe d-flex justify-content-center align-items-center flex-column">
+                <p class="mt-2">
+                  <span class="fw-medium fs-5">{{attributi.carisma}}</span>
+                  <br>
+                  <span class="tondoTondo">{{calcoloAttribbuto(PersonaggioFull.attributi!.carisma)}}</span>
+                </p>
+              </div>
+            </div>
+            <div class="d-flex flex-column justify-content-center align-items-center">
+              <button class="btn-custom mb-2 ms-2" (click)="FunzionePiu('CA')">+</button>
+              <button class="btn-custom mt-2 ms-2" (click)="FunzioneMeno('CA')">-</button>
             </div>
           </div>
-
 
         </div>
 
         <!-- PARTE INFERIORE COL-9 -->
         <div class="d-flex m-5">
-          <!-- TIRI SALVEZZA -->
-          <div class="CorniceBordo card">
-            <h5 class="border-bottom border-black mb-2">Tiri Salvezza</h5>
-            <div>
-              <p *ngIf="PersonaggioFull.tiri_Salvezza?.forza == true">
-                <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" fill="currentColor"
-                  class="bi bi-circle-fill" viewBox="0 0 16 16">
-                  <circle cx="8" cy="8" r="8" />
-                </svg>
-                Forza
-              </p>
-              <p *ngIf="PersonaggioFull.tiri_Salvezza?.forza == false">
-                <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" fill="currentColor" class="bi bi-circle"
-                  viewBox="0 0 16 16">
-                  <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16" />
-                </svg>
-                Forza
-              </p>
-            </div>
-            <div>
-              <p *ngIf="PersonaggioFull.tiri_Salvezza?.destrezza == true">
-                <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" fill="currentColor"
-                  class="bi bi-circle-fill" viewBox="0 0 16 16">
-                  <circle cx="8" cy="8" r="8" />
-                </svg>
-                Destrezza
-              </p>
-              <p *ngIf="PersonaggioFull.tiri_Salvezza?.destrezza == false">
-                <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" fill="currentColor" class="bi bi-circle"
-                  viewBox="0 0 16 16">
-                  <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16" />
-                </svg>
-                Destrezza
-              </p>
-            </div>
-            <div>
-              <p *ngIf="PersonaggioFull.tiri_Salvezza?.costituzione == true">
-                <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" fill="currentColor"
-                  class="bi bi-circle-fill" viewBox="0 0 16 16">
-                  <circle cx="8" cy="8" r="8" />
-                </svg>
-                Costituzione
-              </p>
-              <p *ngIf="PersonaggioFull.tiri_Salvezza?.costituzione == false">
-                <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" fill="currentColor" class="bi bi-circle"
-                  viewBox="0 0 16 16">
-                  <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16" />
-                </svg>
-                Costituzione
-              </p>
-            </div>
-            <div>
-              <p *ngIf="PersonaggioFull.tiri_Salvezza?.saggezza == true">
-                <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" fill="currentColor"
-                  class="bi bi-circle-fill" viewBox="0 0 16 16">
-                  <circle cx="8" cy="8" r="8" />
-                </svg>
-                Saggezza
-              </p>
-              <p *ngIf="PersonaggioFull.tiri_Salvezza?.saggezza == false">
-                <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" fill="currentColor" class="bi bi-circle"
-                  viewBox="0 0 16 16">
-                  <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16" />
-                </svg>
-                Saggezza
-              </p>
-            </div>
-            <div>
-              <p *ngIf="PersonaggioFull.tiri_Salvezza?.intelligenza == true">
-                <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" fill="currentColor"
-                  class="bi bi-circle-fill" viewBox="0 0 16 16">
-                  <circle cx="8" cy="8" r="8" />
-                </svg>
-                Intelligenza
-              </p>
-              <p *ngIf="PersonaggioFull.tiri_Salvezza?.intelligenza == false">
-                <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" fill="currentColor" class="bi bi-circle"
-                  viewBox="0 0 16 16">
-                  <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16" />
-                </svg>
-                Intelligenza
-              </p>
-            </div>
-            <div>
-              <p *ngIf="PersonaggioFull.tiri_Salvezza?.carisma == true">
-                <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" fill="currentColor"
-                  class="bi bi-circle-fill" viewBox="0 0 16 16">
-                  <circle cx="8" cy="8" r="8" />
-                </svg>
-                Carisma
-              </p>
-              <p *ngIf="PersonaggioFull.tiri_Salvezza?.carisma == false">
-                <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" fill="currentColor" class="bi bi-circle"
-                  viewBox="0 0 16 16">
-                  <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16" />
-                </svg>
-                Carisma
-              </p>
-            </div>
-          </div>
 
-          <!-- statistiche pentagono -->
-          <div class="d-flex flex-column col-6">
+          <div class="d-flex justify-content-around align-items-center col-12">
+            <div class="d-flex">
+              <div class="d-flex justify-content-around">
+                <div class="CorniceScudi card Dv d-flex justify-content-center align-items-center">
+                  <h6 class="position-absolute top-0">Punti Ferita:</h6>
+                  <div>
+                    <span>{{attributi.pv}}</span>
+                  </div>
+                </div>
+                <div class="d-flex flex-column justify-content-center align-items-center">
+                  <button class="btn-customse mb-2 ms-2" (click)="calcoloPv()">P.Vita</button>
+                </div>
+              </div>
 
-            <div class="d-flex justify-content-around">
-              <div class="CorniceScudi card In_Ve d-flex justify-content-center align-items-center">
-                <h6 class="position-absolute top-0">Inizativa</h6>
-                <div>
-                  <p>{{calcoloAttribbuto(PersonaggioFull.attributi!.destrezza)}}</p>
-                </div>
-              </div>
-              <div class="CorniceScudi card Ca d-flex justify-content-center align-items-center">
-                <p>CA {{Ca}}</p>
-              </div>
-              <div class="CorniceScudi card In_Ve d-flex justify-content-center align-items-center">
-                <h6 class="position-absolute top-0">Velocità</h6>
-                <div>
-                  <p>{{Velocita}}</p>
-                </div>
-              </div>
-            </div>
-
-            <div class="d-flex justify-content-evenly mt-3">
-              <div class="CorniceScudi card In_Ve d-flex justify-content-center align-items-center">
-                <h6 class="position-absolute top-0">Competenza</h6>
-                <div>
-                  <p>+{{Competenza}}</p>
-                </div>
-              </div>
-              <div class="CorniceScudi card In_Ve d-flex justify-content-center align-items-center">
-                <h6 class="position-absolute top-0">P. passiva</h6>
-                <div>
-                  <p>{{Saggezza_passiva}}</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="d-flex col-1"></div>
-
-          <div class="d-flex flex-column col-3">
-            <div class="d-flex justify-content-around">
-              <div class="CorniceScudi card Dv d-flex justify-content-center align-items-center">
-                <h6 class="position-absolute top-0">Dadi Vita:</h6>
-                <div *ngFor="let d of Dadi_Vita">
-                  <span> {{d}}</span> <br>
-                </div>
-              </div>
-              <div class="CorniceScudi card Dv d-flex justify-content-center align-items-center">
-                <h6 class="position-absolute top-0">Punti Ferita:</h6>
-                <div>
-                  <span>{{PersonaggioFull.attributi?.pv}}</span>
-                </div>
-              </div>
             </div>
             <div class="d-flex justify-content-center mt-3">
-              <div class="CorniceScudi card Mo d-flex justify-content-center align-items-center">
-                <h6 class="position-absolute top-0">M. Oro:</h6>
-                <div class="mt-4">
-                  <span>{{PersonaggioFull.moneteOro}}</span>
+              <div class="d-flex">
+                <div class="CorniceScudi card Mo d-flex justify-content-center align-items-center">
+                  <h6 class="position-absolute top-0">M. Oro:</h6>
+                  <div class="mt-4">
+                    <span>{{Mo}}</span>
+                  </div>
                 </div>
+              </div>
+              <div class="d-flex flex-column justify-content-center align-items-center">
+                <button class="btn-custom mb-2 ms-2" (click)="FunzionePiu('MO')">+</button>
+                <button class="btn-custom mt-2 ms-2" (click)="FunzioneMeno('MO')">-</button>
               </div>
             </div>
           </div>
         </div>
 
-        <div class="">
-
-        </div>
-
       </div>
 
-      <!--  ABILITA -->
-      <div class="d-flex flex-column justify-content-center align-items-center col-3">
-        <!-- COMPENTENZE -->
-        <div class="competenze card">
-          <h5 class="border-bottom border-black">Abilità</h5>
-          <div>
-            <p *ngIf="PersonaggioFull.abilita?.acrobazia">
-              <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" fill="currentColor"
-                class="bi bi-circle-fill" viewBox="0 0 16 16">
-                <circle cx="8" cy="8" r="8" />
-              </svg>
-              Acrobazia
-            </p>
-            <p *ngIf="PersonaggioFull.abilita?.acrobazia == false">
-              <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" fill="currentColor" class="bi bi-circle"
-                viewBox="0 0 16 16">
-                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16" />
-              </svg>
-              Acrobazia
-            </p>
-          </div>
-
-          <div>
-            <p *ngIf="PersonaggioFull.abilita?.addestrare_Animali">
-              <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" fill="currentColor"
-                class="bi bi-circle-fill" viewBox="0 0 16 16">
-                <circle cx="8" cy="8" r="8" />
-              </svg>
-              Addestrare Animali
-            </p>
-            <p *ngIf="PersonaggioFull.abilita?.addestrare_Animali == false">
-              <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" fill="currentColor" class="bi bi-circle"
-                viewBox="0 0 16 16">
-                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16" />
-              </svg>
-              Addestrare Animali
-            </p>
-          </div>
-
-          <div>
-            <p *ngIf="PersonaggioFull.abilita?.arcano">
-              <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" fill="currentColor"
-                class="bi bi-circle-fill" viewBox="0 0 16 16">
-                <circle cx="8" cy="8" r="8" />
-              </svg>
-              Arcano
-            </p>
-            <p *ngIf="PersonaggioFull.abilita?.arcano == false">
-              <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" fill="currentColor" class="bi bi-circle"
-                viewBox="0 0 16 16">
-                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16" />
-              </svg>
-              Arcano
-            </p>
-          </div>
-
-          <div>
-            <p *ngIf="PersonaggioFull.abilita?.atletica">
-              <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" fill="currentColor"
-                class="bi bi-circle-fill" viewBox="0 0 16 16">
-                <circle cx="8" cy="8" r="8" />
-              </svg>
-              Atletica
-            </p>
-            <p *ngIf="PersonaggioFull.abilita?.atletica == false">
-              <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" fill="currentColor" class="bi bi-circle"
-                viewBox="0 0 16 16">
-                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16" />
-              </svg>
-              Atletica
-            </p>
-          </div>
-
-          <div>
-            <p *ngIf="PersonaggioFull.abilita?.furtivita">
-              <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" fill="currentColor"
-                class="bi bi-circle-fill" viewBox="0 0 16 16">
-                <circle cx="8" cy="8" r="8" />
-              </svg>
-              Furtività
-            </p>
-            <p *ngIf="PersonaggioFull.abilita?.furtivita == false">
-              <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" fill="currentColor" class="bi bi-circle"
-                viewBox="0 0 16 16">
-                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16" />
-              </svg>
-              Furtività
-            </p>
-          </div>
-
-          <div>
-            <p *ngIf="PersonaggioFull.abilita?.indagare">
-              <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" fill="currentColor"
-                class="bi bi-circle-fill" viewBox="0 0 16 16">
-                <circle cx="8" cy="8" r="8" />
-              </svg>
-              Indagare
-            </p>
-            <p *ngIf="PersonaggioFull.abilita?.indagare == false">
-              <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" fill="currentColor" class="bi bi-circle"
-                viewBox="0 0 16 16">
-                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16" />
-              </svg>
-              Indagare
-            </p>
-          </div>
-
-          <div>
-            <p *ngIf="PersonaggioFull.abilita?.inganno">
-              <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" fill="currentColor"
-                class="bi bi-circle-fill" viewBox="0 0 16 16">
-                <circle cx="8" cy="8" r="8" />
-              </svg>
-              Inganno
-            </p>
-            <p *ngIf="PersonaggioFull.abilita?.inganno == false">
-              <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" fill="currentColor" class="bi bi-circle"
-                viewBox="0 0 16 16">
-                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16" />
-              </svg>
-              Inganno
-            </p>
-          </div>
-
-          <div>
-            <p *ngIf="PersonaggioFull.abilita?.intimidire">
-              <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" fill="currentColor"
-                class="bi bi-circle-fill" viewBox="0 0 16 16">
-                <circle cx="8" cy="8" r="8" />
-              </svg>
-              Intimidire
-            </p>
-            <p *ngIf="PersonaggioFull.abilita?.intimidire == false">
-              <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" fill="currentColor" class="bi bi-circle"
-                viewBox="0 0 16 16">
-                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16" />
-              </svg>
-              Intimidire
-            </p>
-          </div>
-
-          <div>
-            <p *ngIf="PersonaggioFull.abilita?.intrattenere">
-              <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" fill="currentColor"
-                class="bi bi-circle-fill" viewBox="0 0 16 16">
-                <circle cx="8" cy="8" r="8" />
-              </svg>
-              Intrattenere
-            </p>
-            <p *ngIf="PersonaggioFull.abilita?.intrattenere == false">
-              <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" fill="currentColor" class="bi bi-circle"
-                viewBox="0 0 16 16">
-                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16" />
-              </svg>
-              Intrattenere
-            </p>
-          </div>
-
-          <div>
-            <p *ngIf="PersonaggioFull.abilita?.intuizione">
-              <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" fill="currentColor"
-                class="bi bi-circle-fill" viewBox="0 0 16 16">
-                <circle cx="8" cy="8" r="8" />
-              </svg>
-              Intuizione
-            </p>
-            <p *ngIf="PersonaggioFull.abilita?.intuizione == false">
-              <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" fill="currentColor" class="bi bi-circle"
-                viewBox="0 0 16 16">
-                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16" />
-              </svg>
-              Intuizione
-            </p>
-          </div>
-
-          <div>
-            <p *ngIf="PersonaggioFull.abilita?.medicina">
-              <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" fill="currentColor"
-                class="bi bi-circle-fill" viewBox="0 0 16 16">
-                <circle cx="8" cy="8" r="8" />
-              </svg>
-              Medicina
-            </p>
-            <p *ngIf="PersonaggioFull.abilita?.medicina == false">
-              <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" fill="currentColor" class="bi bi-circle"
-                viewBox="0 0 16 16">
-                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16" />
-              </svg>
-              Medicina
-            </p>
-          </div>
-
-          <div>
-            <p *ngIf="PersonaggioFull.abilita?.natura">
-              <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" fill="currentColor"
-                class="bi bi-circle-fill" viewBox="0 0 16 16">
-                <circle cx="8" cy="8" r="8" />
-              </svg>
-              Natura
-            </p>
-            <p *ngIf="PersonaggioFull.abilita?.natura == false">
-              <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" fill="currentColor" class="bi bi-circle"
-                viewBox="0 0 16 16">
-                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16" />
-              </svg>
-              Natura
-            </p>
-          </div>
-
-          <div>
-            <p *ngIf="PersonaggioFull.abilita?.percezione">
-              <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" fill="currentColor"
-                class="bi bi-circle-fill" viewBox="0 0 16 16">
-                <circle cx="8" cy="8" r="8" />
-              </svg>
-              Percezione
-            </p>
-            <p *ngIf="PersonaggioFull.abilita?.percezione == false">
-              <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" fill="currentColor" class="bi bi-circle"
-                viewBox="0 0 16 16">
-                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16" />
-              </svg>
-              Percezione
-            </p>
-          </div>
-
-          <div>
-            <p *ngIf="PersonaggioFull.abilita?.persuasione">
-              <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" fill="currentColor"
-                class="bi bi-circle-fill" viewBox="0 0 16 16">
-                <circle cx="8" cy="8" r="8" />
-              </svg>
-              Persuasione
-            </p>
-            <p *ngIf="PersonaggioFull.abilita?.persuasione == false">
-              <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" fill="currentColor" class="bi bi-circle"
-                viewBox="0 0 16 16">
-                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16" />
-              </svg>
-              Persuasione
-            </p>
-          </div>
-
-          <div>
-            <p *ngIf="PersonaggioFull.abilita?.rapidita_di_Mano">
-              <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" fill="currentColor"
-                class="bi bi-circle-fill" viewBox="0 0 16 16">
-                <circle cx="8" cy="8" r="8" />
-              </svg>
-              Rapidita di Mano
-            </p>
-            <p *ngIf="PersonaggioFull.abilita?.rapidita_di_Mano == false">
-              <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" fill="currentColor" class="bi bi-circle"
-                viewBox="0 0 16 16">
-                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16" />
-              </svg>
-              Rapidita di Mano
-            </p>
-          </div>
-
-          <div>
-            <p *ngIf="PersonaggioFull.abilita?.religione">
-              <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" fill="currentColor"
-                class="bi bi-circle-fill" viewBox="0 0 16 16">
-                <circle cx="8" cy="8" r="8" />
-              </svg>
-              Religione
-            </p>
-            <p *ngIf="PersonaggioFull.abilita?.religione == false">
-              <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" fill="currentColor" class="bi bi-circle"
-                viewBox="0 0 16 16">
-                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16" />
-              </svg>
-              Religione
-            </p>
-          </div>
-
-          <div>
-            <p *ngIf="PersonaggioFull.abilita?.sopravvivenza">
-              <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" fill="currentColor"
-                class="bi bi-circle-fill" viewBox="0 0 16 16">
-                <circle cx="8" cy="8" r="8" />
-              </svg>
-              Sopravvivenza
-            </p>
-            <p *ngIf="PersonaggioFull.abilita?.sopravvivenza == false">
-              <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" fill="currentColor" class="bi bi-circle"
-                viewBox="0 0 16 16">
-                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16" />
-              </svg>
-              Sopravvivenza
-            </p>
-          </div>
-
-          <div>
-            <p *ngIf="PersonaggioFull.abilita?.storia">
-              <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" fill="currentColor"
-                class="bi bi-circle-fill" viewBox="0 0 16 16">
-                <circle cx="8" cy="8" r="8" />
-              </svg>
-              Storia
-            </p>
-            <p *ngIf="PersonaggioFull.abilita?.storia == false">
-              <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" fill="currentColor" class="bi bi-circle"
-                viewBox="0 0 16 16">
-                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16" />
-              </svg>
-              Storia
-            </p>
-          </div>
-        </div>
-
-
-      </div>
+    </div>
+    <div class="d-flex justify-content-center">
+      <button class="btn-customs" (click)="SalvaTutto()">Salva</button>
     </div>
   </div>
 

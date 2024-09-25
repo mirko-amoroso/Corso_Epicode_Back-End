@@ -64,11 +64,11 @@ export class CreaPersonaggioComponent {
     ideali: '',
     legami: '',
     difetti: '',
-    allineamento: 'neutrale',
+    allineamento: 'Neutrale',
     backGround: '',
   };
 
-  contatore: number = 3;
+  contatore: number = 0;
 
   constructor(
     private fb: FormBuilder,

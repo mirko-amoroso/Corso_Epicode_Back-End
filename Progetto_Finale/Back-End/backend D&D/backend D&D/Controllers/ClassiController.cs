@@ -57,6 +57,8 @@ namespace backend_D_D.Controllers
             classi.Livello = classe.Livello;
             classi.TipoClasse = classe.TipoClasse;
 
+            Console.WriteLine(classi.Livello);
+
             _dbContext.Classi.Update(classi);
             await _dbContext.SaveChangesAsync();
             return Ok();

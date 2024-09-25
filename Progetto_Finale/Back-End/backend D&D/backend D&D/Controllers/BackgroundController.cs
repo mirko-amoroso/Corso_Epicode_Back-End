@@ -54,11 +54,13 @@ namespace backend_D_D.Controllers
                 return NotFound();
             }
 
-            back.TrattiCaratteriali = back.TrattiCaratteriali;
-            back.Ideali = back.Ideali;
-            back.Legami = back.Legami;
-            back.Difetti = back.Difetti;
-            
+            back.TrattiCaratteriali = background.TrattiCaratteriali;
+            back.Ideali = background.Ideali;
+            back.Legami = background.Legami;
+            back.Difetti = background.Difetti;
+            back.Allineamento = background.Allineamento;
+
+            Console.WriteLine(back.Allineamento);
 
             _dbContext.Backgound.Update(back);
             await _dbContext.SaveChangesAsync();

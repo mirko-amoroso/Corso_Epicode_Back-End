@@ -1,14 +1,18 @@
-<div class="d-flex flex-wrap justify-content-around">
-  <div class="card d-flex col-3 my-3" *ngFor="let personaggi of ArrayPersonaggi">
+<div class="d-flex flex-wrap justify-content-around personaggi-container m-2 gap-4">
+  <div class="card personaggi-card d-flex col-3 my-3" *ngFor="let personaggi of ArrayPersonaggi">
     <div class="card-body">
       <h5 class="card-title">{{personaggi.nome}}</h5>
       <div class="card-text" *ngFor="let classe of personaggi.classi">
-        <p>{{classe.tipoClasse}} {{classe.livello}}</p>
+        <p>{{classe.tipoClasse}} - Livello {{classe.livello}}</p>
       </div>
     </div>
-    <button *ngIf="personaggi.personaggioID !== null"
-      (click)="RedirectPersonaggio(personaggi.personaggioID)">Personaggio</button>
-    <button *ngIf="personaggi.personaggioID !== null" (click)="elimina(personaggi.personaggioID)">Elimina</button>
-    <button *ngIf="personaggi.personaggioID !== null" (click)="Modifica(personaggi.personaggioID)">Modifica</button>
+    <div class="card-footer d-flex justify-content-between">
+      <button *ngIf="personaggi.personaggioID !== null" class="btn btn-outline-primary me-2"
+        (click)="RedirectPersonaggio(personaggi.personaggioID)">Personaggio</button>
+      <button *ngIf="personaggi.personaggioID !== null" class="btn btn-outline-danger me-2"
+        (click)="elimina(personaggi.personaggioID)">Elimina</button>
+      <button *ngIf="personaggi.personaggioID !== null" class="btn btn-outline-secondary"
+        (click)="Modifica(personaggi.personaggioID)">Modifica</button>
+    </div>
   </div>
 </div>

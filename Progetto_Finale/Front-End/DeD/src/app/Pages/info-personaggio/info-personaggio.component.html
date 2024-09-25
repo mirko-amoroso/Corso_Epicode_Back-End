@@ -7,6 +7,28 @@
     <p>Caricamento in corso...</p>
   </div>
 
+
+  <div class="d-flex justify-content-around" *ngIf="!isLoading"> <!-- Utilizza justify-content-center e gap per spazio -->
+    <div class="my-2">
+      <div>
+        <p class="card text-white custom-card">Allineamento: {{ PersonaggioFull.backgound!.allineamento }}</p>
+      </div>
+    </div>
+
+    <div class="my-2">
+      <div>
+        <p class="card text-white custom-card">Nome: {{ PersonaggioFull.nome }}</p>
+      </div>
+    </div>
+
+    <div class="my-2">
+      <div>
+        <p class="card text-white custom-card">Livello: {{ PersonaggioFull.classi![0].livello }}</p>
+      </div>
+    </div>
+  </div>
+
+
   <!-- RACCOGLITORE DI ATTRIBUTI E TIRI SALVEZZA -->
   <div class="d-flex" *ngIf="!isLoading">
     <!-- INSIME DI ATTRIBBUTI -->
@@ -182,7 +204,7 @@
         </div>
 
         <!-- statistiche pentagono -->
-        <div class="d-flex flex-column col-6">
+        <div class="d-flex flex-column justify-content-center col-6">
 
           <div class="d-flex justify-content-around">
             <div class="CorniceScudi card In_Ve d-flex justify-content-center align-items-center">
@@ -220,7 +242,7 @@
 
         <div class="d-flex col-1"></div>
 
-        <div class="d-flex flex-column col-3">
+        <div class="d-flex flex-column justify-content-center col-3">
           <div class="d-flex justify-content-around">
             <div class="CorniceScudi card Dv d-flex justify-content-center align-items-center">
               <h6 class="position-absolute top-0">Dadi Vita:</h6>
@@ -246,14 +268,22 @@
         </div>
       </div>
 
-      <div class="">
-
+      <div class="d-flex m-5 justify-content-around">
+        <div class="size">
+          <button class="btn btn-custom" (click)="Inventario()">Inventario</button>
+        </div>
+        <div class="size">
+          <button class="btn btn-custom" (click)="Armatura()">Armatuta</button>
+        </div>
+        <div class="size">
+          <button class="btn btn-custom" (click)="Arma()">Armi</button>
+        </div>
       </div>
 
     </div>
 
     <!--  ABILITA -->
-    <div class="d-flex flex-column justify-content-center align-items-center col-3">
+    <div class="d-flex flex-column align-items-center col-3">
       <!-- COMPENTENZE -->
       <div class="competenze card">
         <h5 class="border-bottom border-black">Abilità</h5>

@@ -23,6 +23,12 @@ namespace backend_D_D.Controllers
             return await _dbContext.Armatura.ToArrayAsync();
         }
 
+        [HttpGet("Personaggio/{IdPersonaggio}")]
+        public async Task<ActionResult<IEnumerable<Armatura>>> GetArmaturaByIdPersoanggio(int IdPersonaggio)
+        {
+            return await _dbContext.Armatura.Where(p => p.PersonaggioID == IdPersonaggio).ToArrayAsync();
+        }
+
         //chiamta per predere una Armatura per ID
         [HttpGet("{Id}")]
         public async Task<ActionResult<Armatura>> GertArmaturaById(int Id)

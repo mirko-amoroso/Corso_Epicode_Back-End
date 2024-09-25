@@ -1,147 +1,156 @@
 <body>
 
-
-  <h2 class="text-center">Crea Personaggio</h2>
+  <h2 class="text-center mb-4">Crea Personaggio</h2>
 
   <!-- Razza e Nome radio -->
   <form [formGroup]="personaggioForm" (ngSubmit)="continua()" class="m-3" *ngIf="contatore === 0">
-    <div class="mb-3">
-      <label class="custom-radio" for="Nome" class="form-label">Nome:</label>
-      <input type="text" class="form-control" id="EmailRegiter" formControlName="Nome" name="nome">
-    </div>
-    <div class="mb-3">
-      <h5 for="Razza" class="form-label">Razza</h5>
-      <label class="custom-radio" for="Dragonide">Dragonide
-        <input type="radio" id="Dragonide" formControlName="Razza" name="Razza" value="Dragonide">
-        <span class="checkmark"></span>
-      </label>
-
-      <label class="custom-radio" for="Nano">Nano
-        <input type="radio" id="Nano" formControlName="Razza" name="Razza" value="Nano">
-        <span class="checkmark"></span>
-      </label>
-
-      <label class="custom-radio" for="Elfo">Elfo
-        <input type="radio" id="Elfo" formControlName="Razza" name="Razza" value="Elfo">
-        <span class="checkmark"></span>
-      </label>
-
-      <label class="custom-radio" for="Gnomo">Gnomo
-        <input type="radio" id="Gnomo" formControlName="Razza" name="Razza" value="Gnomo">
-        <span class="checkmark"></span>
-      </label>
-
-      <label class="custom-radio" for="MezzElfo">MezzElfo
-        <input type="radio" id="MezzElfo" formControlName="Razza" name="Razza" value="MezzElfo">
-        <span class="checkmark"></span>
-      </label>
-
-      <label class="custom-radio" for="MezzOrco">MezzOrco
-        <input type="radio" id="MezzOrco" formControlName="Razza" name="Razza" value="MezzOrco">
-        <span class="checkmark"></span>
-      </label>
-
-      <label class="custom-radio" for="Halfling">Halfling
-        <input type="radio" id="Halfling" formControlName="Razza" name="Razza" value="Halfling">
-        <span class="checkmark"></span>
-      </label>
-
-      <label class="custom-radio" for="Umano">Umano
-        <input type="radio" id="Umano" formControlName="Razza" name="Razza" value="Umano">
-        <span class="checkmark"></span>
-      </label>
-
-      <label class="custom-radio" for="Tiefling">Tiefling
-        <input type="radio" id="Tiefling" formControlName="Razza" name="Razza" value="Tiefling">
-        <span class="checkmark"></span>
-      </label>
-
+    <div class="mb-4">
+      <label for="Nome" class="form-label">Nome:</label>
+      <input type="text" class="form-control" id="Nome" formControlName="Nome" name="nome"
+        placeholder="Inserisci il nome">
     </div>
 
-    <div class="d-flex">
-      <div class="mb-3">
-        <button type="submit" class="btn btn-primary">Continua</button>
+    <div class="mb-4 card">
+      <h5 class="form-label text-white">Razza: </h5>
+      <div class="d-flex flex-wrap justify-content-around">
+        <label class="custom-radio me-3">
+          Dragonide
+          <input type="radio" id="Dragonide" formControlName="Razza" name="Razza" value="Dragonide">
+          <span class="checkmark"></span>
+        </label>
+
+        <label class="custom-radio me-3">
+          Nano
+          <input type="radio" id="Nano" formControlName="Razza" name="Razza" value="Nano">
+          <span class="checkmark"></span>
+        </label>
+
+        <label class="custom-radio me-3">
+          Elfo
+          <input type="radio" id="Elfo" formControlName="Razza" name="Razza" value="Elfo">
+          <span class="checkmark"></span>
+        </label>
+
+        <label class="custom-radio me-3">
+          Gnomo
+          <input type="radio" id="Gnomo" formControlName="Razza" name="Razza" value="Gnomo">
+          <span class="checkmark"></span>
+        </label>
+
+        <label class="custom-radio me-3">
+          MezzElfo
+          <input type="radio" id="MezzElfo" formControlName="Razza" name="Razza" value="MezzElfo">
+          <span class="checkmark"></span>
+        </label>
+
+        <label class="custom-radio me-3">
+          MezzOrco
+          <input type="radio" id="MezzOrco" formControlName="Razza" name="Razza" value="MezzOrco">
+          <span class="checkmark"></span>
+        </label>
+
+        <label class="custom-radio me-3">
+          Halfling
+          <input type="radio" id="Halfling" formControlName="Razza" name="Razza" value="Halfling">
+          <span class="checkmark"></span>
+        </label>
+
+        <label class="custom-radio me-3">
+          Umano
+          <input type="radio" id="Umano" formControlName="Razza" name="Razza" value="Umano">
+          <span class="checkmark"></span>
+        </label>
+
+        <label class="custom-radio">
+          Tiefling
+          <input type="radio" id="Tiefling" formControlName="Razza" name="Razza" value="Tiefling">
+          <span class="checkmark"></span>
+        </label>
       </div>
+    </div>
+
+    <div class="text-center">
+      <button type="submit" class="btn-custom">Continua</button>
     </div>
   </form>
 
   <!-- Classe radio -->
   <form [formGroup]="classiForm" (ngSubmit)="continua()" class="m-3" *ngIf="contatore === 1">
-    <div class="mb-3">
-      <h5 for="Razza" class="form-label">Classe</h5>
-      <label class="custom-radio" for="Barbaro">Barbaro
-        <input type="radio" id="Barbaro" formControlName="TipoClasse" name="TipoClasse" value="Barbaro">
-        <span class="checkmark"></span>
-      </label>
+    <div class="mb-4 card">
+      <h5 for="Razza" class="form-label text-white">Classe:</h5>
+      <div class="d-flex">
+        <label class="custom-radio" for="Barbaro">Barbaro
+          <input type="radio" id="Barbaro" formControlName="TipoClasse" name="TipoClasse" value="Barbaro">
+          <span class="checkmark"></span>
+        </label>
 
-      <label class="custom-radio" for="Bardo">Bardo
-        <input type="radio" id="Bardo" formControlName="TipoClasse" name="TipoClasse" value="Bardo">
-        <span class="checkmark"></span>
-      </label>
+        <label class="custom-radio" for="Bardo">Bardo
+          <input type="radio" id="Bardo" formControlName="TipoClasse" name="TipoClasse" value="Bardo">
+          <span class="checkmark"></span>
+        </label>
 
-      <label class="custom-radio" for="Chierico">Chierico
-        <input type="radio" id="Chierico" formControlName="TipoClasse" name="TipoClasse" value="Chierico">
-        <span class="checkmark"></span>
-      </label>
+        <label class="custom-radio" for="Chierico">Chierico
+          <input type="radio" id="Chierico" formControlName="TipoClasse" name="TipoClasse" value="Chierico">
+          <span class="checkmark"></span>
+        </label>
 
-      <label class="custom-radio" for="Druido">Druido
-        <input type="radio" id="Druido" formControlName="TipoClasse" name="TipoClasse" value="Druido">
-        <span class="checkmark"></span>
-      </label>
+        <label class="custom-radio" for="Druido">Druido
+          <input type="radio" id="Druido" formControlName="TipoClasse" name="TipoClasse" value="Druido">
+          <span class="checkmark"></span>
+        </label>
 
-      <label class="custom-radio" for="Guerriero">Guerriero
-        <input type="radio" id="Guerriero" formControlName="TipoClasse" name="TipoClasse" value="Guerriero">
-        <span class="checkmark"></span>
-      </label>
+        <label class="custom-radio" for="Guerriero">Guerriero
+          <input type="radio" id="Guerriero" formControlName="TipoClasse" name="TipoClasse" value="Guerriero">
+          <span class="checkmark"></span>
+        </label>
 
-      <label class="custom-radio" for="Ladro">Ladro
-        <input type="radio" id="Ladro" formControlName="TipoClasse" name="TipoClasse" value="Ladro">
-        <span class="checkmark"></span>
-      </label>
+        <label class="custom-radio" for="Ladro">Ladro
+          <input type="radio" id="Ladro" formControlName="TipoClasse" name="TipoClasse" value="Ladro">
+          <span class="checkmark"></span>
+        </label>
 
-      <label class="custom-radio" for="Mago">Mago
-        <input type="radio" id="Mago" formControlName="TipoClasse" name="TipoClasse" value="Mago">
-        <span class="checkmark"></span>
-      </label>
+        <label class="custom-radio" for="Mago">Mago
+          <input type="radio" id="Mago" formControlName="TipoClasse" name="TipoClasse" value="Mago">
+          <span class="checkmark"></span>
+        </label>
 
-      <label class="custom-radio" for="Monaco">Monaco
-        <input type="radio" id="Monaco" formControlName="TipoClasse" name="TipoClasse" value="Monaco">
-        <span class="checkmark"></span>
-      </label>
+        <label class="custom-radio" for="Monaco">Monaco
+          <input type="radio" id="Monaco" formControlName="TipoClasse" name="TipoClasse" value="Monaco">
+          <span class="checkmark"></span>
+        </label>
 
-      <label class="custom-radio" for="Paladino">Paladino
-        <input type="radio" id="Paladino" formControlName="TipoClasse" name="TipoClasse" value="Paladino">
-        <span class="checkmark"></span>
-      </label>
+        <label class="custom-radio" for="Paladino">Paladino
+          <input type="radio" id="Paladino" formControlName="TipoClasse" name="TipoClasse" value="Paladino">
+          <span class="checkmark"></span>
+        </label>
 
-      <label class="custom-radio" for="Ranger">Ranger
-        <input type="radio" id="Ranger" formControlName="TipoClasse" name="TipoClasse" value="Ranger">
-        <span class="checkmark"></span>
-      </label>
+        <label class="custom-radio" for="Ranger">Ranger
+          <input type="radio" id="Ranger" formControlName="TipoClasse" name="TipoClasse" value="Ranger">
+          <span class="checkmark"></span>
+        </label>
 
-      <label class="custom-radio" for="Stregone">Stregone
-        <input type="radio" id="Stregone" formControlName="TipoClasse" name="TipoClasse" value="Stregone">
-        <span class="checkmark"></span>
-      </label>
+        <label class="custom-radio" for="Stregone">Stregone
+          <input type="radio" id="Stregone" formControlName="TipoClasse" name="TipoClasse" value="Stregone">
+          <span class="checkmark"></span>
+        </label>
 
-      <label class="custom-radio" for="Warlock">Warlock
-        <input type="radio" id="Warlock" formControlName="TipoClasse" name="TipoClasse" value="Warlock">
-        <span class="checkmark"></span>
-      </label>
+        <label class="custom-radio" for="Warlock">Warlock
+          <input type="radio" id="Warlock" formControlName="TipoClasse" name="TipoClasse" value="Warlock">
+          <span class="checkmark"></span>
+        </label>
+
+      </div>
 
     </div>
-
-    <div class="d-flex">
-      <div class="mb-3">
-        <button type="submit" class="btn btn-primary">Continua</button>
-      </div>
+    <div class="mb-3 text-center">
+      <button type="submit" class="btn-custom">Continua</button>
     </div>
   </form>
 
   <!-- Background radio -->
   <form [formGroup]="backgroundSceltaForm" (ngSubmit)="continua()" class="m-3" *ngIf="contatore === 2">
-    <div class="mb-3">
-      <h5 for="Razza" class="form-label">Background</h5>
+    <div class="mb-3 card">
+      <h5 for="Razza" class="form-label text-white">Background:</h5>
       <label class="custom-radio" for="Accolito">Accolito
         <input type="radio" id="Accolito" formControlName="Background" name="Background" value="Accolito">
         <span class="checkmark"></span>
@@ -212,7 +221,7 @@
 
     <div class="d-flex">
       <div class="mb-3">
-        <button type="submit" class="btn btn-primary">Continua</button>
+        <button type="submit" class="btn-custom">Continua</button>
       </div>
     </div>
   </form>
@@ -312,45 +321,53 @@
             <p class="mt-2" *ngIf="attributi.pv !== 0"><span class="fw-medium me-1 mt-1 fs-5">{{attributi.pv}}</span>
             </p>
           </div>
-          <button type="button" class="btn btn-primary" (click)="calcoloPv()" *ngIf="attributi.costituzione !== 0 && attributi.pv === 0 "> tira
-            punti vita</button>
         </div>
       </div>
     </div>
 
 
-    <div class="row mt-5">
+    <div class="mt-5 d-flex col-12 justify-content-between">
 
-      <div class="d-flex justify-content-center" *ngIf="valore_dado_copia.length < 7">
-        <button type="button" class="btn btn-primary" (click)="rollDice()">Tira il dado</button>
+        <div class="d-flex col-5 justify-content-evenly">
+          <table class="table transparent-table">
+            <thead>
+              <tr>
+                <th class="text-center" scope="col">Valore Dado</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let statistiche of valore_dado">
+                <td class="text-center" *ngIf="statistiche !== 0">{{statistiche}} </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div class="d-flex justify-content-center" *ngIf="valore_dado_copia.length < 7">
+            <button type="button" class="btn btn-custom" (click)="rollDice()">Dado</button>
+          </div>
+        </div>
+
+      <div class="d-flex col-2 justify-content-center">
+        <div class="mb-3 ">
+          <button type="submit" class="btn-custom">Continua</button>
+        </div>
       </div>
-      <div class="d-flex justify-content-center">
-        <button type="button" class="btn btn-primary" (click)="reset()">Resetta</button>
+
+      <div class="d-flex justify-content-center col-2">
+        <button type="button" class="btn-custom" (click)="reset()">Resetta</button>
       </div>
-    </div>
-    <div class="d-flex col-2">
-      <table class="table">
-        <thead>
-          <tr>
-            <th class="text-center" scope="col">Valore Dado</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let statistiche of valore_dado">
-            <td class="text-center" *ngIf="statistiche !== 0">{{statistiche}} </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-    <div class="d-flex">
-      <div class="mb-3">
-        <button type="submit" class="btn btn-primary">Continua</button>
+
+      <div class="d-flex justify-content-center col-3">
+        <button type="button" class="btn-custom" (click)="calcoloPv()"
+            *ngIf="attributi.costituzione !== 0 && attributi.pv === 0 ">
+            P. Vita</button>
       </div>
+
     </div>
   </form>
 
   <form [formGroup]="abilitaForm" (ngSubmit)="Salva()" class="m-3 " *ngIf="contatore === 4">
-    <div class="mb-3">
+    <div class="mb-3 card">
       <h5 for="Razza" class="form-label">Abilità</h5>
       <label class="custom-checkbox" for="Acrobazia">Acrobazia
         <input type="checkbox" id="Acrobazia" formControlName="Acrobazia" name="Acrobazia">
@@ -427,7 +444,7 @@
     </div>
     <div class="d-flex"></div>
     <div class="mb-3">
-      <button type="submit" class="btn btn-primary">Salva</button>
+      <button type="submit" class="btn-custom">Salva</button>
     </div>
   </form>
 

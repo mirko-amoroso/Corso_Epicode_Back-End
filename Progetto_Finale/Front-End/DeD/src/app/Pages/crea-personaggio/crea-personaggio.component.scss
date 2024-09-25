@@ -1,11 +1,24 @@
-// body{
-//   background-image: url("http://localhost:4200/assets/immagine_ti_sfondo.jpg");
-//   background-size: cover; /* L'immagine copre l'intero contenitore */
-//   background-position: center;
-//   background-repeat: no-repeat;
-//   height: 90.5vh;
-//   color: rgb(0, 0, 0) !important;
-// }
+body {
+  background-image: url("http://localhost:4200/assets/immagine_ti_sfondo.jpg");
+  background-size: cover; /* L'immagine copre l'intero contenitore */
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 88.5vh;
+  color: rgb(255, 255, 255) !important;
+}
+
+.card {
+  border: black 1px solid;
+  backdrop-filter: blur(30px);
+  background-color: #ffffff21;
+  padding: 5px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px); /* Solleva la card al passaggio del mouse */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.312);
+}
 
 /* Contenitore del radio button */
 .custom-radio {
@@ -15,7 +28,7 @@
   margin-right: 20px;
   cursor: pointer;
   font-size: 18px;
-  color: #333;
+  color: #ffffff;
   font-family: Arial, sans-serif;
   user-select: none;
 }
@@ -142,7 +155,7 @@
 .check {
   width: 20px;
   height: 20px;
-  border: 2px solid #4CAF50;
+  border: 2px solid #34495e;
   border-radius: 4px;
   position: relative;
   margin-right: 10px;
@@ -150,7 +163,7 @@
 }
 
 .custom-checkbox input:checked + .check {
-  background-color: #4CAF50; /* Colore di sfondo quando selezionata */
+  background-color: #34495e; /* Colore di sfondo quando selezionata */
 }
 
 .custom-checkbox input:checked + .check::after {
@@ -177,3 +190,45 @@
   height: 110px;
 }
 
+.transparent-table {
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.5
+  ); /* Colore di sfondo bianco con 50% di opacità */
+  border: none; /* Rimuove i bordi della tabella */
+  width: 250px;
+}
+
+.transparent-table th,
+.transparent-table td {
+  background-color: transparent; /* Sfondo trasparente per intestazioni e celle */
+  border: none; /* Rimuove i bordi delle celle */
+}
+
+/* Aggiungi bordi personalizzati se necessario */
+.transparent-table th {
+  border-bottom: 2px solid rgba(255, 255, 255, 0.8); /* Bordo inferiore per le intestazioni */
+}
+
+.transparent-table td {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3); /* Bordo inferiore per le celle */
+}
+
+.btn-custom {
+  background-color: transparent; /* Sfondo trasparente */
+  color: white; /* Colore del testo */
+  border: 2px solid white; /* Bordo scuro */
+  border-radius: 5px; /* Angoli arrotondati */
+  font-size: 1.2rem; /* Dimensione del testo */
+  transition: background-color 0.3s, color 0.3s; /* Transizione per gli effetti hover */
+  width: 100px;
+  height: 45px;
+}
+
+/* Effetto hover */
+.btn-custom:hover {
+  background-color: white; /* Sfondo scuro al passaggio del mouse */
+  color: #34495e; /* Colore del testo al passaggio del mouse */
+}

@@ -1,0 +1,39 @@
+<form [formGroup]="armiForm" (ngSubmit)="Aggiungi()">
+  <table class="table transparent-table">
+    <thead>
+      <tr>
+        <th class="text-center" scope="col">Nome</th>
+        <th class="text-center" scope="col">Danno</th>
+        <th class="text-center" scope="col">Bonus Arma</th>
+        <th class="text-center" scope="col">Funzionalità</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of arrayArmi">
+        <td class="text-center">{{item.nome}} </td>
+        <td class="text-center">d{{item.danno}} </td>
+        <td class="text-center">+{{item.bonusArma}} </td>
+        <td class="text-center"><button class="btn-custom"
+            (click)="Elimina(item.armaId)">Elimina</button></td>
+      </tr>
+      <tr>
+        <td class="text-center">
+          <input formControlName="Nome" name="Nome" type="text" class="border rounded-2" placeholder="Scrivi Nome...">
+        </td>
+        <td class="text-center">
+          <input formControlName="Danno" name="Danno" type="text" class="border rounded-2" placeholder="Scrivi Danno...">
+        </td>
+        <td class="text-center">
+          <input formControlName="BonusArma" name="BonusArma" type="text" class="border rounded-2" placeholder="Scrivi BonusArma...">
+        </td>
+        <td class="text-center">
+          <button class="btn-custom">Salva</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</form>
+
+<div class="col-12 d-flex justify-content-center">
+  <button class="btn-customs" (click)="redirect()">Torna a personaggio</button>
+</div>

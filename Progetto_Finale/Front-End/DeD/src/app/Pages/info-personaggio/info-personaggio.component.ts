@@ -1,6 +1,6 @@
 import { IPersonaggio } from './../../modules/personaggio';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { InfoPersonaggioService } from './info-personaggio.service';
 import { IArmatura } from '../../modules/armatura';
 
@@ -21,7 +21,8 @@ export class InfoPersonaggioComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private srvIPers: InfoPersonaggioService
+    private srvIPers: InfoPersonaggioService,
+    private router : Router
   ) {}
 
   ngOnInit() {
@@ -83,28 +84,6 @@ export class InfoPersonaggioComponent implements OnInit {
     }
   }
 
-  // dadiVita() {
-  //   if (this.PersonaggioFull.classi) {
-  //     for (let i = 0; i < this.PersonaggioFull.classi.length; i ++) {
-  //       if (this.PersonaggioFull.classi[i].tipoClasse === "Mago" || this.PersonaggioFull.classi[i].tipoClasse === "Stregone") {
-  //         this.Dadi_Vita.concat(this.PersonaggioFull.classi[i].livello.toString(), "d6")
-  //       }
-  //       else if (this.PersonaggioFull.classi[i].tipoClasse === "Barbaro") {
-  //         this.Dadi_Vita.concat(this.PersonaggioFull.classi[i].livello.toString(), "d12")
-  //       }
-  //       else if (this.PersonaggioFull.classi[i].tipoClasse === "Paladino" || this.PersonaggioFull.classi[i].tipoClasse === "Guerriero" || this.PersonaggioFull.classi[i].tipoClasse === "Ranger") {
-  //         this.Dadi_Vita = this.Dadi_Vita.concat(this.PersonaggioFull.classi[i].livello.toString(), "d10")
-  //       }
-  //       else {
-  //         this.Dadi_Vita.concat(this.PersonaggioFull.classi[i].livello.toString(), "d8")
-  //       }
-
-  //       if(i < this.PersonaggioFull.classi.length -1) {
-  //         this.Dadi_Vita = this.Dadi_Vita.concat("\n")
-  //       }
-  //     }
-  //   }
-  // }
 
   dadiVita() {
     if (this.PersonaggioFull.classi) {
@@ -172,5 +151,17 @@ export class InfoPersonaggioComponent implements OnInit {
         this.Saggezza_passiva += this.Competenza;
       }
     }
+  }
+
+  Inventario = async() => {
+    await this.router.navigate(['inventario',this.personaggioId]);
+  }
+
+  Armatura = async() => {
+    await this.router.navigate(['armatura', this.personaggioId]);
+  }
+
+  Arma = async() => {
+    await this.router.navigate(['armi', this.personaggioId]);
   }
 }

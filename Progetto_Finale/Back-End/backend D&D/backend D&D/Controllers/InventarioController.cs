@@ -23,6 +23,12 @@ namespace backend_D_D.Controllers
             return await _dbContext.Inventario.ToArrayAsync();
         }
 
+        [HttpGet("Personaggio/{IdPersonaggio}")]
+        public async Task<ActionResult<IEnumerable<Inventario>>> GetInventarioByPersonaggioId(int IdPersonaggio)
+        {
+            return await _dbContext.Inventario.Where(p => p.PersonaggioID == IdPersonaggio).ToArrayAsync();
+        }
+
         //chiamta per predere un inventario per ID
         [HttpGet("{Id}")]
         public async Task<ActionResult<Inventario>> GertInventarioById(int Id)

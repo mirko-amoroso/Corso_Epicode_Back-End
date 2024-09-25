@@ -14,3 +14,52 @@
   left: 15px; /* Adjust this value to control overlap */
   top: 8px;  /* Adjust this value to control overlap */
 }
+
+
+.navbar-custom {
+  background-color: #34495e; /* Colore leggermente più chiaro per staccare dalla home */
+  color: white;
+  padding: 15px 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Aggiunge un'ombra per evidenziare lo stacco */
+  transition: background-color 0.3s ease; /* Transizione al passaggio del mouse */
+}
+
+.navbar-custom .navbar-brand {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: white;
+}
+
+.navbar-custom .nav-link {
+  color: white;
+  margin-right: 15px;
+  font-size: 1.2rem;
+  transition: color 0.3s ease;
+}
+
+.navbar-custom .nav-link:hover {
+  color: #3498db;
+}
+
+.navbar-custom .btn-outline-light {
+  color: white;
+  border-color: white;
+}
+
+.navbar-custom .btn-outline-light:hover {
+  background-color: #3498db;
+  border-color: #3498db;
+  color: white;
+}
+
+.navbar-toggler {
+  border-color: white;
+}
+
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23ffffff' viewBox='0 0 30 30'%3E%3Cpath stroke='rgba(0, 0, 0, 0.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+
+.navbar-custom:hover {
+  background-color: #2c3e50; /* Scurisce leggermente al passaggio del mouse */
+}

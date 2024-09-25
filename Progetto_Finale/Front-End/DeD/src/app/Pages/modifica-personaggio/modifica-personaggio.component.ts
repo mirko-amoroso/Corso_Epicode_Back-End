@@ -3,6 +3,10 @@ import { ActivatedRoute } from '@angular/router';
 import { InfoPersonaggioService } from '../info-personaggio/info-personaggio.service';
 import { IPersonaggio } from '../../modules/personaggio';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { IAttributi } from '../../modules/attributi';
+import { ModificaPersonaggioService } from './modifica-personaggio.service';
+import { IAttributiModifica } from '../../modules/attributiModifica';
+import { IPersonaggioModifica } from '../../modules/PersonaggioModifica';
 
 @Component({
   selector: 'app-modifica-personaggio',
@@ -16,20 +20,39 @@ export class ModificaPersonaggioComponent {
   livelloForm!: FormGroup;
 
   personaggioId!: number;
-  PersonaggioFull!: IPersonaggio;
-  Ca: number = 10;
-  Velocita: number = 9;
-  Dadi_Vita: Array<string> = new Array<string>();
-  Saggezza_passiva: number = 10;
-  Competenza: number = 0;
+  PersonaggioFull!: IPersonaggioModifica;
   isLoading: boolean = true;
   selectedValue: string | null = null;
+  Mo: number = 0;
+  attributi: IAttributiModifica = {
+    personaggioID: 0,
+    attributiId: 0,
+    forza: 0,
+    destrezza: 0,
+    costituzione: 0,
+    saggezza: 0,
+    intelligenza: 0,
+    carisma: 0,
+    pv: 0,
+  };
 
-  Allineamenti : string[] = ["Legale Buono", "Buono", "Neutrale Buono", "Caotico Buono", "Neutrale Caotico", "neutrale", "Legame Neutrale", "Neutrale Malvagio", "Caotico Malvagio", "Malvagio", "Legale Malvagio"]
+  Allineamenti: string[] = [
+    'Legale Buono',
+    'Buono',
+    'Neutrale Buono',
+    'Caotico Buono',
+    'Neutrale Caotico',
+    'Neutrale',
+    'Legame Neutrale',
+    'Neutrale Malvagio',
+    'Caotico Malvagio',
+    'Malvagio',
+    'Legale Malvagio',
+  ];
 
   constructor(
     private route: ActivatedRoute,
-    private srvIPers: InfoPersonaggioService,
+    private srvModPers: ModificaPersonaggioService,
     private fb: FormBuilder
   ) {}
 
@@ -47,7 +70,6 @@ export class ModificaPersonaggioComponent {
       livello: this.fb.control(null, [Validators.required]),
     });
 
-
     this.route.paramMap.subscribe((params) => {
       const id = params.get('personaggioId');
       if (id) {
@@ -57,16 +79,28 @@ export class ModificaPersonaggioComponent {
         console.error('Parametro personaggioId non trovato!');
       }
     });
-    this.srvIPers
+    this.srvModPers
       .personaggioCompleto(this.personaggioId)
-      .subscribe((data: IPersonaggio) => {
+      .subscribe((data: IPersonaggioModifica) => {
         this.PersonaggioFull = data;
         console.log(this.PersonaggioFull);
-        this.calcolaCompetenza();
-        this.calcolaClasseArmatura();
-        this.calcolaVelocita();
-        this.saggezzaPassiva();
-        this.dadiVita();
+        //mette il nome allinterno dell'input Nome
+        this.nomeForm.patchValue({
+          Nome: this.PersonaggioFull.nome,
+        });
+
+        // mette l'allineamento allinterno della select allineamento
+        this.allineamentoForm.patchValue({
+          allineamento: this.PersonaggioFull.backgound?.allineamento,
+        });
+
+        // mette livello allinterno della select livello
+        this.livelloForm.patchValue({
+          livello: this.PersonaggioFull.classi![0].livello,
+        });
+        this.Mo = this.PersonaggioFull.moneteOro!;
+        this.attributi = this.PersonaggioFull.attributi!;
+        console.log('console log di this.attributi', this.attributi);
         this.isLoading = false;
       });
   }
@@ -80,94 +114,146 @@ export class ModificaPersonaggioComponent {
     }
     return res;
   }
-
-  calcolaClasseArmatura() {
-    if (this.PersonaggioFull.armatura) {
-      for (let i = 0; i < this.PersonaggioFull.armatura.length; i++) {
-        console.log(this.PersonaggioFull.armatura.length, 'lunghezza array');
-        console.log(this.PersonaggioFull.armatura[i]);
-        console.log(this.PersonaggioFull.armatura[i].indossato);
-        if (this.PersonaggioFull.armatura[i].indossato === true) {
-          this.Ca += this.PersonaggioFull.armatura[i].ca;
-        }
-      }
+  FunzioneMeno = (nomeAtt: string) => {
+    switch (nomeAtt) {
+      case 'F':
+        this.attributi.forza -= 1;
+        break;
+      case 'D':
+        this.attributi.destrezza -= 1;
+        break;
+      case 'CO':
+        this.attributi.costituzione -= 1;
+        break;
+      case 'S':
+        this.attributi.saggezza -= 1;
+        break;
+      case 'I':
+        this.attributi.intelligenza -= 1;
+        break;
+      case 'CA':
+        this.attributi.carisma -= 1;
+        break;
+      case 'MO':
+        this.Mo -= 1;
+        break;
     }
-  }
-
-  calcolaVelocita() {
-    if (this.PersonaggioFull.razza) {
-      if (this.PersonaggioFull.razza === 'Elfo') this.Velocita += 1.5;
-      else if (
-        this.PersonaggioFull.razza === 'Nano' ||
-        this.PersonaggioFull.razza === 'Gnomo' ||
-        this.PersonaggioFull.razza === 'Halfling'
-      )
-        this.Velocita -= 1.5;
+  };
+  FunzionePiu = (nomeAtt: string) => {
+    switch (nomeAtt) {
+      case 'F':
+        this.attributi.forza += 1;
+        break;
+      case 'D':
+        this.attributi.destrezza += 1;
+        break;
+      case 'CO':
+        this.attributi.costituzione += 1;
+        break;
+      case 'S':
+        this.attributi.saggezza += 1;
+        break;
+      case 'I':
+        this.attributi.intelligenza += 1;
+        break;
+      case 'CA':
+        this.attributi.carisma += 1;
+        break;
+      case 'MO':
+        this.Mo += 1;
+        break;
     }
-  }
+  };
 
-  dadiVita() {
-    if (this.PersonaggioFull.classi) {
-      for (let i = 0; i < this.PersonaggioFull.classi.length; i++) {
-        if (
-          this.PersonaggioFull.classi[i].tipoClasse === 'Mago' ||
-          this.PersonaggioFull.classi[i].tipoClasse === 'Stregone'
-        ) {
-          this.Dadi_Vita.push(
-            this.PersonaggioFull.classi[i].livello.toString().concat('d6')
-          );
-          console.log('entro dentro a dadi vita', this.Dadi_Vita);
-        } else if (this.PersonaggioFull.classi[i].tipoClasse === 'Barbaro') {
-          this.Dadi_Vita.push(
-            this.PersonaggioFull.classi[i].livello.toString().concat('d12')
-          );
-        } else if (
-          this.PersonaggioFull.classi[i].tipoClasse === 'Paladino' ||
-          this.PersonaggioFull.classi[i].tipoClasse === 'Guerriero' ||
-          this.PersonaggioFull.classi[i].tipoClasse === 'Ranger'
-        ) {
-          this.Dadi_Vita.push(
-            this.PersonaggioFull.classi[i].livello.toString().concat('d10')
-          );
-        } else {
-          this.Dadi_Vita.push(
-            this.PersonaggioFull.classi[i].livello.toString().concat('d8')
-          );
-        }
-      }
-    }
-  }
-
-  calcolaCompetenza() {
-    if (this.PersonaggioFull.classi) {
-      let lvl: number = 0;
-      for (let i = 0; i < this.PersonaggioFull.classi.length; i++) {
-        lvl += this.PersonaggioFull.classi[i].livello;
-      }
-
-      if (lvl >= 1 && lvl <= 4) {
-        this.Competenza = 2;
-      } else if (lvl >= 5 && lvl <= 8) {
-        this.Competenza = 3;
-      } else if (lvl >= 9 && lvl <= 12) {
-        this.Competenza = 4;
-      } else if (lvl >= 13 && lvl <= 16) {
-        this.Competenza = 5;
+  calcoloPv() {
+    if (
+      this.livelloForm.get('livello')?.value !==
+      this.PersonaggioFull.classi![0].livello
+    ) {
+      this.PersonaggioFull.classi![0].livello += 1;
+      var classe = this.PersonaggioFull.classi![0].tipoClasse;
+      if (
+        classe === 'Paldino' ||
+        classe === 'Guerriero' ||
+        classe === 'Ranger'
+      ) {
+        const numero = Math.floor(Math.random() * 10) + 1;
+        this.attributi.pv +=
+          numero + Number(this.calcoloAttribbuto(this.attributi.costituzione));
+      } else if (classe === 'Mago' || classe === 'Stregone') {
+        const numero = Math.floor(Math.random() * 6) + 1;
+        this.attributi.pv +=
+          numero + Number(this.calcoloAttribbuto(this.attributi.costituzione));
+      } else if (classe === 'Barbaro') {
+        const numero = Math.floor(Math.random() * 12) + 1;
+        this.attributi.pv +=
+          numero + Number(this.calcoloAttribbuto(this.attributi.costituzione));
       } else {
-        this.Competenza = 6;
+        const numero = Math.floor(Math.random() * 8) + 1;
+        this.attributi.pv +=
+          numero + Number(this.calcoloAttribbuto(this.attributi.costituzione));
       }
+    } else {
+      alert('Devi salire di livello per calcolare i punti ferita!');
     }
   }
 
-  saggezzaPassiva() {
-    if (this.PersonaggioFull.attributi) {
-      this.Saggezza_passiva += Number(
-        this.calcoloAttribbuto(this.PersonaggioFull.attributi.saggezza)
+  SalvaTutto = async () => {
+    await this.SalvaAttributi();
+    await this.SalvaAllineamento();
+    await this.SalvaNome();
+    await this.SalvaLivello();
+  };
+
+  SalvaAttributi = async () => {
+    console.log('primo log this.attributi', this.attributi);
+    console.log(
+      'secondo log this.personaggio.full.attributi',
+      this.PersonaggioFull.attributi
+    );
+    console.log('entro dentro salva attributi');
+    this.srvModPers.PutAttributi(this.attributi).subscribe();
+  };
+  SalvaAllineamento = async () => {
+    if (
+      this.allineamentoForm.get('allineamento')?.value !==
+      this.PersonaggioFull.backgound?.allineamento
+    ) {
+      this.PersonaggioFull.backgound!.allineamento =
+        this.allineamentoForm.get('allineamento')?.value;
+
+      console.log(
+        'entro dentro a salvaAllineamento',
+        this.PersonaggioFull.backgound
       );
-
-      if (this.PersonaggioFull.abilita?.percezione === true) {
-        this.Saggezza_passiva += this.Competenza;
-      }
+      this.srvModPers
+        .PutAllineamento(this.PersonaggioFull.backgound!)
+        .subscribe();
     }
-  }
+  };
+  SalvaNome = async () => {
+    if (
+      this.nomeForm.get('Nome')?.value !== this.PersonaggioFull.nome ||
+      this.Mo !== this.PersonaggioFull.moneteOro
+    ) {
+      this.PersonaggioFull.nome = this.nomeForm.get('Nome')?.value;
+      this.PersonaggioFull.moneteOro = this.Mo;
+      this.srvModPers.PutPersonaggio(this.PersonaggioFull).subscribe();
+    }
+  };
+
+  SalvaLivello = async () => {
+    if (
+      this.livelloForm.get('livello')?.value !==
+      this.PersonaggioFull.classi![0].livello
+    ) {
+      this.PersonaggioFull.classi![0].livello =
+        this.livelloForm.get('livello')?.value;
+      console.log(
+        'entro dentro salva livello',
+        this.PersonaggioFull.classi![0].livello
+      );
+      this.srvModPers.PutClasse(this.PersonaggioFull.classi![0]).subscribe();
+    }
+  };
 }

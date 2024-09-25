@@ -34,6 +34,18 @@ namespace backend_D_D.Controllers
             }
             return armi;
         }
+        
+        //chiamta per predere una Armi per ID
+        [HttpGet("Personaggio/{Id}")]
+        public async Task<ActionResult<IEnumerable<Armi>>> GertArmiByIdUtente(int Id)
+        {
+            var armi = await _dbContext.Armi.Where(p => p.PersonaggioID == Id).ToArrayAsync();
+            if (armi == null)
+            {
+                return NotFound();
+            }
+            return armi;
+        }
 
         //Chiamta per inserire un personaggio 
         [HttpPost]

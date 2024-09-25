@@ -1,0 +1,32 @@
+.btn-custom {
+  background-color: transparent; /* Sfondo trasparente */
+  color: #34495e; /* Colore del testo */
+  border: 2px solid #34495e; /* Bordo scuro */
+  border-radius: 5px; /* Angoli arrotondati */
+  font-size: 1.2rem; /* Dimensione del testo */
+  transition: background-color 0.3s, color 0.3s; /* Transizione per gli effetti hover */
+  width: 90px;
+  height: 40px;
+}
+
+/* Effetto hover */
+.btn-custom:hover {
+  background-color: #34495e; /* Sfondo scuro al passaggio del mouse */
+  color: white; /* Colore del testo al passaggio del mouse */
+}
+
+.btn-customs{
+  background-color: transparent; /* Sfondo trasparente */
+  color: #34495e; /* Colore del testo */
+  border: 2px solid #34495e; /* Bordo scuro */
+  border-radius: 5px; /* Angoli arrotondati */
+  font-size: 1.2rem; /* Dimensione del testo */
+  transition: background-color 0.3s, color 0.3s; /* Transizione per gli effetti hover */
+  width: 150px;
+  height: 90px;
+}
+
+.btn-customs:hover {
+  background-color: #34495e; /* Sfondo scuro al passaggio del mouse */
+  color: white; /* Colore del testo al passaggio del mouse */
+}

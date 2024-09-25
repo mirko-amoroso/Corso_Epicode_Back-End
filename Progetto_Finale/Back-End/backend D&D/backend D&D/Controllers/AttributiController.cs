@@ -62,6 +62,7 @@ namespace backend_D_D.Controllers
             stats.Carisma = attributi.Carisma;
             stats.PV = attributi.PV;
             
+            Console.WriteLine(stats.PV);
 
             _dbContext.Attributi.Update(stats);
             await _dbContext.SaveChangesAsync();
